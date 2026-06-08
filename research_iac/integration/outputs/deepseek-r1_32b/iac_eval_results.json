@@ -1,0 +1,37 @@
+[
+  {
+    "file": "question_0000.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 41, in resource \"aws_cloudwatch_log_resource_policy\" \"route53_logging_policy\":\n  41: resource \"aws_cloudwatch_log_resource_policy\" \"route53_logging_policy\" {\n\nThe argument \"policy_document\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 43, in resource \"aws_cloudwatch_log_resource_policy\" \"route53_logging_policy\":\n  43:   policy      = jsonencode({\n\nAn argument named \"policy\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 61, in resource \"aws_route53_query_logging_config\" \"logging\":\n  61: resource \"aws_route53_query_logging_config\" \"logging\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_query_logging_config\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0001.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 23, in resource \"aws_route53_zone_association\" \"example\":\n  23:   vpc_region     = var.region\n\nAn input variable with the name \"region\" has not been declared. This variable\ncan be declared with a variable \"region\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0002.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 7, in resource \"aws_elb\" \"main\":\n   7:   listener {\n\nThe argument \"instance_port\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 7, in resource \"aws_elb\" \"main\":\n   7:   listener {\n\nThe argument \"instance_protocol\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 7, in resource \"aws_elb\" \"main\":\n   7:   listener {\n\nThe argument \"lb_port\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 7, in resource \"aws_elb\" \"main\":\n   7:   listener {\n\nThe argument \"lb_protocol\" is required, but no definition was found.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 21, in resource \"aws_rds_instance\" \"primary\":\n  21: resource \"aws_rds_instance\" \"primary\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n\nError: Invalid resource type\n\n  on main.tf line 32, in resource \"aws_rds_instance\" \"replica_us_east\":\n  32: resource \"aws_rds_instance\" \"replica_us_east\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n\nError: Invalid resource type\n\n  on main.tf line 44, in resource \"aws_rds_instance\" \"replica_eu_central\":\n  44: resource \"aws_rds_instance\" \"replica_eu_central\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n\nError: Invalid resource type\n\n  on main.tf line 56, in resource \"aws_rds_instance\" \"replica_ap_southeast\":\n  56: resource \"aws_rds_instance\" \"replica_ap_southeast\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0004.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "terraform exception: Command '['terraform', 'plan', '-out', 'plan.out', '-no-color']' timed out after 120 seconds",
+    "opa_evaluation_error": "None"
+  }
+]

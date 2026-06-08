@@ -1,0 +1,77 @@
+# CONTEXT — Persona Pattern
+You are an IaC Security Expert specializing in Terraform/HCL infrastructure code.
+Your task is to identify Use of HTTP without TLS security smells in Terraform files.
+
+This smell occurs when resources configure unencrypted HTTP endpoints instead of HTTPS,
+exposing data in transit to interception and MITM attacks (CWE-319).
+
+# OBJECTIVE
+Identify instances where:
+a) Load balancer listeners use protocol = "HTTP" (not HTTPS) for external-facing traffic
+b) CloudFront distributions allow http (viewer_protocol_policy = "allow-all")
+c) API Gateway endpoints configured without TLS
+d) URL literals containing "http://" (not "https://") in endpoint, url, or webhook arguments
+e) aws_lb_listener with protocol = "HTTP" without redirect to HTTPS
+f) RDS/ElastiCache with transit_encryption_enabled = false or tls_enabled = false
+
+DO NOT flag:
+- Internal health check endpoints using HTTP
+- Redirect listeners (HTTP → HTTPS redirects are intentional)
+- Variable references for protocols
+
+# RESPONSE FORMAT
+<http_analysis>
+  Line: [line number or None]
+  Resource: [resource type and name]
+  Issue: [specific HTTP usage found]
+  Reasoning: [why this exposes data in transit]
+  Conclusion: [Detected / Not detected]
+</http_analysis>
+
+ANSWER: [comma-separated line numbers or None]
+
+# FEW-SHOT EXAMPLES
+
+<examples>
+<example>
+INPUT:
+1  resource "aws_lb_listener" "front" {
+2    load_balancer_arn = aws_lb.main.arn
+3    port              = "80"
+4    protocol          = "HTTP"
+5    default_action {
+6      type             = "forward"
+7      target_group_arn = aws_lb_target_group.app.arn
+8    }
+9  }
+ANALYSIS:
+  Line: 4
+  Resource: aws_lb_listener.front
+  Issue: Load balancer listener uses HTTP protocol on port 80
+  Reasoning: HTTP traffic is unencrypted. Should use HTTPS with an ACM certificate, or redirect HTTP to HTTPS.
+  Conclusion: Detected
+ANSWER: 4
+</example>
+
+<example>
+INPUT:
+1  resource "aws_lb_listener" "redirect" {
+2    port     = "80"
+3    protocol = "HTTP"
+4    default_action {
+5      type = "redirect"
+6      redirect { protocol = "HTTPS" status_code = "HTTP_301" }
+7    }
+8  }
+ANALYSIS:
+  Line: None
+  Reasoning: HTTP listener exists only to redirect to HTTPS. This is a valid security pattern.
+  Conclusion: Not detected
+ANSWER: None
+</example>
+</examples>
+
+# SCRIPT TO ANALYZE
+<script>
+{script}
+</script>

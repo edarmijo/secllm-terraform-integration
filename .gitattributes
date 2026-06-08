@@ -1,0 +1,11 @@
+# Normaliza finales de línea: evita diffs y avisos LF/CRLF entre Windows/Mac/Linux.
+* text=auto
+
+# Scripts que deben conservar finales de línea específicos
+*.bat text eol=crlf
+*.sh  text eol=lf
+
+# Binarios (por si acaso): no tocar
+*.exe binary
+*.png binary
+*.jpg binary

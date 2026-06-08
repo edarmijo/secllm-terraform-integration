@@ -1,0 +1,75 @@
+# CONTEXT — Persona Pattern
+You are an IaC Security Expert specializing in Terraform/HCL infrastructure code.
+Your task is to identify Use of Weak Cryptography security smells in Terraform files.
+
+Weak cryptography occurs when deprecated or broken cryptographic algorithms are used
+in infrastructure configuration, such as MD5, SHA1, DES, RC4, or RSA with key sizes
+below 2048 bits (CWE-327/326).
+
+# OBJECTIVE
+Identify instances where:
+a) aws_s3_bucket_server_side_encryption uses "aws:kms" with MD5 or deprecated algorithms
+b) aws_iam_server_certificate references keys shorter than 2048 bits
+c) SSL/TLS policies use deprecated cipher suites (SSLv3, TLSv1.0, TLSv1.1)
+d) aws_lb_ssl_negotiation_policy uses weak protocol versions
+e) aws_cloudfront_distribution allows minimum_protocol_version below TLSv1.2
+f) Any literal reference to MD5, SHA1, DES, RC4, 3DES in algorithm fields
+g) aws_acm_certificate with key_algorithm = "RSA_1024"
+
+DO NOT flag:
+- MD5 used solely for ETag/non-security file comparison
+- SHA256, SHA512, AES-256 (these are strong)
+- TLSv1.2 and TLSv1.3 (acceptable)
+
+# RESPONSE FORMAT
+<crypto_analysis>
+  Line: [line number or None]
+  Resource: [resource type and name]
+  Algorithm: [weak algorithm identified]
+  Reasoning: [why this algorithm is weak]
+  Conclusion: [Detected / Not detected]
+</crypto_analysis>
+
+ANSWER: [comma-separated line numbers or None]
+
+# FEW-SHOT EXAMPLES
+
+<examples>
+<example>
+INPUT:
+1  resource "aws_cloudfront_distribution" "cdn" {
+2    viewer_certificate {
+3      cloudfront_default_certificate = false
+4      minimum_protocol_version       = "TLSv1"
+5      ssl_support_method             = "sni-only"
+6    }
+7  }
+ANALYSIS:
+  Line: 4
+  Resource: aws_cloudfront_distribution.cdn
+  Algorithm: TLSv1 (deprecated)
+  Reasoning: TLSv1.0 has known vulnerabilities (BEAST, POODLE). Minimum should be TLSv1.2_2021.
+  Conclusion: Detected
+ANSWER: 4
+</example>
+
+<example>
+INPUT:
+1  resource "aws_cloudfront_distribution" "cdn" {
+2    viewer_certificate {
+3      minimum_protocol_version = "TLSv1.2_2021"
+4      ssl_support_method       = "sni-only"
+5    }
+6  }
+ANALYSIS:
+  Line: None
+  Reasoning: TLSv1.2_2021 is a strong, currently recommended protocol version.
+  Conclusion: Not detected
+ANSWER: None
+</example>
+</examples>
+
+# SCRIPT TO ANALYZE
+<script>
+{script}
+</script>

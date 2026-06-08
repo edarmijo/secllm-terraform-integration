@@ -1,0 +1,37 @@
+[
+  {
+    "file": "question_0000.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 44, in resource \"aws_route53_zone\" \"primary\":\n  44:   query_log_config {\n\nBlocks of type \"query_log_config\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0001.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0002.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0003.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: only lowercase alphanumeric characters and hyphens allowed in \"identifier\"\n\n  with aws_db_instance.replica_us_east,\n  on main.tf line 56, in resource \"aws_db_instance\" \"replica_us_east\":\n  56:   identifier          = \"replica_us_east\"\n\n\nError: only lowercase alphanumeric characters and hyphens allowed in \"identifier\"\n\n  with aws_db_instance.replica_eu_central,\n  on main.tf line 68, in resource \"aws_db_instance\" \"replica_eu_central\":\n  68:   identifier          = \"replica_eu_central\"\n\n\nError: only lowercase alphanumeric characters and hyphens allowed in \"identifier\"\n\n  with aws_db_instance.replica_ap_southeast,\n  on main.tf line 80, in resource \"aws_db_instance\" \"replica_ap_southeast\":\n  80:   identifier          = \"replica_ap_southeast\"\n\n\nError: Unsupported argument\n\n  on main.tf line 97, in resource \"aws_route53_record\" \"weighted_routing\":\n  97:   weighted_records = [\n\nAn argument named \"weighted_records\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0004.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Insufficient ip_address blocks\n\n  on main.tf line 38, in resource \"aws_route53_resolver_endpoint\" \"internal\":\n  38: resource \"aws_route53_resolver_endpoint\" \"internal\" {\n\nAt least 2 \"ip_address\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 41, in resource \"aws_route53_resolver_endpoint\" \"internal\":\n  41:   ip_addresses = [\n\nAn argument named \"ip_addresses\" is not expected here.\n\nError: Insufficient ip_address blocks\n\n  on main.tf line 46, in resource \"aws_route53_resolver_endpoint\" \"public\":\n  46: resource \"aws_route53_resolver_endpoint\" \"public\" {\n\nAt least 2 \"ip_address\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 49, in resource \"aws_route53_resolver_endpoint\" \"public\":\n  49:   ip_addresses = [\n\nAn argument named \"ip_addresses\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "file": "question_0000.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 13, in resource \"aws_cloudwatch_log_resource_policy\" \"policy\":\n  13: resource \"aws_cloudwatch_log_resource_policy\" \"policy\" {\n\nThe argument \"policy_document\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 14, in resource \"aws_cloudwatch_log_resource_policy\" \"policy\":\n  14:   name = \"route53-query-logging-policy\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 15, in resource \"aws_cloudwatch_log_resource_policy\" \"policy\":\n  15:   policy = jsonencode({\n\nAn argument named \"policy\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 34, in resource \"aws_route53_query_logging_config\" \"example\":\n  34: resource \"aws_route53_query_logging_config\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_query_logging_config\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0001.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0002.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0003.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 77, in resource \"aws_db_instance\" \"primary\":\n  77:   iam_role_arn        = aws_iam_role.rds_role.arn\n\nAn argument named \"iam_role_arn\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 84, in resource \"aws_db_instance\" \"replica_us_east\":\n  84:   source_db_instance_identifier = aws_db_instance.primary.identifier\n\nAn argument named \"source_db_instance_identifier\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 94, in resource \"aws_db_instance\" \"replica_us_east\":\n  94:   iam_role_arn        = aws_iam_role.rds_role.arn\n\nAn argument named \"iam_role_arn\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 101, in resource \"aws_db_instance\" \"replica_eu_central\":\n 101:   source_db_instance_identifier = aws_db_instance.primary.identifier\n\nAn argument named \"source_db_instance_identifier\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 111, in resource \"aws_db_instance\" \"replica_eu_central\":\n 111:   iam_role_arn        = aws_iam_role.rds_role.arn\n\nAn argument named \"iam_role_arn\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 118, in resource \"aws_db_instance\" \"replica_ap_southeast\":\n 118:   source_db_instance_identifier = aws_db_instance.primary.identifier\n\nAn argument named \"source_db_instance_identifier\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 128, in resource \"aws_db_instance\" \"replica_ap_southeast\":\n 128:   iam_role_arn        = aws_iam_role.rds_role.arn\n\nAn argument named \"iam_role_arn\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0004.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: fetching Availability Zones: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 401, RequestID: 9d4bc4a7-56f5-495d-b4af-56b0653c3857, api error AuthFailure: AWS was not able to validate the provided access credentials\n\n  with data.aws_availability_zones.available,\n  on main.tf line 39, in data \"aws_availability_zones\" \"available\":\n  39: data \"aws_availability_zones\" \"available\" {\n\n",
+    "opa_evaluation_error": "None"
+  }
+]

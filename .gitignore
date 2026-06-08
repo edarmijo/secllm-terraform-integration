@@ -1,0 +1,58 @@
+# ─────────────────────────────────────────────────────────────
+#  Binarios grandes (re-descargables; NO subir a git)
+# ─────────────────────────────────────────────────────────────
+research_iac/opa.exe
+research_iac/OllamaSetup.exe
+*.exe
+
+# ─────────────────────────────────────────────────────────────
+#  Terraform: caches, estado y scratch (se regeneran)
+# ─────────────────────────────────────────────────────────────
+**/.terraform/
+**/.terraform.lock.hcl
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfstate.lock.info
+research_iac/.tf_plugin_cache/
+research_iac/iac-eval/evaluation/tmp/
+
+# ─────────────────────────────────────────────────────────────
+#  SecLLM: configs y cache generados en runtime
+# ─────────────────────────────────────────────────────────────
+research_iac/SecLLM/SecLLM/temp_audit_*.yaml
+research_iac/SecLLM/SecLLM/temp_config_*.yaml
+**/cache.pkl
+
+# ─────────────────────────────────────────────────────────────
+#  Logs generados por el pipeline
+# ─────────────────────────────────────────────────────────────
+research_iac/integration/outputs/pipeline_log.txt
+
+# ─────────────────────────────────────────────────────────────
+#  Datos del SecLLM original (Ansible/Puppet/Chef) — no los usa
+#  la integración Terraform; se excluyen para mantener el repo liviano.
+# ─────────────────────────────────────────────────────────────
+research_iac/SecLLM/results/
+research_iac/SecLLM/glitch-datasets/
+
+# ─────────────────────────────────────────────────────────────
+#  Python
+# ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# ─────────────────────────────────────────────────────────────
+#  Editor / SO
+# ─────────────────────────────────────────────────────────────
+.DS_Store
+.vscode/
+.idea/
+
+# ─────────────────────────────────────────────────────────────
+#  Notas personales
+# ─────────────────────────────────────────────────────────────
+historial_conversacion.txt

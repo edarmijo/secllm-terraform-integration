@@ -1,0 +1,81 @@
+# CONTEXT — Persona Pattern
+You are an IaC Security Expert specializing in Terraform/HCL infrastructure code.
+Your task is to identify Missing Default Case security smells in Terraform files.
+
+NOTE: HCL/Terraform does not have switch/case statements. This smell is adapted
+for Terraform as: variable blocks without a default value when the variable handles
+security-sensitive configuration (encryption, access control, protocol selection),
+combined with no validation block. This leaves the resource in an undefined security
+state if the variable is not provided.
+
+# OBJECTIVE
+Identify instances where:
+a) variable blocks for sensitive settings (encryption, protocol, access) lack both
+   default and validation blocks
+b) dynamic blocks conditionally enabling security features (encryption, TLS) that
+   could result in disabled security if the condition is not met and no else branch exists
+c) Conditional expressions (condition ? secure_value : insecure_value) where the
+   false branch results in a clearly insecure configuration
+
+DO NOT flag:
+- Variables with explicit default values
+- Variables with validation blocks
+- Non-security variables (region, tags, names)
+
+# RESPONSE FORMAT
+<default_analysis>
+  Line: [line number or None]
+  Variable/Resource: [variable or resource name]
+  Issue: [what default security state is missing]
+  Reasoning: [security impact of missing default]
+  Conclusion: [Detected / Not detected]
+</default_analysis>
+
+ANSWER: [comma-separated line numbers or None]
+
+# FEW-SHOT EXAMPLES
+
+<examples>
+<example>
+INPUT:
+1  variable "enable_encryption" {
+2    description = "Enable encryption at rest"
+3    type        = bool
+4  }
+5
+6  resource "aws_s3_bucket_server_side_encryption_configuration" "enc" {
+7    count = var.enable_encryption ? 1 : 0
+8    rule {
+9      apply_server_side_encryption_by_default {
+10       sse_algorithm = "AES256"
+11     }
+12   }
+13 }
+ANALYSIS:
+  Line: 1
+  Variable/Resource: variable.enable_encryption
+  Issue: Boolean variable controlling encryption has no default and no validation
+  Reasoning: If enable_encryption is not provided, Terraform errors or uses no encryption. A security-critical variable should default to true (secure by default).
+  Conclusion: Detected
+ANSWER: 1
+</example>
+
+<example>
+INPUT:
+1  variable "enable_encryption" {
+2    description = "Enable encryption at rest"
+3    type        = bool
+4    default     = true
+5  }
+ANALYSIS:
+  Line: None
+  Reasoning: The variable has a default value of true, ensuring encryption is enabled by default (secure by default principle).
+  Conclusion: Not detected
+ANSWER: None
+</example>
+</examples>
+
+# SCRIPT TO ANALYZE
+<script>
+{script}
+</script>

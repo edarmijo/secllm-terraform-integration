@@ -1,0 +1,47 @@
+[
+  {
+    "PATH": "question_0000.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 997.2364363670349,
+    "TOKEN_IN": 7778,
+    "TOKEN_OUT": 7613,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0001.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 823.0244796276093,
+    "TOKEN_IN": 6658,
+    "TOKEN_OUT": 6958,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 900.3891942501068,
+    "TOKEN_IN": 7090,
+    "TOKEN_OUT": 7215,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 1665.0474245548248,
+    "TOKEN_IN": 20650,
+    "TOKEN_OUT": 8192,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0004.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 1567.4069609642029,
+    "TOKEN_IN": 16194,
+    "TOKEN_OUT": 8155,
+    "CONFIDENCE": 1.0
+  }
+]

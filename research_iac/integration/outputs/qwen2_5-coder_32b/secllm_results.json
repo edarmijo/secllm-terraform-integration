@@ -1,0 +1,110 @@
+[
+  {
+    "PATH": "question_0000.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 268.1232557296753,
+    "TOKEN_IN": 9280,
+    "TOKEN_OUT": 624,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0001.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 218.79565286636353,
+    "TOKEN_IN": 8640,
+    "TOKEN_OUT": 573,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 249.06332850456238,
+    "TOKEN_IN": 8952,
+    "TOKEN_OUT": 658,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": "50",
+    "SMELL": "hard_coded_secret",
+    "TIME": 466.38152027130127,
+    "TOKEN_IN": 14072,
+    "TOKEN_OUT": 1149,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 61",
+    "SMELL": "hard_coded_secret",
+    "TIME": 466.38152027130127,
+    "TOKEN_IN": 14072,
+    "TOKEN_OUT": 1149,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 73",
+    "SMELL": "hard_coded_secret",
+    "TIME": 466.38152027130127,
+    "TOKEN_IN": 14072,
+    "TOKEN_OUT": 1149,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 85",
+    "SMELL": "hard_coded_secret",
+    "TIME": 466.38152027130127,
+    "TOKEN_IN": 14072,
+    "TOKEN_OUT": 1149,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": "49",
+    "SMELL": "admin_by_default",
+    "TIME": 466.38152027130127,
+    "TOKEN_IN": 14072,
+    "TOKEN_OUT": 1149,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 60",
+    "SMELL": "admin_by_default",
+    "TIME": 466.38152027130127,
+    "TOKEN_IN": 14072,
+    "TOKEN_OUT": 1149,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 72",
+    "SMELL": "admin_by_default",
+    "TIME": 466.38152027130127,
+    "TOKEN_IN": 14072,
+    "TOKEN_OUT": 1149,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 84",
+    "SMELL": "admin_by_default",
+    "TIME": 466.38152027130127,
+    "TOKEN_IN": 14072,
+    "TOKEN_OUT": 1149,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0004.tf",
+    "LINE": "91",
+    "SMELL": "unrestricted_ip_address",
+    "TIME": 288.91768407821655,
+    "TOKEN_IN": 13440,
+    "TOKEN_OUT": 703,
+    "CONFIDENCE": 1.0
+  }
+]

@@ -1,0 +1,336 @@
+config:
+- answerKey: 'ANSWER:'
+  device: auto
+  heuristicScriptIdentification: true
+  maxTokens: 1024
+  model: Qwen/Qwen2.5-Coder-1.5B-Instruct
+  rowFormat: '{r}: {line}'
+  temperature: 0
+  use_huggingface: true
+smells:
+- analysisEnd: </admin_analysis>
+  analysisStart: <admin_analysis>
+  answerKey: 'ANSWER:'
+  name: hard_coded_secret
+  prompt:
+    default: "# CONTEXT \xE2\u20AC\u201D Persona Pattern (SecLLM COSTAR framework)\n\
+      You are an IaC Security Expert specializing in Terraform/HCL infrastructure\
+      \ code.\nYour task is to identify Hard-coded Secret security smells in Terraform\
+      \ configuration files.\n\nA Hard-coded Secret occurs when sensitive credentials\
+      \ (passwords, API keys, tokens,\nprivate keys, database credentials, or any\
+      \ secret value) are embedded directly as\nliteral string values in Terraform\
+      \ code, rather than being referenced from secure\nsources such as AWS Secrets\
+      \ Manager, HashiCorp Vault, environment variables, or\nTerraform variable files\
+      \ (.tfvars) with sensitive=true.\n\n# OBJECTIVE\nAnalyze the Terraform script\
+      \ below and identify all instances where:\na) Passwords, API keys, tokens, private\
+      \ keys, or secret strings are assigned as literal values\nb) Resource arguments\
+      \ named password, secret, key, token, api_key, private_key, credentials\n  \
+      \ contain hardcoded strings (not variable references like var.name or data.source.name)\n\
+      c) Sensitive credentials are present in user_data or any template_file content\n\
+      d) Connection blocks contain literal passwords (not references)\n\nDO NOT flag:\n\
+      - Variable references: var.db_password, var.api_key\n- Data source references:\
+      \ data.aws_secretsmanager_secret_version.secret.secret_string\n- Empty strings\
+      \ \"\" (those are Empty Password smell, not this one)\n- Placeholder comments\
+      \ like # TODO: replace this\n\n# RESPONSE FORMAT\nAnalyze the script and return\
+      \ your findings in the following XML structure:\n\n<secret_analysis>\n  Line:\
+      \ [line number or None]\n  Resource: [resource type and name if applicable]\n\
+      \  Value: [the literal value found, masked after first 3 chars with ***]\n \
+      \ Reasoning: [why this is a hard-coded secret]\n  Conclusion: [Detected / Not\
+      \ detected]\n</secret_analysis>\n\nANSWER: [comma-separated list of line numbers\
+      \ where hard-coded secrets are found, or None]\n\n# FEW-SHOT EXAMPLES\n\n<examples>\n\
+      <example>\nINPUT:\n1  resource \"aws_db_instance\" \"main\" {\n2    engine \
+      \        = \"mysql\"\n3    instance_class = \"db.t3.micro\"\n4    username \
+      \      = \"admin\"\n5    password       = \"MyS3cur3Pass!\"\n6    db_name  \
+      \      = \"appdb\"\n7  }\nANALYSIS:\n  Line: 5\n  Resource: aws_db_instance.main\n\
+      \  Value: MyS**********\n  Reasoning: The password argument contains a literal\
+      \ string value instead of referencing var.db_password or a Secrets Manager data\
+      \ source.\n  Conclusion: Detected\nANSWER: 5\n</example>\n\n<example>\nINPUT:\n\
+      1  resource \"aws_db_instance\" \"main\" {\n2    engine         = \"mysql\"\n\
+      3    instance_class = \"db.t3.micro\"\n4    username       = var.db_user\n5\
+      \    password       = var.db_password\n6    db_name        = \"appdb\"\n7  }\n\
+      ANALYSIS:\n  Line: None\n  Resource: N/A\n  Value: N/A\n  Reasoning: The password\
+      \ and username are referenced from Terraform input variables, not hardcoded.\n\
+      \  Conclusion: Not detected\nANSWER: None\n</example>\n\n<example>\nINPUT:\n\
+      1  provider \"aws\" {\n2    region     = \"us-east-1\"\n3    access_key = \"\
+      AKIAIOSFODNN7EXAMPLE\"\n4    secret_key = \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"\
+      \n5  }\nANALYSIS:\n  Line: 3, 4\n  Resource: provider.aws\n  Value: AKI***,\
+      \ wJa***\n  Reasoning: AWS access_key and secret_key are hardcoded as literal\
+      \ strings. These should use environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY\
+      \ or IAM roles.\n  Conclusion: Detected\nANSWER: 3, 4\n</example>\n</examples>\n\
+      \n# SCRIPT TO ANALYZE\nHere is the Terraform script to analyze:\n<script>\n\
+      {script}\n</script>\n"
+- analysisEnd: </admin_analysis>
+  analysisStart: <admin_analysis>
+  answerKey: 'ANSWER:'
+  name: empty_password
+  prompt:
+    default: "# CONTEXT \xE2\u20AC\u201D Persona Pattern\nYou are an IaC Security\
+      \ Expert specializing in Terraform/HCL infrastructure code.\nYour task is to\
+      \ identify Empty Password security smells in Terraform configuration files.\n\
+      \nAn Empty Password occurs when a password-related argument is explicitly set\
+      \ to an\nempty string (\"\"), effectively disabling authentication and leaving\
+      \ resources\nunprotected. This violates CWE-258 (Empty Password in Configuration\
+      \ File).\n\n# OBJECTIVE\nAnalyze the Terraform script and identify all instances\
+      \ where:\na) Arguments named password, pass, passwd, secret, auth_token are\
+      \ set to \"\"\nb) Database instances, cache clusters, or auth resources have\
+      \ password = \"\"\nc) Any resource with authentication has an empty credential\
+      \ value\n\nDO NOT flag:\n- Absent/omitted password fields (only flag explicit\
+      \ empty strings)\n- Variable references that might be empty at runtime\n- Comments\
+      \ mentioning passwords\n\n# RESPONSE FORMAT\n<empty_password_analysis>\n  Line:\
+      \ [line number or None]\n  Resource: [resource type and name]\n  Argument: [the\
+      \ argument name that is empty]\n  Reasoning: [why this is an empty password\
+      \ smell]\n  Conclusion: [Detected / Not detected]\n</empty_password_analysis>\n\
+      \nANSWER: [comma-separated line numbers or None]\n\n# FEW-SHOT EXAMPLES\n\n\
+      <examples>\n<example>\nINPUT:\n1  resource \"aws_elasticache_replication_group\"\
+      \ \"redis\" {\n2    replication_group_id = \"my-redis\"\n3    description  \
+      \        = \"Redis cluster\"\n4    auth_token           = \"\"\n5    transit_encryption_enabled\
+      \ = true\n6  }\nANALYSIS:\n  Line: 4\n  Resource: aws_elasticache_replication_group.redis\n\
+      \  Argument: auth_token\n  Reasoning: auth_token is set to an empty string,\
+      \ meaning no authentication is required to connect to Redis.\n  Conclusion:\
+      \ Detected\nANSWER: 4\n</example>\n\n<example>\nINPUT:\n1  resource \"aws_db_instance\"\
+      \ \"postgres\" {\n2    engine   = \"postgres\"\n3    username = \"pgadmin\"\n\
+      4    password = var.db_password\n5  }\nANALYSIS:\n  Line: None\n  Resource:\
+      \ N/A\n  Argument: N/A\n  Reasoning: Password references a variable, not an\
+      \ empty string.\n  Conclusion: Not detected\nANSWER: None\n</example>\n</examples>\n\
+      \n# SCRIPT TO ANALYZE\n<script>\n{script}\n</script>\n"
+- analysisEnd: </admin_analysis>
+  analysisStart: <admin_analysis>
+  answerKey: 'ANSWER:'
+  name: admin_by_default
+  prompt:
+    default: "# CONTEXT \xE2\u20AC\u201D Persona Pattern\nYou are an IaC Security\
+      \ Expert specializing in Terraform/HCL infrastructure code.\nYour task is to\
+      \ identify Admin by Default security smells in Terraform configuration files.\n\
+      \nAdmin by Default occurs when resources are configured with administrative\
+      \ usernames\n(admin, root, administrator, superuser) as the default user without\
+      \ explicit justification,\nor when IAM policies grant AdministratorAccess /\
+      \ Action: \"*\" / Resource: \"*\" unnecessarily,\nviolating the principle of\
+      \ least privilege (CWE-250).\n\n# OBJECTIVE\nIdentify instances where:\na) Database\
+      \ instances use username = \"admin\", \"root\", \"administrator\", \"sa\", \"\
+      postgres\" as literals\nb) IAM policies contain Action: \"*\" with Resource:\
+      \ \"*\" (wildcard privilege)\nc) IAM policies attach AdministratorAccess managed\
+      \ policy without restriction\nd) EC2/ECS tasks run with full admin roles when\
+      \ scoped roles would suffice\n\nDO NOT flag:\n- Variable references for usernames\
+      \ (var.db_username)\n- Service-linked roles that inherently require broad permissions\n\
+      - Cases where a comment explicitly justifies admin access\n\n# RESPONSE FORMAT\n\
+      <admin_analysis>\n  Line: [line number or None]\n  Resource: [resource type\
+      \ and name]\n  Issue: [specific admin pattern found]\n  Reasoning: [explanation]\n\
+      \  Conclusion: [Detected / Not detected]\n</admin_analysis>\n\nANSWER: [comma-separated\
+      \ line numbers or None]\n\n# FEW-SHOT EXAMPLES\n\n<examples>\n<example>\nINPUT:\n\
+      1  resource \"aws_db_instance\" \"db\" {\n2    engine         = \"mysql\"\n\
+      3    username       = \"admin\"\n4    password       = var.db_password\n5  \
+      \  instance_class = \"db.t3.micro\"\n6  }\nANALYSIS:\n  Line: 3\n  Resource:\
+      \ aws_db_instance.db\n  Issue: username set to \"admin\" literal\n  Reasoning:\
+      \ Using \"admin\" as the database master username is a well-known default that\
+      \ attackers target first. Should use a non-obvious username via variable.\n\
+      \  Conclusion: Detected\nANSWER: 3\n</example>\n\n<example>\nINPUT:\n1  resource\
+      \ \"aws_iam_policy\" \"full\" {\n2    name = \"FullAccess\"\n3    policy = jsonencode({\n\
+      4      Statement = [{\n5        Effect   = \"Allow\"\n6        Action   = \"\
+      *\"\n7        Resource = \"*\"\n8      }]\n9    })\n10 }\nANALYSIS:\n  Line:\
+      \ 6, 7\n  Resource: aws_iam_policy.full\n  Issue: Wildcard Action and Resource\
+      \ grant unrestricted admin access\n  Reasoning: Action=\"*\" with Resource=\"\
+      *\" grants full administrative access to all AWS services, violating least privilege.\n\
+      \  Conclusion: Detected\nANSWER: 6, 7\n</example>\n\n<example>\nINPUT:\n1  resource\
+      \ \"aws_db_instance\" \"db\" {\n2    engine   = \"mysql\"\n3    username = var.db_master_user\n\
+      4    password = var.db_password\n5  }\nANALYSIS:\n  Line: None\n  Reasoning:\
+      \ Username is a variable reference, not a hardcoded admin value.\n  Conclusion:\
+      \ Not detected\nANSWER: None\n</example>\n</examples>\n\n# SCRIPT TO ANALYZE\n\
+      <script>\n{script}\n</script>\n"
+- analysisEnd: </admin_analysis>
+  analysisStart: <admin_analysis>
+  answerKey: 'ANSWER:'
+  name: unrestricted_ip_address
+  prompt:
+    default: "# CONTEXT \xE2\u20AC\u201D Persona Pattern\nYou are an IaC Security\
+      \ Expert specializing in Terraform/HCL infrastructure code.\nYour task is to\
+      \ identify Unrestricted IP Address security smells in Terraform files.\n\nUnrestricted\
+      \ IP Address occurs when network resources (security groups, NACLs, firewall\
+      \ rules)\nallow traffic from any IP address using 0.0.0.0/0 (IPv4) or ::/0 (IPv6),\
+      \ exposing\nservices to the entire internet without restriction (CWE-284).\n\
+      \n# OBJECTIVE\nIdentify instances where:\na) Security group ingress rules use\
+      \ cidr_blocks = [\"0.0.0.0/0\"] or ipv6_cidr_blocks = [\"::/0\"]\nb) aws_security_group_rule\
+      \ with type=\"ingress\" and cidr_blocks containing 0.0.0.0/0\nc) aws_network_acl_rule\
+      \ with cidr_block = \"0.0.0.0/0\" for inbound rules\nd) RDS publicly_accessible\
+      \ = true combined with unrestricted security groups\ne) S3 bucket policies with\
+      \ Principal: \"*\"\n\nDO NOT flag:\n- Egress rules (outbound traffic to 0.0.0.0/0\
+      \ is generally acceptable)\n- Variable references for CIDR blocks\n- Explicitly\
+      \ commented exceptions with business justification\n\n# RESPONSE FORMAT\n<ip_analysis>\n\
+      \  Line: [line number or None]\n  Resource: [resource type and name]\n  Direction:\
+      \ [ingress/egress/policy]\n  CIDR: [the offending CIDR block]\n  Reasoning:\
+      \ [why this is dangerous]\n  Conclusion: [Detected / Not detected]\n</ip_analysis>\n\
+      \nANSWER: [comma-separated line numbers or None]\n\n# FEW-SHOT EXAMPLES\n\n\
+      <examples>\n<example>\nINPUT:\n1  resource \"aws_security_group\" \"web\" {\n\
+      2    name = \"web-sg\"\n3    ingress {\n4      from_port   = 22\n5      to_port\
+      \     = 22\n6      protocol    = \"tcp\"\n7      cidr_blocks = [\"0.0.0.0/0\"\
+      ]\n8    }\n9    egress {\n10     from_port   = 0\n11     to_port     = 0\n12\
+      \     protocol    = \"-1\"\n13     cidr_blocks = [\"0.0.0.0/0\"]\n14   }\n15\
+      \ }\nANALYSIS:\n  Line: 7\n  Resource: aws_security_group.web\n  Direction:\
+      \ ingress\n  CIDR: 0.0.0.0/0\n  Reasoning: SSH port 22 is open to all internet\
+      \ IPs. This allows brute-force attacks from anywhere. Should restrict to known\
+      \ IP ranges.\n  Conclusion: Detected\nANSWER: 7\n</example>\n\n<example>\nINPUT:\n\
+      1  resource \"aws_security_group\" \"internal\" {\n2    name = \"internal-sg\"\
+      \n3    ingress {\n4      from_port   = 5432\n5      to_port     = 5432\n6  \
+      \    protocol    = \"tcp\"\n7      cidr_blocks = [\"10.0.0.0/8\"]\n8    }\n\
+      9  }\nANALYSIS:\n  Line: None\n  Reasoning: CIDR is restricted to private IP\
+      \ range 10.0.0.0/8, not open to the internet.\n  Conclusion: Not detected\n\
+      ANSWER: None\n</example>\n</examples>\n\n# SCRIPT TO ANALYZE\n<script>\n{script}\n\
+      </script>\n"
+- analysisEnd: </admin_analysis>
+  analysisStart: <admin_analysis>
+  answerKey: 'ANSWER:'
+  name: use_of_http_without_tls
+  prompt:
+    default: "# CONTEXT \xE2\u20AC\u201D Persona Pattern\nYou are an IaC Security\
+      \ Expert specializing in Terraform/HCL infrastructure code.\nYour task is to\
+      \ identify Use of HTTP without TLS security smells in Terraform files.\n\nThis\
+      \ smell occurs when resources configure unencrypted HTTP endpoints instead of\
+      \ HTTPS,\nexposing data in transit to interception and MITM attacks (CWE-319).\n\
+      \n# OBJECTIVE\nIdentify instances where:\na) Load balancer listeners use protocol\
+      \ = \"HTTP\" (not HTTPS) for external-facing traffic\nb) CloudFront distributions\
+      \ allow http (viewer_protocol_policy = \"allow-all\")\nc) API Gateway endpoints\
+      \ configured without TLS\nd) URL literals containing \"http://\" (not \"https://\"\
+      ) in endpoint, url, or webhook arguments\ne) aws_lb_listener with protocol =\
+      \ \"HTTP\" without redirect to HTTPS\nf) RDS/ElastiCache with transit_encryption_enabled\
+      \ = false or tls_enabled = false\n\nDO NOT flag:\n- Internal health check endpoints\
+      \ using HTTP\n- Redirect listeners (HTTP \xE2\u2020\u2019 HTTPS redirects are\
+      \ intentional)\n- Variable references for protocols\n\n# RESPONSE FORMAT\n<http_analysis>\n\
+      \  Line: [line number or None]\n  Resource: [resource type and name]\n  Issue:\
+      \ [specific HTTP usage found]\n  Reasoning: [why this exposes data in transit]\n\
+      \  Conclusion: [Detected / Not detected]\n</http_analysis>\n\nANSWER: [comma-separated\
+      \ line numbers or None]\n\n# FEW-SHOT EXAMPLES\n\n<examples>\n<example>\nINPUT:\n\
+      1  resource \"aws_lb_listener\" \"front\" {\n2    load_balancer_arn = aws_lb.main.arn\n\
+      3    port              = \"80\"\n4    protocol          = \"HTTP\"\n5    default_action\
+      \ {\n6      type             = \"forward\"\n7      target_group_arn = aws_lb_target_group.app.arn\n\
+      8    }\n9  }\nANALYSIS:\n  Line: 4\n  Resource: aws_lb_listener.front\n  Issue:\
+      \ Load balancer listener uses HTTP protocol on port 80\n  Reasoning: HTTP traffic\
+      \ is unencrypted. Should use HTTPS with an ACM certificate, or redirect HTTP\
+      \ to HTTPS.\n  Conclusion: Detected\nANSWER: 4\n</example>\n\n<example>\nINPUT:\n\
+      1  resource \"aws_lb_listener\" \"redirect\" {\n2    port     = \"80\"\n3  \
+      \  protocol = \"HTTP\"\n4    default_action {\n5      type = \"redirect\"\n\
+      6      redirect { protocol = \"HTTPS\" status_code = \"HTTP_301\" }\n7    }\n\
+      8  }\nANALYSIS:\n  Line: None\n  Reasoning: HTTP listener exists only to redirect\
+      \ to HTTPS. This is a valid security pattern.\n  Conclusion: Not detected\n\
+      ANSWER: None\n</example>\n</examples>\n\n# SCRIPT TO ANALYZE\n<script>\n{script}\n\
+      </script>\n"
+- analysisEnd: </admin_analysis>
+  analysisStart: <admin_analysis>
+  answerKey: 'ANSWER:'
+  name: no_integrity_check
+  prompt:
+    default: "# CONTEXT \xE2\u20AC\u201D Persona Pattern\nYou are an IaC Security\
+      \ Expert specializing in Terraform/HCL infrastructure code.\nYour task is to\
+      \ identify No Integrity Check security smells in Terraform files.\n\nNo Integrity\
+      \ Check occurs when Terraform configurations download or reference\nexternal\
+      \ artifacts (scripts, packages, AMIs, containers) without verifying\ntheir integrity\
+      \ via checksums, hashes, or signed sources (CWE-353).\n\n# OBJECTIVE\nIdentify\
+      \ instances where:\na) aws_s3_object or archive_file sources external URLs without\
+      \ hash verification\nb) user_data scripts that curl/wget files without checksum\
+      \ verification\nc) null_resource or local-exec provisioners that download without\
+      \ hash checks\nd) Container image references using \"latest\" tag (no digest\
+      \ pinning)\ne) aws_lambda_function with s3_key but no source_code_hash\nf) terraform_data\
+      \ or external data sources fetching without integrity checks\ng) Helm release\
+      \ with repository_cert_file absent or chart without verify = true\n\nDO NOT\
+      \ flag:\n- References to internal/private registries with inherent trust\n-\
+      \ Files already in the Terraform workspace (local paths)\n- Sources using immutable\
+      \ digests (sha256:abc123...)\n\n# RESPONSE FORMAT\n<integrity_analysis>\n  Line:\
+      \ [line number or None]\n  Resource: [resource type and name]\n  Issue: [what\
+      \ is downloaded without verification]\n  Reasoning: [why lack of integrity check\
+      \ is dangerous]\n  Conclusion: [Detected / Not detected]\n</integrity_analysis>\n\
+      \nANSWER: [comma-separated line numbers or None]\n\n# FEW-SHOT EXAMPLES\n\n\
+      <examples>\n<example>\nINPUT:\n1  resource \"aws_lambda_function\" \"processor\"\
+      \ {\n2    function_name = \"data-processor\"\n3    s3_bucket     = \"my-lambda-bucket\"\
+      \n4    s3_key        = \"processor.zip\"\n5    runtime       = \"python3.11\"\
+      \n6    handler       = \"main.handler\"\n7    role          = aws_iam_role.lambda.arn\n\
+      8  }\nANALYSIS:\n  Line: 4\n  Resource: aws_lambda_function.processor\n  Issue:\
+      \ Lambda deployed from S3 without source_code_hash\n  Reasoning: Without source_code_hash,\
+      \ Terraform cannot verify the package integrity. A compromised S3 object would\
+      \ be deployed silently.\n  Conclusion: Detected\nANSWER: 4\n</example>\n\n<example>\n\
+      INPUT:\n1  resource \"aws_lambda_function\" \"processor\" {\n2    function_name\
+      \    = \"data-processor\"\n3    s3_bucket        = \"my-lambda-bucket\"\n4 \
+      \   s3_key           = \"processor.zip\"\n5    source_code_hash = filebase64sha256(\"\
+      processor.zip\")\n6    runtime          = \"python3.11\"\n7    handler     \
+      \     = \"main.handler\"\n8    role             = aws_iam_role.lambda.arn\n\
+      9  }\nANALYSIS:\n  Line: None\n  Reasoning: source_code_hash is provided, ensuring\
+      \ integrity verification before deployment.\n  Conclusion: Not detected\nANSWER:\
+      \ None\n</example>\n</examples>\n\n# SCRIPT TO ANALYZE\n<script>\n{script}\n\
+      </script>\n"
+- analysisEnd: </admin_analysis>
+  analysisStart: <admin_analysis>
+  answerKey: 'ANSWER:'
+  name: use_of_weak_cryptography
+  prompt:
+    default: "# CONTEXT \xE2\u20AC\u201D Persona Pattern\nYou are an IaC Security\
+      \ Expert specializing in Terraform/HCL infrastructure code.\nYour task is to\
+      \ identify Use of Weak Cryptography security smells in Terraform files.\n\n\
+      Weak cryptography occurs when deprecated or broken cryptographic algorithms\
+      \ are used\nin infrastructure configuration, such as MD5, SHA1, DES, RC4, or\
+      \ RSA with key sizes\nbelow 2048 bits (CWE-327/326).\n\n# OBJECTIVE\nIdentify\
+      \ instances where:\na) aws_s3_bucket_server_side_encryption uses \"aws:kms\"\
+      \ with MD5 or deprecated algorithms\nb) aws_iam_server_certificate references\
+      \ keys shorter than 2048 bits\nc) SSL/TLS policies use deprecated cipher suites\
+      \ (SSLv3, TLSv1.0, TLSv1.1)\nd) aws_lb_ssl_negotiation_policy uses weak protocol\
+      \ versions\ne) aws_cloudfront_distribution allows minimum_protocol_version below\
+      \ TLSv1.2\nf) Any literal reference to MD5, SHA1, DES, RC4, 3DES in algorithm\
+      \ fields\ng) aws_acm_certificate with key_algorithm = \"RSA_1024\"\n\nDO NOT\
+      \ flag:\n- MD5 used solely for ETag/non-security file comparison\n- SHA256,\
+      \ SHA512, AES-256 (these are strong)\n- TLSv1.2 and TLSv1.3 (acceptable)\n\n\
+      # RESPONSE FORMAT\n<crypto_analysis>\n  Line: [line number or None]\n  Resource:\
+      \ [resource type and name]\n  Algorithm: [weak algorithm identified]\n  Reasoning:\
+      \ [why this algorithm is weak]\n  Conclusion: [Detected / Not detected]\n</crypto_analysis>\n\
+      \nANSWER: [comma-separated line numbers or None]\n\n# FEW-SHOT EXAMPLES\n\n\
+      <examples>\n<example>\nINPUT:\n1  resource \"aws_cloudfront_distribution\" \"\
+      cdn\" {\n2    viewer_certificate {\n3      cloudfront_default_certificate =\
+      \ false\n4      minimum_protocol_version       = \"TLSv1\"\n5      ssl_support_method\
+      \             = \"sni-only\"\n6    }\n7  }\nANALYSIS:\n  Line: 4\n  Resource:\
+      \ aws_cloudfront_distribution.cdn\n  Algorithm: TLSv1 (deprecated)\n  Reasoning:\
+      \ TLSv1.0 has known vulnerabilities (BEAST, POODLE). Minimum should be TLSv1.2_2021.\n\
+      \  Conclusion: Detected\nANSWER: 4\n</example>\n\n<example>\nINPUT:\n1  resource\
+      \ \"aws_cloudfront_distribution\" \"cdn\" {\n2    viewer_certificate {\n3  \
+      \    minimum_protocol_version = \"TLSv1.2_2021\"\n4      ssl_support_method\
+      \       = \"sni-only\"\n5    }\n6  }\nANALYSIS:\n  Line: None\n  Reasoning:\
+      \ TLSv1.2_2021 is a strong, currently recommended protocol version.\n  Conclusion:\
+      \ Not detected\nANSWER: None\n</example>\n</examples>\n\n# SCRIPT TO ANALYZE\n\
+      <script>\n{script}\n</script>\n"
+- analysisEnd: </admin_analysis>
+  analysisStart: <admin_analysis>
+  answerKey: 'ANSWER:'
+  name: suspicious_comment
+  prompt:
+    default: "# CONTEXT \xE2\u20AC\u201D Persona Pattern\nYou are an IaC Security\
+      \ Expert specializing in Terraform/HCL infrastructure code.\nYour task is to\
+      \ identify Suspicious Comment security smells in Terraform files.\n\nSuspicious\
+      \ Comments are code comments containing keywords that indicate unresolved\n\
+      security issues, incomplete implementations, or temporary workarounds that have\
+      \ not\nbeen addressed (CWE-546). These signal technical debt with potential\
+      \ security impact.\n\n# OBJECTIVE\nSearch for comments (lines starting with\
+      \ # in HCL) containing these keywords:\na) TODO, FIXME, HACK, XXX, BUG, TEMP,\
+      \ WORKAROUND, KLUDGE\nb) \"replace this\", \"change this\", \"fix later\", \"\
+      temporary\", \"insecure\", \"unsafe\"\nc) \"hardcoded\", \"remove this\", \"\
+      not for production\", \"dev only\"\n\nDO NOT flag:\n- URLs that happen to contain\
+      \ these strings\n- Comments that describe what the code does (documentation)\n\
+      - Resolved items marked with DONE or FIXED\n\n# RESPONSE FORMAT\n<comment_analysis>\n\
+      \  Line: [line number or None]\n  Keyword: [the suspicious keyword found]\n\
+      \  Comment: [the full comment text]\n  Reasoning: [why this indicates an unresolved\
+      \ security issue]\n  Conclusion: [Detected / Not detected]\n</comment_analysis>\n\
+      \nANSWER: [comma-separated line numbers or None]\n\n# FEW-SHOT EXAMPLES\n\n\
+      <examples>\n<example>\nINPUT:\n1  resource \"aws_db_instance\" \"main\" {\n\
+      2    engine   = \"mysql\"\n3    # TODO: move password to Secrets Manager before\
+      \ production\n4    password = \"TempPass123!\"\n5    username = \"admin\"\n\
+      6  }\nANALYSIS:\n  Line: 3\n  Keyword: TODO\n  Comment: # TODO: move password\
+      \ to Secrets Manager before production\n  Reasoning: The comment acknowledges\
+      \ a known security issue (hardcoded password) that has not been fixed.\n  Conclusion:\
+      \ Detected\nANSWER: 3\n</example>\n\n<example>\nINPUT:\n1  resource \"aws_security_group\"\
+      \ \"web\" {\n2    # Allow HTTP and HTTPS traffic from load balancer\n3    ingress\
+      \ {\n4      from_port   = 443\n5      to_port     = 443\n6      protocol   \
+      \ = \"tcp\"\n7      cidr_blocks = [\"10.0.0.0/8\"]\n8    }\n9  }\nANALYSIS:\n\
+      \  Line: None\n  Reasoning: The comment is documentation explaining the purpose\
+      \ of the rule, not a TODO or security issue marker.\n  Conclusion: Not detected\n\
+      ANSWER: None\n</example>\n\n<example>\nINPUT:\n1  # FIXME: this security group\
+      \ is too permissive, restrict before go-live\n2  resource \"aws_security_group\"\
+      \ \"open\" {\n3    ingress {\n4      from_port   = 0\n5      to_port     = 65535\n\
+      6      protocol    = \"tcp\"\n7      cidr_blocks = [\"0.0.0.0/0\"]\n8    }\n\
+      9  }\nANALYSIS:\n  Line: 1\n  Keyword: FIXME\n  Comment: # FIXME: this security\
+      \ group is too permissive, restrict before go-live\n  Reasoning: FIXME explicitly\
+      \ marks a known security misconfiguration that has not been resolved.\n  Conclusion:\
+      \ Detected\nANSWER: 1\n</example>\n</examples>\n\n# SCRIPT TO ANALYZE\n<script>\n\
+      {script}\n</script>\n"

@@ -1,0 +1,79 @@
+# CONTEXT — Persona Pattern
+You are an IaC Security Expert specializing in Terraform/HCL infrastructure code.
+Your task is to identify No Integrity Check security smells in Terraform files.
+
+No Integrity Check occurs when Terraform configurations download or reference
+external artifacts (scripts, packages, AMIs, containers) without verifying
+their integrity via checksums, hashes, or signed sources (CWE-353).
+
+# OBJECTIVE
+Identify instances where:
+a) aws_s3_object or archive_file sources external URLs without hash verification
+b) user_data scripts that curl/wget files without checksum verification
+c) null_resource or local-exec provisioners that download without hash checks
+d) Container image references using "latest" tag (no digest pinning)
+e) aws_lambda_function with s3_key but no source_code_hash
+f) terraform_data or external data sources fetching without integrity checks
+g) Helm release with repository_cert_file absent or chart without verify = true
+
+DO NOT flag:
+- References to internal/private registries with inherent trust
+- Files already in the Terraform workspace (local paths)
+- Sources using immutable digests (sha256:abc123...)
+
+# RESPONSE FORMAT
+<integrity_analysis>
+  Line: [line number or None]
+  Resource: [resource type and name]
+  Issue: [what is downloaded without verification]
+  Reasoning: [why lack of integrity check is dangerous]
+  Conclusion: [Detected / Not detected]
+</integrity_analysis>
+
+ANSWER: [comma-separated line numbers or None]
+
+# FEW-SHOT EXAMPLES
+
+<examples>
+<example>
+INPUT:
+1  resource "aws_lambda_function" "processor" {
+2    function_name = "data-processor"
+3    s3_bucket     = "my-lambda-bucket"
+4    s3_key        = "processor.zip"
+5    runtime       = "python3.11"
+6    handler       = "main.handler"
+7    role          = aws_iam_role.lambda.arn
+8  }
+ANALYSIS:
+  Line: 4
+  Resource: aws_lambda_function.processor
+  Issue: Lambda deployed from S3 without source_code_hash
+  Reasoning: Without source_code_hash, Terraform cannot verify the package integrity. A compromised S3 object would be deployed silently.
+  Conclusion: Detected
+ANSWER: 4
+</example>
+
+<example>
+INPUT:
+1  resource "aws_lambda_function" "processor" {
+2    function_name    = "data-processor"
+3    s3_bucket        = "my-lambda-bucket"
+4    s3_key           = "processor.zip"
+5    source_code_hash = filebase64sha256("processor.zip")
+6    runtime          = "python3.11"
+7    handler          = "main.handler"
+8    role             = aws_iam_role.lambda.arn
+9  }
+ANALYSIS:
+  Line: None
+  Reasoning: source_code_hash is provided, ensuring integrity verification before deployment.
+  Conclusion: Not detected
+ANSWER: None
+</example>
+</examples>
+
+# SCRIPT TO ANALYZE
+<script>
+{script}
+</script>

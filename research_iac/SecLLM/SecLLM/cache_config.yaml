@@ -1,0 +1,26 @@
+# Cache Configuration File
+
+# Path to the cache persistence file
+cache_file: cache.pkl
+
+# Time To Live (TTL) for cache entries in seconds
+# -1 means unlimited duration
+ttl_seconds: -1
+
+# Enable automatic cleanup of expired entries
+auto_cleanup: true
+
+# Interval in seconds between automatic cleanup operations
+# Only used if auto_cleanup is true
+cleanup_interval: 300
+
+# Maximum number of entries in cache
+# -1 means unlimited
+# When limit is reached, oldest entries are removed (LRU)
+max_entries: -1
+
+# Enable compression for cache file (saves disk space)
+compression: false
+
+# Enable verbose logging
+verbose: true
