@@ -1,0 +1,803 @@
+[
+  {
+    "PATH": "question_0000.tf",
+    "LINE": "4",
+    "SMELL": "empty_password",
+    "TIME": 417.5160765647888,
+    "TOKEN_IN": 10117,
+    "TOKEN_OUT": 4530,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0000.tf",
+    "LINE": " 56",
+    "SMELL": "empty_password",
+    "TIME": 417.5160765647888,
+    "TOKEN_IN": 10117,
+    "TOKEN_OUT": 4530,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0000.tf",
+    "LINE": "35",
+    "SMELL": "admin_by_default",
+    "TIME": 417.5160765647888,
+    "TOKEN_IN": 10117,
+    "TOKEN_OUT": 4530,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0001.tf",
+    "LINE": "5",
+    "SMELL": "no_integrity_check",
+    "TIME": 219.39122653007507,
+    "TOKEN_IN": 6029,
+    "TOKEN_OUT": 2447,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": "3",
+    "SMELL": "hard_coded_secret",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": " 9",
+    "SMELL": "hard_coded_secret",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": " 12",
+    "SMELL": "hard_coded_secret",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": " 21",
+    "SMELL": "hard_coded_secret",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": " 27",
+    "SMELL": "hard_coded_secret",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": " 37",
+    "SMELL": "hard_coded_secret",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": " 45",
+    "SMELL": "hard_coded_secret",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": " 56",
+    "SMELL": "hard_coded_secret",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": "41",
+    "SMELL": "unrestricted_ip_address",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": "14",
+    "SMELL": "use_of_http_without_tls",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": "9",
+    "SMELL": "no_integrity_check",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0002.tf",
+    "LINE": " 14",
+    "SMELL": "no_integrity_check",
+    "TIME": 390.4446382522583,
+    "TOKEN_IN": 9421,
+    "TOKEN_OUT": 4070,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": "21",
+    "SMELL": "admin_by_default",
+    "TIME": 452.21044397354126,
+    "TOKEN_IN": 15093,
+    "TOKEN_OUT": 4412,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 35",
+    "SMELL": "admin_by_default",
+    "TIME": 452.21044397354126,
+    "TOKEN_IN": 15093,
+    "TOKEN_OUT": 4412,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 45",
+    "SMELL": "admin_by_default",
+    "TIME": 452.21044397354126,
+    "TOKEN_IN": 15093,
+    "TOKEN_OUT": 4412,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": " 55",
+    "SMELL": "admin_by_default",
+    "TIME": 452.21044397354126,
+    "TOKEN_IN": 15093,
+    "TOKEN_OUT": 4412,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": "4",
+    "SMELL": "no_integrity_check",
+    "TIME": 452.21044397354126,
+    "TOKEN_IN": 15093,
+    "TOKEN_OUT": 4412,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0003.tf",
+    "LINE": "5",
+    "SMELL": "use_of_weak_cryptography",
+    "TIME": 452.21044397354126,
+    "TOKEN_IN": 15093,
+    "TOKEN_OUT": 4412,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0004.tf",
+    "LINE": "18",
+    "SMELL": "empty_password",
+    "TIME": 419.07217049598694,
+    "TOKEN_IN": 10429,
+    "TOKEN_OUT": 4473,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0004.tf",
+    "LINE": " 27",
+    "SMELL": "empty_password",
+    "TIME": 419.07217049598694,
+    "TOKEN_IN": 10429,
+    "TOKEN_OUT": 4473,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0004.tf",
+    "LINE": "13",
+    "SMELL": "unrestricted_ip_address",
+    "TIME": 419.07217049598694,
+    "TOKEN_IN": 10429,
+    "TOKEN_OUT": 4473,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0004.tf",
+    "LINE": " 29",
+    "SMELL": "unrestricted_ip_address",
+    "TIME": 419.07217049598694,
+    "TOKEN_IN": 10429,
+    "TOKEN_OUT": 4473,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0005.tf",
+    "LINE": "14",
+    "SMELL": "empty_password",
+    "TIME": 382.0770924091339,
+    "TOKEN_IN": 14141,
+    "TOKEN_OUT": 3897,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0005.tf",
+    "LINE": "23",
+    "SMELL": "empty_password",
+    "TIME": 382.0770924091339,
+    "TOKEN_IN": 14141,
+    "TOKEN_OUT": 3897,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0005.tf",
+    "LINE": "32",
+    "SMELL": "empty_password",
+    "TIME": 382.0770924091339,
+    "TOKEN_IN": 14141,
+    "TOKEN_OUT": 3897,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0006.tf",
+    "LINE": "4",
+    "SMELL": "empty_password",
+    "TIME": 334.7211513519287,
+    "TOKEN_IN": 11029,
+    "TOKEN_OUT": 3643,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0006.tf",
+    "LINE": " 27",
+    "SMELL": "empty_password",
+    "TIME": 334.7211513519287,
+    "TOKEN_IN": 11029,
+    "TOKEN_OUT": 3643,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": "3",
+    "SMELL": "hard_coded_secret",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 3",
+    "SMELL": "hard_coded_secret",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 4",
+    "SMELL": "hard_coded_secret",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 9",
+    "SMELL": "hard_coded_secret",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 27",
+    "SMELL": "hard_coded_secret",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": "4",
+    "SMELL": "empty_password",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 45",
+    "SMELL": "empty_password",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": "31",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 32",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 33",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 34",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 35",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 36",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 37",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 38",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": " 39",
+    "SMELL": "admin_by_default",
+    "TIME": 376.73559069633484,
+    "TOKEN_IN": 13653,
+    "TOKEN_OUT": 3859,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": "3",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": " 3",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": " 4",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": " 11",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": " 29",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": " 85",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": " 87",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": " 91",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": " 93",
+    "SMELL": "hard_coded_secret",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": "3",
+    "SMELL": "admin_by_default",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0008.tf",
+    "LINE": "4",
+    "SMELL": "use_of_http_without_tls",
+    "TIME": 454.95412850379944,
+    "TOKEN_IN": 11861,
+    "TOKEN_OUT": 4789,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0009.tf",
+    "LINE": " 4",
+    "SMELL": "use_of_weak_cryptography",
+    "TIME": 406.7244482040405,
+    "TOKEN_IN": 10469,
+    "TOKEN_OUT": 4355,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0009.tf",
+    "LINE": "28",
+    "SMELL": "use_of_weak_cryptography",
+    "TIME": 406.7244482040405,
+    "TOKEN_IN": 10469,
+    "TOKEN_OUT": 4355,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0010.tf",
+    "LINE": "37",
+    "SMELL": "use_of_weak_cryptography",
+    "TIME": 379.6562066078186,
+    "TOKEN_IN": 10013,
+    "TOKEN_OUT": 4104,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0010.tf",
+    "LINE": "3",
+    "SMELL": "suspicious_comment",
+    "TIME": 379.6562066078186,
+    "TOKEN_IN": 10013,
+    "TOKEN_OUT": 4104,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0011.tf",
+    "LINE": "32",
+    "SMELL": "admin_by_default",
+    "TIME": 355.35624170303345,
+    "TOKEN_IN": 14901,
+    "TOKEN_OUT": 3551,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0011.tf",
+    "LINE": " 33",
+    "SMELL": "admin_by_default",
+    "TIME": 355.35624170303345,
+    "TOKEN_IN": 14901,
+    "TOKEN_OUT": 3551,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0011.tf",
+    "LINE": " 34",
+    "SMELL": "admin_by_default",
+    "TIME": 355.35624170303345,
+    "TOKEN_IN": 14901,
+    "TOKEN_OUT": 3551,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0011.tf",
+    "LINE": " 35",
+    "SMELL": "admin_by_default",
+    "TIME": 355.35624170303345,
+    "TOKEN_IN": 14901,
+    "TOKEN_OUT": 3551,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": "4",
+    "SMELL": "empty_password",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": "4",
+    "SMELL": "no_integrity_check",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": " 84",
+    "SMELL": "no_integrity_check",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": " 125",
+    "SMELL": "no_integrity_check",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": " 136",
+    "SMELL": "no_integrity_check",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": " 149",
+    "SMELL": "no_integrity_check",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": " 150",
+    "SMELL": "no_integrity_check",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": " 172",
+    "SMELL": "no_integrity_check",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0012.tf",
+    "LINE": " 188",
+    "SMELL": "no_integrity_check",
+    "TIME": 420.944030046463,
+    "TOKEN_IN": 19341,
+    "TOKEN_OUT": 3993,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0013.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 474.04144167900085,
+    "TOKEN_IN": 18741,
+    "TOKEN_OUT": 4527,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0014.tf",
+    "LINE": " 32",
+    "SMELL": "admin_by_default",
+    "TIME": 486.1393949985504,
+    "TOKEN_IN": 11765,
+    "TOKEN_OUT": 5063,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0014.tf",
+    "LINE": " 35",
+    "SMELL": "admin_by_default",
+    "TIME": 486.1393949985504,
+    "TOKEN_IN": 11765,
+    "TOKEN_OUT": 5063,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0014.tf",
+    "LINE": " 38",
+    "SMELL": "admin_by_default",
+    "TIME": 486.1393949985504,
+    "TOKEN_IN": 11765,
+    "TOKEN_OUT": 5063,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0014.tf",
+    "LINE": " 41",
+    "SMELL": "admin_by_default",
+    "TIME": 486.1393949985504,
+    "TOKEN_IN": 11765,
+    "TOKEN_OUT": 5063,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0014.tf",
+    "LINE": " 44",
+    "SMELL": "admin_by_default",
+    "TIME": 486.1393949985504,
+    "TOKEN_IN": 11765,
+    "TOKEN_OUT": 5063,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0014.tf",
+    "LINE": "58",
+    "SMELL": "admin_by_default",
+    "TIME": 486.1393949985504,
+    "TOKEN_IN": 11765,
+    "TOKEN_OUT": 5063,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0015.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 312.7236166000366,
+    "TOKEN_IN": 17581,
+    "TOKEN_OUT": 2968,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0016.tf",
+    "LINE": "60",
+    "SMELL": "empty_password",
+    "TIME": 292.27761244773865,
+    "TOKEN_IN": 12677,
+    "TOKEN_OUT": 2975,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0016.tf",
+    "LINE": "4",
+    "SMELL": "use_of_weak_cryptography",
+    "TIME": 292.27761244773865,
+    "TOKEN_IN": 12677,
+    "TOKEN_OUT": 2975,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0017.tf",
+    "LINE": " 4",
+    "SMELL": "empty_password",
+    "TIME": 443.02648639678955,
+    "TOKEN_IN": 15533,
+    "TOKEN_OUT": 4344,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0017.tf",
+    "LINE": "129",
+    "SMELL": "empty_password",
+    "TIME": 443.02648639678955,
+    "TOKEN_IN": 15533,
+    "TOKEN_OUT": 4344,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0017.tf",
+    "LINE": " 138",
+    "SMELL": "empty_password",
+    "TIME": 443.02648639678955,
+    "TOKEN_IN": 15533,
+    "TOKEN_OUT": 4344,
+    "CONFIDENCE": 1.0
+  },
+  {
+    "PATH": "question_0017.tf",
+    "LINE": "4",
+    "SMELL": "use_of_weak_cryptography",
+    "TIME": 443.02648639678955,
+    "TOKEN_IN": 15533,
+    "TOKEN_OUT": 4344,
+    "CONFIDENCE": 1.0
+  }
+]

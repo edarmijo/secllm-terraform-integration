@@ -50,30 +50,32 @@ import pandas as pd
 # Modelos a evaluar (deben existir en `ollama list`).
 # Se puede sobrescribir sin editar el archivo con la variable de entorno
 # PIPELINE_MODELS (lista separada por comas).
+#
+# Estos 5 modelos (7-8B) CABEN en una GPU de 8 GB -> corren ~90% en GPU y son
+# ~100-200x mas rapidos que los modelos 32B (que se ejecutan en CPU).
 MODELS = [
-    "qwen2.5-coder:32b",
-    "deepseek-r1:32b",
-    "devstral-small-2:latest",
-    "glm-4.7-flash:q8_0",
+    "qwen2.5-coder:7b",
+    "llama3.1:8b",
+    "codellama:7b",
+    "granite-code:8b",
+    "codegemma:7b",
 ]
+# Modelos grandes anteriores (corren en CPU, muy lentos en 8 GB de VRAM):
+#   "qwen2.5-coder:32b", "deepseek-r1:32b", "devstral-small-2:latest", "glm-4.7-flash:q8_0"
 if os.environ.get("PIPELINE_MODELS"):
     MODELS = [m.strip() for m in os.environ["PIPELINE_MODELS"].split(",") if m.strip()]
 
 # Cuantas preguntas del dataset procesar por modelo.
 #
-# IMPORTANTE - rendimiento en este hardware (RTX 4070 Laptop, 8 GB VRAM):
-# los modelos (15-31 GB) NO caben en la GPU y corren en gran parte en CPU,
-# por lo que cada llamada de auditoria tarda ~3-4 min. Estimacion aproximada:
+# Rendimiento con modelos 7-8B EN GPU (RTX 4070 Laptop, 8 GB):
+# ~1-2 min por archivo (generacion + plan + 8 reglas de auditoria). Estimacion:
 #
-#     por modelo  = N generaciones + N planes + (N * 8 reglas) auditorias
-#     5 archivos  ~  2-3 h  por modelo  ->  ~10-12 h los 4 modelos (1 noche)
-#    20 archivos  ~  9-10 h por modelo  ->  varios dias los 4 modelos
+#     40 archivos  ~  ~1 h por modelo   ->  ~5-6 h los 5 modelos (1 noche)
 #
-# Con 5 obtienes una tabla comparativa completa en una noche. Si quieres mas
-# cobertura, sube el numero: es resumible, asi que puedes acumularlo en varias
-# noches sin perder lo ya hecho.
+# Con modelos 32B en CPU es ~100x mas lento (usar pocos archivos).
+# Es resumible: si se corta, vuelve a ejecutar y continua donde quedo.
 # Tambien se puede fijar con la variable de entorno PIPELINE_NUM_SAMPLES.
-NUM_SAMPLES = int(os.environ.get("PIPELINE_NUM_SAMPLES", "5"))
+NUM_SAMPLES = int(os.environ.get("PIPELINE_NUM_SAMPLES", "40"))
 
 # Endpoint de Ollama (API compatible con OpenAI).
 OLLAMA_OPENAI_URL = "http://localhost:11434/v1"

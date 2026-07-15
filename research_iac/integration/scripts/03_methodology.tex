@@ -1,0 +1,541 @@
+\section{Methodology}
+\label{sec:methodology}
+
+This section operationalizes the research questions defined in
+Section~I into a concrete experimental protocol. The methodology is
+structured as \textbf{sequential blocks of activities}, where each
+block depends on the completion of the preceding one. Following this
+set of activities enables the systematic collection of the elements
+required to achieve the research objectives. This block-based
+structure also ensures that any independent researcher can replicate
+the experiment by following the same sequence of steps.
+
+The study integrates two existing evaluation frameworks---IaC-Eval~[1]
+for functional correctness and SecLLM~[2] for security smell
+detection---into a single automated pipeline that measures both
+dimensions over the same generation tasks, under both baseline and
+security-oriented prompting conditions.
+
+% ======================================================================
+\subsection{Block 1 --- Conceptual Framework}
+\label{sec:block1}
+
+Prior work has evaluated functional correctness~[1] and security
+quality~[2],~[5] in isolation, on different datasets, with different
+models, and under different prompting conditions. While recent studies
+have begun to measure both dimensions jointly---most notably
+CWEval~[21], which documents a~30-percentage-point gap between
+functional correctness and joint functional-and-secure correctness in
+general-purpose languages, and GenSIaC~[15], which demonstrates that
+security-aware fine-tuning improves both dimensions simultaneously---
+these evaluations serve to validate specific proposed generation
+methods rather than to characterize the correlation between the two
+dimensions across the contemporary model landscape in the IaC domain.
+No study has yet jointly characterized functional correctness and
+security quality across multiple LLMs over a dedicated IaC benchmark,
+treating their correlation---rather than the validation of any single
+generation method---as its central object of inquiry.
+
+This study adopts a \textbf{dual evaluation model} that measures
+three dimensions simultaneously:
+
+\begin{enumerate}[label=\textbf{Dim \arabic*:}, leftmargin=*]
+    \item \textbf{Functional Correctness (\textit{Fc}).} Does the
+          generated Terraform code compile and satisfy the semantic
+          intent specification encoded in the Rego policy?
+    \item \textbf{Security Quality (\textit{Sp}, \textit{Sc}).}
+          \textit{Sp} is a binary indicator ($Sp \in \{0,1\}$, where
+          $Sp = 1$ denotes a script free of detected smells and $Sp = 0$
+          denotes at least one detected smell). \textit{Sc} (Smell Count)
+          is the total number of security smells detected per script,
+          a non-negative discrete variable.
+    \item \textbf{Fc-Sp Intersection.} What is the relationship
+          between both dimensions? Does functionally correct code
+          tend to be secure, or does a systematic gap exist?
+\end{enumerate}
+
+The three research questions are derived directly from this
+framework: RQ1 measures the association between Dimension~1 and the
+continuous smell count (\textit{Sc}) from Dimension~2; RQ2 measures
+the effect of security-oriented prompting on both dimensions; and
+RQ3 characterizes the smell types that persist in code that passes
+functional validation (i.e., scripts with $Fc = 1$).
+
+% ======================================================================
+\subsection{Block 2 --- Experimental Design}
+\label{sec:block2}
+
+The study employs a \textbf{two-factor design} with two independent
+variables crossed over the same stratified scenario sample: LLM Model
+(M, four levels) and Prompting Strategy (P, two levels: P0 and P1).
+Both conditions are executed and evaluated.
+
+\subsubsection{Independent Variables}
+
+\textbf{1. LLM Model (M):} Four models are evaluated, all served
+locally through Ollama. The selection spans four architectural
+families and three specialization profiles (Table~\ref{tab:models}).
+
+\begin{table}[htbp]
+\centering
+\caption{Evaluated LLM Models}
+\label{tab:models}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Model} & \textbf{Family} & \textbf{Params} & \textbf{Profile} \\
+\midrule
+qwen2.5-coder:7b  & Alibaba    & 7B  & Code-specialized \\
+llama3.1:8b        & Meta       & 8B  & General-purpose \\
+codellama:7b       & Meta       & 7B  & Code-specialized \\
+codegemma:7b       & Google     & 7B  & Code-specialized \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{2. Prompting Strategy (P):} Two levels are defined and both
+are executed:
+\begin{itemize}
+    \item \textbf{P0 (Baseline):} A system prompt instructing the
+          model to act as an expert Terraform engineer, generate
+          valid HCL code, and output only the Terraform code. No
+          security guidance is provided.
+    \item \textbf{P1 (Security-oriented):} An augmented prompt that
+          additionally directs the model to: avoid hardcoded
+          credentials; apply least-privilege IAM policies; restrict
+          network exposure; enforce encryption in transit; use strong
+          cryptography; add integrity checks for downloaded resources;
+          and omit placeholder security comments. The instructions
+          are derived directly from the eight security smell
+          categories operationalized in Block~8.
+\end{itemize}
+
+\subsubsection{Dependent Variables}
+
+Three dependent variables capture the experimental outcomes:
+
+\begin{enumerate}
+    \item \textbf{Functional Correctness (\textit{Fc}):} A binary
+          metric at the script level ($Fc = 1$ if the script passes
+          both \texttt{terraform plan} and OPA/Rego semantic intent
+          validation; $Fc = 0$ otherwise). At the model level,
+          aggregated as \textit{pass@1}, consistent with
+          IaC-Eval~[1].
+    \item \textbf{Security Smell Prevalence (\textit{Sp}):} A binary
+          variable ($Sp = 1$ if no smell is detected in the script;
+          $Sp = 0$ if at least one smell is detected).
+    \item \textbf{Smell Count (\textit{Sc}):} A non-negative discrete
+          count of the total number of security smells detected per
+          script. Used as the continuous variable in RQ1 correlations.
+    \item \textbf{Smell Taxonomic Type (\textit{St}):} A nominal
+          classification according to the eight Terraform-adapted
+          rules operationalized from the taxonomy of
+          De~Vito et al.~[2] (see Block~8 and
+          Table~\ref{tab:smells}).
+\end{enumerate}
+
+% ======================================================================
+\subsection{Block 3 --- Dataset Description and Preparation}
+\label{sec:block3}
+
+The experiment uses the IaC-Eval benchmark~[1], the first dedicated
+benchmark for evaluating IaC code generation. It comprises 458
+human-curated scenarios covering AWS services across six difficulty
+levels, spanning 251 unique AWS resource types. Each scenario provides
+a natural language description of the desired infrastructure, a Rego
+policy specification for semantic intent validation, and a reference
+Terraform output.
+
+\textbf{Role of AWS in this study.} AWS is the \textit{target cloud
+provider} described in the benchmark scenarios---not a service that
+is actively used during the experiment. The generated Terraform code
+is designed to provision AWS resources (S3 buckets, IAM roles, VPCs,
+etc.), but the evaluation is performed \textbf{entirely offline}.
+Dummy AWS credentials and a provider override disable all real API
+calls, allowing \texttt{terraform plan} to validate code structure
+without contacting AWS services.
+
+\subsubsection{Dataset Structure}
+
+The dataset is stored in CSV format with six columns:
+\texttt{Resource}, \texttt{Prompt}, \texttt{Rego intent},
+\texttt{Difficulty} (integer 1--6), \texttt{Reference output}, and
+\texttt{Intent}.
+
+\subsubsection{Data Cleaning and Preprocessing}
+
+As IaC-Eval is a human-curated benchmark, no extensive data cleaning
+was required. The following preprocessing steps were applied:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Null and empty field validation:} No missing values
+          were found in the \texttt{Prompt} or \texttt{Rego intent}
+          columns.
+    \item \textbf{Sequential indexing:} Each scenario was assigned a
+          zero-padded identifier (\texttt{question\_0000},
+          \texttt{question\_0001}, \ldots, \texttt{question\_0457}).
+    \item \textbf{Rego policy compatibility:} Policies written in
+          Rego~v0 syntax (without \texttt{import rego.v1}) require
+          the \texttt{-{}-v0-compatible} flag in OPA~v1.17. This
+          check was automated in the evaluation script.
+    \item \textbf{Stratified random subset selection:} A
+          \textbf{stratified random sample} of $N = 40$ scenarios
+          was drawn proportionally across the six difficulty
+          levels (seed = 42), ensuring representation of all
+          complexity strata. The resulting sample indices are
+          persisted in \texttt{experiment\_sample.json} so that
+          \textbf{exactly the same 40 scenarios} are evaluated for
+          all models and both prompting conditions~(P0 and P1),
+          guaranteeing comparability. Table~\ref{tab:sample_dist}
+          reports the sample distribution by difficulty level.
+\end{enumerate}
+
+\begin{table}[htbp]
+\centering
+\caption{Stratified Sample Distribution by Difficulty Level ($N=40$)}
+\label{tab:sample_dist}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Difficulty} & \textbf{Population} & \textbf{Sample} \\
+\midrule
+1 & 45  & 4  \\
+2 & 95  & 8  \\
+3 & 113 & 10 \\
+4 & 58  & 5  \\
+5 & 72  & 6  \\
+6 & 75  & 7  \\
+\midrule
+\textbf{Total} & \textbf{458} & \textbf{40} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ======================================================================
+\subsection{Block 4 --- Environment Setup}
+\label{sec:block4}
+
+Before executing the pipeline, the following tools must be installed
+and configured:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Python 3.10+} with dependencies: \texttt{pandas},
+          \texttt{requests}, \texttt{pyyaml}, \texttt{scipy}.
+    \item \textbf{Ollama} for local LLM inference, with all models
+          downloaded via \texttt{ollama pull}.
+    \item \textbf{Terraform CLI} for code compilation and plan
+          generation.
+    \item \textbf{OPA v1.17} for Rego policy evaluation.
+    \item \textbf{AWS credentials offline:} Dummy credentials are
+          set via environment variables, and a provider override file
+          disables all real AWS API calls.
+\begin{verbatim}
+provider "aws" {
+  access_key = "test"
+  secret_key = "test"
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  skip_metadata_api_check     = true
+}
+\end{verbatim}
+    \item \textbf{Plugin cache:} \texttt{TF\_PLUGIN\_CACHE\_DIR} is
+          configured to avoid re-downloading the AWS provider.
+\end{enumerate}
+
+All infrastructure runs locally on an NVIDIA RTX~4070 Laptop GPU
+with 8\,GB of VRAM. All four evaluated models (7--8B parameters)
+fit in GPU memory and complete a full generation--evaluation--audit
+cycle in approximately 1--2 minutes per scenario.
+
+% ======================================================================
+\subsection{Block 5 --- Script Construction: Pipeline Orchestration}
+\label{sec:block5}
+
+The complete experiment is orchestrated by an automated Python
+script (\texttt{pipeline\_v2.py}) that executes three sequential
+phases for each model and prompting condition. The script is
+publicly available in the replication
+package\footnote{\url{https://github.com/edarmijo/secllm-terraform-integration}}.
+
+The script accepts the following configurable parameters:
+\begin{itemize}[leftmargin=*]
+    \item \texttt{PIPELINE\_MODELS}: comma-separated list of model
+          names (must match \texttt{ollama list}).
+    \item \texttt{PIPELINE\_N}: number of scenarios per model per
+          condition (default: 40).
+    \item \texttt{COMMON\_AUDITOR}: the model designated as the
+          external security auditor (default:
+          \texttt{devstral-small-2:latest}).
+\end{itemize}
+
+Key properties of the script:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Resumable:} Re-execution resumes from the last
+          completed observation.
+    \item \textbf{Incremental:} Results are persisted in JSON after
+          each observation.
+    \item \textbf{Isolated per model and condition:} Each
+          model--condition pair has its own output directory
+          (\texttt{outputs\_v2/<model>/<condition>/}).
+\end{itemize}
+
+% ======================================================================
+\subsection{Block 6 --- Phase 1: Code Generation}
+\label{sec:block6}
+
+For each scenario and prompting condition, the model receives the
+natural language prompt with a system instruction and generates a
+Terraform HCL script. The micro-steps are:
+
+\begin{enumerate}[leftmargin=*]
+    \item Load the system prompt (P0 or P1, as defined in Block~2).
+    \item Concatenate the system prompt with the scenario natural
+          language prompt as the user message.
+    \item Send the request to the local Ollama API
+          (\texttt{http://localhost:11434/api/generate}) with
+          temperature = 0.2 and \texttt{keep\_alive} = 10 minutes.
+    \item Extract the HCL block (delimited by \texttt{hcl ...}).
+    \item Save the extracted code as
+          \texttt{outputs\_v2/<model>/<condition>/terraform/%
+          question\_XXXX.tf}.
+    \item If extraction fails (empty response or timeout of 1800\,s),
+          skip and flag for retry.
+    \item Purge conversation context before the next task to ensure
+          statistical independence.
+\end{enumerate}
+
+% ======================================================================
+\subsection{Block 7 --- Phase 2: Functional Evaluation}
+\label{sec:block7}
+
+Each generated \texttt{.tf} file is evaluated for functional
+correctness through two sequential sub-phases:
+
+\subsubsection{Technical Validation}
+
+\begin{enumerate}[leftmargin=*]
+    \item Execute \texttt{terraform init -backend=false} in an
+          isolated temporary directory.
+    \item Execute \texttt{terraform plan -out plan.out -no-color}.
+    \item If the plan fails (return code $\neq 0$): classify as
+          $Fc = 0$ and record the error message.
+    \item If the plan succeeds: serialize the plan to JSON via
+          \texttt{terraform show -json plan.out}.
+\end{enumerate}
+
+\subsubsection{Intent Validation}
+
+\begin{enumerate}[leftmargin=*]
+    \item Write the corresponding Rego policy to a temporary file.
+    \item Execute \texttt{opa eval -i plan.json -d policy.rego data}.
+    \item If all leaf values in the OPA output are \texttt{true}:
+          classify as $Fc = 1$ (functionally correct).
+    \item If any leaf value is \texttt{false}: classify as $Fc = 0$.
+\end{enumerate}
+
+Results are recorded incrementally in
+\texttt{iac\_eval\_results.json}.
+
+% ======================================================================
+\subsection{Block 8 --- Phase 3: Security Auditing}
+\label{sec:block8}
+
+Security quality is measured using SecLLM~[2], adapted for
+Terraform/HCL and local inference.
+
+\subsubsection{Common External Auditor}
+
+To eliminate the confound introduced by self-auditing---whereby the
+same model that generates the code also audits it, entangling
+detection capability with willingness to report its own
+flaws---this study designates a single \textbf{common external
+auditor model} (\texttt{devstral-small-2:latest}) that evaluates
+the outputs of all four generation models across both prompting
+conditions. This design ensures that security smell detection is
+consistent and independent of the generating model.
+
+The auditing micro-steps are:
+
+\begin{enumerate}[leftmargin=*]
+    \item Load the SecLLM configuration with the eight
+          Terraform-specific security rules
+          (\texttt{config\_terraform.yaml}).
+    \item For each of the eight rules, send the numbered script to
+          the common auditor with the specialized COSTAR prompt.
+    \item Parse the structured XML response to determine if the
+          smell was detected.
+    \item Record the detection result (smell name, line number,
+          confidence).
+    \item Aggregate results per file: binary prevalence (\textit{Sp}),
+          total smell count (\textit{Sc}), and taxonomic
+          classification (\textit{St}).
+\end{enumerate}
+
+Auditing conditions: temperature = 0.0 (deterministic), timeout =
+3600\,s per file.
+
+\subsubsection{Security Smell Taxonomy}
+
+The eight rules operationalize eight of the nine categories from the
+taxonomy of De~Vito et al.~[2]. The ninth category, Missing Default
+Case, is excluded because the HCL language does not use
+switch\,/\,case control structures; this smell is specific to
+procedural IaC tools such as Chef and Puppet. The eight implemented
+rules use the COSTAR prompt framework with few-shot examples and
+structured XML output (Table~\ref{tab:smells}).
+
+\begin{table}[htbp]
+\centering
+\caption{Security Smell Rules and CWE Mapping (8 Terraform Rules)}
+\label{tab:smells}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Dimension} & \textbf{Smell} & \textbf{CWE} \\
+\midrule
+\multirow{3}{*}{Credentials}
+  & Admin by Default    & CWE-250 \\
+  & Empty Password      & CWE-258 \\
+  & Hard-coded Secret   & CWE-798 \\
+\midrule
+\multirow{2}{*}{Network}
+  & Unrestricted IP     & CWE-284 \\
+  & HTTP without TLS    & CWE-319 \\
+\midrule
+\multirow{3}{*}{Code Quality}
+  & No Integrity Check  & CWE-353 \\
+  & Weak Cryptography   & CWE-327 \\
+  & Suspicious Comment  & CWE-546 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ======================================================================
+\subsection{Block 9 --- SecLLM Adaptation}
+\label{sec:block9}
+
+SecLLM originally supported only Ansible, Puppet, and Chef with
+cloud-based LLM APIs. Six modifications were required to adapt it
+for this study:
+
+\begin{enumerate}[leftmargin=*]
+    \item UTF-8 encoding fixes for configuration and script file
+          reading on Windows.
+    \item Increased API timeout from 120\,s to 600\,s.
+    \item Expansion of the retry loop from 1 to 3 attempts.
+    \item Handling of \texttt{confidence = None} for local backends
+          that do not return logprobs.
+    \item Making \texttt{torch} and \texttt{anthropic} imports
+          optional.
+    \item Authoring eight Terraform-specific security smell detection
+          rules using the COSTAR prompt framework.
+\end{enumerate}
+
+All modifications are documented in the replication package.
+
+% ======================================================================
+\subsection{Block 10 --- Statistical Analysis Plan}
+\label{sec:block10}
+
+Given that the primary metrics are zero-bounded and likely
+asymmetric, the analysis uses non-parametric methods. Results are
+reported in Section~IV.
+
+\subsubsection{RQ1 --- Correlation}
+
+Spearman's $\rho$ and Kendall's $\tau$ quantify the monotonic
+association between $Fc$ (binary) and $Sc$ (smell count, continuous
+discrete) across all scripts in the P0 condition. Spearman's $\rho$
+also serves as the effect size measure for this test.
+
+\subsubsection{RQ2 --- Prompting Effect}
+
+The Wilcoxon signed-rank test (paired, two-sided) compares $Sc$
+and $Fc$ between P0 and P1 on the same $N = 40$ scenarios for each
+model. Effect size is quantified by the rank-biserial correlation
+$r = W / [n(n+1)/2]$, where $W$ is the Wilcoxon statistic and $n$
+is the number of non-zero differences. Multiple comparison correction
+uses \textbf{Holm-Bonferroni} (family: RQ1 and RQ2 confirmatory
+hypotheses).
+
+\subsubsection{Model Comparison (Exploratory)}
+
+The Kruskal-Wallis test with $\eta^2 = (H - k + 1)/(n - k)$ as
+effect size is applied to compare $Sc$ distributions across the
+four models. Pairwise Mann-Whitney~$U$ tests with rank-biserial
+$r$ as effect size are used for post-hoc comparisons. Multiple
+comparison correction for this exploratory family uses
+\textbf{Benjamini-Hochberg} FDR control, which is appropriate for
+discovery-oriented analyses.
+
+\subsubsection{RQ3 --- Smell Type Distribution}
+
+The analysis is restricted to scripts with $Fc = 1$. Given the
+typically small number of such scripts, the analysis is
+\textbf{descriptive}: frequency counts and proportions for each
+smell type are reported. Fisher's Exact Test is applied only when
+cell counts are sufficient ($\geq 5$) and corrected with
+Benjamini-Hochberg FDR (exploratory family).
+
+\subsubsection{Multiple Correction Summary}
+
+Two separate families of hypotheses are defined:
+\begin{itemize}
+    \item \textbf{Confirmatory family} (RQ1 and RQ2): corrected with
+          Holm-Bonferroni sequential correction (FWER control).
+    \item \textbf{Exploratory family} (model comparisons and smell
+          type comparisons in RQ3): corrected with
+          Benjamini-Hochberg FDR control.
+\end{itemize}
+
+% ======================================================================
+\subsection{Block 11 --- Methodology Diagram}
+\label{sec:block11}
+
+Figure~\ref{fig:diagrama} presents the complete methodology as a
+block diagram, showing the sequential flow of activities from
+stratified dataset sampling through parallel P0/P1 code generation,
+functional evaluation, common-auditor security auditing, and
+statistical analysis.
+
+\begin{figure*}[htbp]
+
+\end{figure*}
+
+% ======================================================================
+\subsection{Block 12 --- Threats to Validity}
+\label{sec:block12}
+
+\textbf{Construct Validity.} Surface-level metrics such as BLEU or
+CodeBERTScore lack validity in the IaC domain, where syntactically
+different configurations can be functionally equivalent~[1]. This
+study uses \texttt{terraform plan} and OPA/Rego as ground-truth
+oracles for functional correctness, and the SecLLM semantic analyzer
+for security smell detection. The binary nature of $Fc$ (pass/fail)
+may obscure partial correctness; however, this design follows the
+IaC-Eval~[1] protocol and enables direct comparison with prior work.
+
+\textbf{Internal Validity.} The use of a single common external
+auditor (\texttt{devstral-small-2:latest}) eliminates the
+self-auditing confound present in prior versions of this experiment,
+where the generating model was also the auditor. The remaining
+internal validity concern is that the auditor model may itself have
+systematic detection biases; this is mitigated by selecting a
+code-specialized model with demonstrated security smell detection
+capability. Temperature = 0.0 (deterministic) ensures reproducibility
+of audit decisions. Statistical independence between scenarios is
+enforced by purging conversation context between tasks.
+
+\textbf{External Validity.} The evaluation is limited to
+Terraform/HCL and AWS services. Results may not generalize to other
+IaC tools (Ansible, Pulumi, CloudFormation) or cloud providers.
+The use of open-weight 7--8B models through Ollama ensures
+reproducibility and enables community replication on consumer
+hardware, but results may differ for larger proprietary frontier
+models (e.g., GPT-4o, Claude Opus).
+
+\textbf{Conclusion Validity.} With $N = 40$ scenarios per model
+per condition and four models, the pooled sample for RQ1 is
+$N = 160$ observations, providing adequate statistical power for
+non-parametric tests. The Wilcoxon signed-rank test for RQ2 operates
+on $N = 40$ paired observations per model, which is above the
+minimum recommended for reliable inference. The stratified random
+sample ensures representation of all six difficulty levels
+(Table~\ref{tab:sample_dist}).

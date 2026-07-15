@@ -1,0 +1,282 @@
+[
+  {
+    "file": "question_0000.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0001.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 6, in resource \"aws_route53_zone_association\" \"example\":\n   6:   zone_id = aws_route53_zone.example.id\n\nA managed resource \"aws_route53_zone\" \"example\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 7, in resource \"aws_route53_zone_association\" \"example\":\n   7:   vpc_id  = aws_vpc.example.id\n\nA managed resource \"aws_vpc\" \"example\" has not been declared in the root\nmodule.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0002.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 14, in resource \"aws_elb\" \"main\":\n  14:   listener {\n\nThe argument \"instance_protocol\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 14, in resource \"aws_elb\" \"main\":\n  14:   listener {\n\nThe argument \"lb_protocol\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 17, in resource \"aws_elb\" \"main\":\n  17:     protocol          = \"http\"\n\nAn argument named \"protocol\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 72, in resource \"aws_route53_record\" \"primary\":\n  72:     zone_id = aws_db_instance.primary.zone_name\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_name\".\n\nError: Unsupported attribute\n\n  on main.tf line 84, in resource \"aws_route53_record\" \"replica_us_east\":\n  84:     zone_id = aws_db_instance.replica_us_east.zone_name\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_name\".\n\nError: Unsupported attribute\n\n  on main.tf line 96, in resource \"aws_route53_record\" \"replica_eu_central\":\n  96:     zone_id = aws_db_instance.replica_eu_central.zone_name\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_name\".\n\nError: Unsupported attribute\n\n  on main.tf line 108, in resource \"aws_route53_record\" \"replica_ap_southeast\":\n 108:     zone_id = aws_db_instance.replica_ap_southeast.zone_name\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_name\".\n\nError: Unsupported argument\n\n  on main.tf line 120, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n 120:     region = aws_db_instance.primary.region\n\nAn argument named \"region\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 121, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n 121:     evaluated_id = aws_db_instance.primary.id\n\nAn argument named \"evaluated_id\" is not expected here.\n\nError: Too many weighted_routing_policy blocks\n\n  on main.tf line 123, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n 123:   weighted_routing_policy {\n\nNo more than 1 \"weighted_routing_policy\" blocks are allowed\n\nError: Unsupported argument\n\n  on main.tf line 125, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n 125:     region = aws_db_instance.replica_us_east.region\n\nAn argument named \"region\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 126, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n 126:     evaluated_id = aws_db_instance.replica_us_east.id\n\nAn argument named \"evaluated_id\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 130, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n 130:     region = aws_db_instance.replica_eu_central.region\n\nAn argument named \"region\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 131, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n 131:     evaluated_id = aws_db_instance.replica_eu_central.id\n\nAn argument named \"evaluated_id\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0004.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 13, in resource \"aws_rds_instance\" \"internal\":\n  13: resource \"aws_rds_instance\" \"internal\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n\nError: Invalid resource type\n\n  on main.tf line 22, in resource \"aws_rds_instance\" \"public\":\n  22: resource \"aws_rds_instance\" \"public\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 25, in resource \"aws_db_instance\" \"replica-1\":\n  25:   replica_identifier   = aws_db_instance.primary.identifier\n\nAn argument named \"replica_identifier\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 35, in resource \"aws_db_instance\" \"replica-2\":\n  35:   replica_identifier   = aws_db_instance.primary.identifier\n\nAn argument named \"replica_identifier\" is not expected here.\n\nError: Unsupported attribute\n\n  on main.tf line 44, in resource \"aws_route53_record\" \"primary\":\n  44:     zone_id                = aws_db_instance.primary.endpoint_domain\n\nThis object has no argument, nested block, or exported attribute named\n\"endpoint_domain\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0006.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 72, in resource \"aws_elastic_beanstalk_application\" \"my_app\":\n  72:   setting {\n\nBlocks of type \"setting\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 78, in resource \"aws_elastic_beanstalk_application\" \"my_app\":\n  78:   setting {\n\nBlocks of type \"setting\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 56, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  56:   environment_name    = \"my-api-env\"\n\nAn argument named \"environment_name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0008.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 40, in resource \"aws_iam_role_policy\" \"eb_ec2_policy\":\n  40:         Resource = aws_s3_bucket.example.arn\n\nA managed resource \"aws_s3_bucket\" \"example\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 69, in resource \"aws_elastic_beanstalk_environment\" \"example1\":\n  69:     value     = aws_vpc.example.id\n\nA managed resource \"aws_vpc\" \"example\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 75, in resource \"aws_elastic_beanstalk_environment\" \"example1\":\n  75:     value     = aws_subnet.example1.id\n\nA managed resource \"aws_subnet\" \"example1\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 87, in resource \"aws_elastic_beanstalk_environment\" \"example2\":\n  87:     value     = aws_vpc.example.id\n\nA managed resource \"aws_vpc\" \"example\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 93, in resource \"aws_elastic_beanstalk_environment\" \"example2\":\n  93:     value     = aws_subnet.example2.id\n\nA managed resource \"aws_subnet\" \"example2\" has not been declared in the root\nmodule.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0009.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 46, in resource \"aws_sqs_queue\" \"batch_job_queue\":\n  46:   message_retention_period    = 345600\n\nAn argument named \"message_retention_period\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 48, in resource \"aws_sqs_queue\" \"batch_job_queue\":\n  48:   visibility_timeout           = 30\n\nAn argument named \"visibility_timeout\" is not expected here.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 54, in resource \"aws_elastic_beanstalk_environment\" \"batch_job_env\":\n  54:   version_label       = var.version\n\nAn input variable with the name \"version\" has not been declared. This\nvariable can be declared with a variable \"version\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0010.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Incorrect attribute value type\n\n  on main.tf line 56, in resource \"aws_elastic_beanstalk_environment\" \"myapp\":\n  56:     value     = [\"subnet-12345678\", \"subnet-23456789\"]\n\nInappropriate value for attribute \"value\": string required.\n\nError: Missing required argument\n\n  on main.tf line 64, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n  64: resource \"aws_elastic_beanstalk_application_version\" \"version\" {\n\nThe argument \"name\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 64, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n  64: resource \"aws_elastic_beanstalk_application_version\" \"version\" {\n\nThe argument \"bucket\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 64, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n  64: resource \"aws_elastic_beanstalk_application_version\" \"version\" {\n\nThe argument \"application\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 64, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n  64: resource \"aws_elastic_beanstalk_application_version\" \"version\" {\n\nThe argument \"key\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 65, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n  65:   application_name = aws_elastic_beanstalk_application.myapp.name\n\nAn argument named \"application_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 66, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n  66:   version_label    = \"version\"\n\nAn argument named \"version_label\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0011.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 59, in resource \"aws_elastic_beanstalk_environment\" \"eb_env\":\n  59:     value     = aws_vpc.default.id\n\nA managed resource \"aws_vpc\" \"default\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 65, in resource \"aws_elastic_beanstalk_environment\" \"eb_env\":\n  65:     value     = join(\",\", aws_subnet.default.*.id)\n\nA managed resource \"aws_subnet\" \"default\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 75, in resource \"aws_s3_bucket\" \"eb_bucket\":\n  75:   bucket = \"examplebucket-${random_string.random.id}\"\n\nA managed resource \"random_string\" \"random\" has not been declared in the root\nmodule.\n\nError: Missing required argument\n\n  on main.tf line 126, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n 126: resource \"aws_elastic_beanstalk_application_version\" \"version\" {\n\nThe argument \"bucket\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 126, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n 126: resource \"aws_elastic_beanstalk_application_version\" \"version\" {\n\nThe argument \"key\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 126, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n 126: resource \"aws_elastic_beanstalk_application_version\" \"version\" {\n\nThe argument \"name\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 126, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n 126: resource \"aws_elastic_beanstalk_application_version\" \"version\" {\n\nThe argument \"application\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 127, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n 127:   application_name = aws_elastic_beanstalk_application.myapp.name\n\nAn argument named \"application_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 128, in resource \"aws_elastic_beanstalk_application_version\" \"version\":\n 128:   version_label    = \"v1\"\n\nAn argument named \"version_label\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 54, in resource \"aws_iam_role_policy\" \"beanstalk_blue\":\n  54:         Resource = aws_s3_bucket.example.arn\n\nA managed resource \"aws_s3_bucket\" \"example\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 73, in resource \"aws_iam_role_policy\" \"beanstalk_green\":\n  73:         Resource = aws_s3_bucket.example.arn\n\nA managed resource \"aws_s3_bucket\" \"example\" has not been declared in the\nroot module.\n\nError: Unsupported argument\n\n  on main.tf line 117, in resource \"aws_elastic_beanstalk_application\" \"example\":\n 117:   environment_name = aws_elastic_beanstalk_environment.blue.name\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 124, in resource \"aws_route53_record_set\" \"blue\":\n 124: resource \"aws_route53_record_set\" \"blue\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 136, in resource \"aws_route53_record_set\" \"green\":\n 136: resource \"aws_route53_record_set\" \"green\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0013.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 84, in resource \"aws_elastic_beanstalk_environment\" \"us_west\":\n  84:   platform            = \"64bit Amazon Linux 2018.03 v2.10.4 running Java 8\"\n\nAn argument named \"platform\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 92, in resource \"aws_elastic_beanstalk_environment\" \"eu_central\":\n  92:   platform            = \"64bit Amazon Linux 2018.03 v2.10.4 running Java 8\"\n\nAn argument named \"platform\" is not expected here.\n\nError: invalid value for domain_name (cannot end with a period)\n\n  with aws_acm_certificate.example,\n  on main.tf line 130, in resource \"aws_acm_certificate\" \"example\":\n 130:   domain_name       = \"example.com.\"\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 62, in resource \"aws_db_instance\" \"default\":\n  62:   name                  = \"mydatabase\"\n\nAn argument named \"name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "terraform exception: Command '['terraform', 'init', '-backend=false']' timed out after 300 seconds",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0016.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "terraform exception: Command '['terraform', 'init', '-backend=false']' timed out after 300 seconds",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0017.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 90, in resource \"aws_elastic_beanstalk_environment\" \"example\":\n  90:   environment_name    = \"my-env-1\"\n\nAn argument named \"environment_name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_iam_role\" \"beanstalk_service_role\":\n   8:   name        = \"${var.environment}-beanstalk-service-role\"\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 46, in resource \"aws_iam_role\" \"beanstalk_ec2_instance_role\":\n  46:   name        = \"${var.environment}-beanstalk-ec2-instance-role\"\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 84, in resource \"aws_iam_role\" \"beanstalk_rds_instance_role\":\n  84:   name        = \"${var.environment}-beanstalk-rds-instance-role\"\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 123, in resource \"aws_s3_bucket\" \"beanstalk_bucket\":\n 123:   bucket = \"${var.environment}-beanstalk-bucket\"\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 150, in resource \"aws_vpc\" \"beanstalk_vpc\":\n 150:     Name = \"${var.environment}-vpc\"\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 247, in resource \"aws_elastic_beanstalk_application\" \"beanstalk_app\":\n 247:   name = \"${var.environment}-app\"\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n\nError: Invalid resource type\n\n  on main.tf line 250, in resource \"aws_rds_instance\" \"beanstalk_db\":\n 250: resource \"aws_rds_instance\" \"beanstalk_db\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0019.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 76, in resource \"aws_db_instance\" \"shared_rds\":\n  76:   name                 = \"shared_rds\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 96, in resource \"aws_elastic_beanstalk_environment\" \"env_1\":\n  96:   environment_name   = \"dev-env\"\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 115, in resource \"aws_elastic_beanstalk_environment\" \"env_2\":\n 115:   environment_name   = \"prod-env\"\n\nAn argument named \"environment_name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0020.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0021.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0022.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0023.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0024.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 68, in resource \"aws_elastic_beanstalk_environment\" \"myenv\":\n  68:     value     = aws_vpc.default.id\n\nA managed resource \"aws_vpc\" \"default\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 74, in resource \"aws_elastic_beanstalk_environment\" \"myenv\":\n  74:     value     = aws_subnet.default.*.id\n\nA managed resource \"aws_subnet\" \"default\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 86, in resource \"aws_rds_cluster\" \"myapp_db\":\n  86:   vpc_security_group_ids = [aws_security_group.default.id]\n\nA managed resource \"aws_security_group\" \"default\" has not been declared in\nthe root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0025.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 59, in resource \"aws_elastic_beanstalk_environment\" \"myenv_us_east\":\n  59:   environment_name    = \"dev-us-east-1\"\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 61, in resource \"aws_elastic_beanstalk_environment\" \"myenv_us_east\":\n  61:   platform           = \"64bit Amazon Linux 2 v3.0.10 running Docker\"\n\nAn argument named \"platform\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_environment\" \"myenv_eu_west\":\n  67:   environment_name    = \"dev-eu-west-1\"\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 69, in resource \"aws_elastic_beanstalk_environment\" \"myenv_eu_west\":\n  69:   platform           = \"64bit Amazon Linux 2 v3.0.10 running Docker\"\n\nAn argument named \"platform\" is not expected here.\n\nError: invalid value for name (cannot begin with sg-)\n\n  with aws_security_group.sg_us_east,\n  on main.tf line 135, in resource \"aws_security_group\" \"sg_us_east\":\n 135:   name        = \"sg-us-east-1\"\n\n\nError: invalid value for name (cannot begin with sg-)\n\n  with aws_security_group.sg_eu_west,\n  on main.tf line 147, in resource \"aws_security_group\" \"sg_eu_west\":\n 147:   name        = \"sg-eu-west-1\"\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0026.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 41, in resource \"aws_rds_instance\" \"myapp_db\":\n  41: resource \"aws_rds_instance\" \"myapp_db\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n\nError: Reference to undeclared resource\n\n  on main.tf line 139, in resource \"aws_elastic_beanstalk_environment\" \"blue\":\n 139:     value      = aws_vpc.default.id\n\nA managed resource \"aws_vpc\" \"default\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 145, in resource \"aws_elastic_beanstalk_environment\" \"blue\":\n 145:     value      = jsonencode([aws_subnet.default.id])\n\nA managed resource \"aws_subnet\" \"default\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 157, in resource \"aws_elastic_beanstalk_environment\" \"green\":\n 157:     value      = aws_vpc.default.id\n\nA managed resource \"aws_vpc\" \"default\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 163, in resource \"aws_elastic_beanstalk_environment\" \"green\":\n 163:     value      = jsonencode([aws_subnet.default.id])\n\nA managed resource \"aws_subnet\" \"default\" has not been declared in the root\nmodule.\n\nError: Unsupported argument\n\n  on main.tf line 168, in resource \"aws_route53_health_check\" \"blue\":\n 168:   alarm_id               = \"myapp-blue-health-check-alarm\"\n\nAn argument named \"alarm_id\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 169, in resource \"aws_route53_health_check\" \"blue\":\n 169:   enabled                = true\n\nAn argument named \"enabled\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 170, in resource \"aws_route53_health_check\" \"blue\":\n 170:   hosted_zone_id         = aws_route53_zone.myapp.zone_id\n\nAn argument named \"hosted_zone_id\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 177, in resource \"aws_route53_health_check\" \"green\":\n 177:   alarm_id               = \"myapp-green-health-check-alarm\"\n\nAn argument named \"alarm_id\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 178, in resource \"aws_route53_health_check\" \"green\":\n 178:   enabled                = true\n\nAn argument named \"enabled\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 179, in resource \"aws_route53_health_check\" \"green\":\n 179:   hosted_zone_id         = aws_route53_zone.myapp.zone_id\n\nAn argument named \"hosted_zone_id\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0027.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 53, in resource \"aws_elastic_beanstalk_environment\" \"my_env\":\n  53:   environment_name   = \"my-env\"\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Incorrect attribute value type\n\n  on main.tf line 64, in resource \"aws_elastic_beanstalk_environment\" \"my_env\":\n  64:     value     = [\"subnet-12345678\", \"subnet-23456789\"]\n\nInappropriate value for attribute \"value\": string required.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0028.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0029.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0030.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid function argument\n\n  on main.tf line 87, in resource \"aws_instance\" \"web_server\":\n  87:     private_key = file(\"~/.ssh/my-key\")\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\n    \u00e2\u201d\u201a while calling file(path)\n\nInvalid value for \"path\" parameter: no file exists at \"~/.ssh/my-key\"; this\nfunction works only with files that are distributed as part of the\nconfiguration source code, so if this file will be created by a resource in\nthis configuration you must instead obtain this result from an attribute of\nthat resource.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0031.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_application\" \"example\":\n  67:   app_version_lifecycle {\n\nBlocks of type \"app_version_lifecycle\" are not expected here. Did you mean\n\"appversion_lifecycle\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0032.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 47, in resource \"aws_elastic_beanstalk_environment\" \"example\":\n  47:   environment_name   = \"dev\"\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 66, in resource \"aws_elastic_beanstalk_environment_config\" \"example\":\n  66: resource \"aws_elastic_beanstalk_environment_config\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elastic_beanstalk_environment_config\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0033.tf",
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Success",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "No error"
+  },
+  {
+    "file": "question_0034.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 52, in resource \"aws_codebuild_project\" \"example\":\n  52: resource \"aws_codebuild_project\" \"example\" {\n\nThe argument \"service_role\" is required, but no definition was found.\n\nError: Insufficient artifacts blocks\n\n  on main.tf line 52, in resource \"aws_codebuild_project\" \"example\":\n  52: resource \"aws_codebuild_project\" \"example\" {\n\nAt least 1 \"artifacts\" blocks are required.\n\nError: Unsupported block type\n\n  on main.tf line 75, in resource \"aws_codebuild_project\" \"example\":\n  75:     cache {\n\nBlocks of type \"cache\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0035.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 43, in resource \"aws_codebuild_project\" \"example_codebuild_project\":\n  43: resource \"aws_codebuild_project\" \"example_codebuild_project\" {\n\nThe argument \"service_role\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 55, in resource \"aws_codebuild_project\" \"example_codebuild_project\":\n  55:     environment_variables = {\n\nAn argument named \"environment_variables\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0036.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 43, in resource \"aws_codebuild_project\" \"example\":\n  43: resource \"aws_codebuild_project\" \"example\" {\n\nThe argument \"service_role\" is required, but no definition was found.\n\nError: Invalid function argument\n\n  on main.tf line 62, in resource \"aws_codebuild_project\" \"example\":\n  62:     buildspec   = file(\"./path/to/buildspec.yml\")\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\n    \u00e2\u201d\u201a while calling file(path)\n\nInvalid value for \"path\" parameter: no file exists at\n\"./path/to/buildspec.yml\"; this function works only with files that are\ndistributed as part of the configuration source code, so if this file will be\ncreated by a resource in this configuration you must instead obtain this\nresult from an attribute of that resource.\n\nError: Unsupported argument\n\n  on main.tf line 65, in resource \"aws_codebuild_project\" \"example\":\n  65:     override_environment_variables = {\n\nAn argument named \"override_environment_variables\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0037.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 43, in resource \"aws_codebuild_project\" \"example_codebuild_project\":\n  43: resource \"aws_codebuild_project\" \"example_codebuild_project\" {\n\nThe argument \"service_role\" is required, but no definition was found.\n\nError: Insufficient artifacts blocks\n\n  on main.tf line 43, in resource \"aws_codebuild_project\" \"example_codebuild_project\":\n  43: resource \"aws_codebuild_project\" \"example_codebuild_project\" {\n\nAt least 1 \"artifacts\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 64, in resource \"aws_codebuild_project\" \"example_codebuild_project\":\n  64:     cloudwatch_logs_group_name = aws_cloudwatch_log_group.example_codebuild_log_group.name\n\nAn argument named \"cloudwatch_logs_group_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 65, in resource \"aws_codebuild_project\" \"example_codebuild_project\":\n  65:     cloudwatch_logs_role_arn   = aws_iam_role.example_codebuild_role.arn\n\nAn argument named \"cloudwatch_logs_role_arn\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0038.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 52, in resource \"aws_codebuild_project\" \"example\":\n  52: resource \"aws_codebuild_project\" \"example\" {\n\nThe argument \"service_role\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 77, in resource \"aws_codebuild_project\" \"example\":\n  77:     cloudwatch_logs_group_name = \"${aws_codebuild_project.example.name}/logs\"\n\nAn argument named \"cloudwatch_logs_group_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 78, in resource \"aws_codebuild_project\" \"example\":\n  78:     cloudwatch_logs_role_arn   = aws_iam_role.codebuild-role.arn\n\nAn argument named \"cloudwatch_logs_role_arn\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0039.tf",
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 47, in resource \"aws_codebuild_project\" \"example\":\n  47: resource \"aws_codebuild_project\" \"example\" {\n\nThe argument \"service_role\" is required, but no definition was found.\n\nError: Insufficient source blocks\n\n  on main.tf line 47, in resource \"aws_codebuild_project\" \"example\":\n  47: resource \"aws_codebuild_project\" \"example\" {\n\nAt least 1 \"source\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 51, in resource \"aws_codebuild_project\" \"example\":\n  51:   source_type            = \"GITHUB\"\n\nAn argument named \"source_type\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 52, in resource \"aws_codebuild_project\" \"example\":\n  52:   source_location        = \"https://github.com/your-username/your-repo-name.git\"\n\nAn argument named \"source_location\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 54, in resource \"aws_codebuild_project\" \"example\":\n  54:   queue_for_execution     = true\n\nAn argument named \"queue_for_execution\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  }
+]

@@ -1,0 +1,31 @@
+{
+ "total": 320,
+ "overall": {
+  "Fc1": 14,
+  "opa_fail": 37,
+  "genuine": 269,
+  "offline": 0,
+  "other": 0
+ },
+ "per_model": {
+  "codegemma_7b": {
+   "genuine": 72,
+   "opa_fail": 6,
+   "Fc1": 2
+  },
+  "codellama_7b": {
+   "opa_fail": 16,
+   "genuine": 54,
+   "Fc1": 10
+  },
+  "granite-code_8b": {
+   "opa_fail": 8,
+   "genuine": 70,
+   "Fc1": 2
+  },
+  "llama3_1_8b": {
+   "genuine": 73,
+   "opa_fail": 7
+  }
+ }
+}

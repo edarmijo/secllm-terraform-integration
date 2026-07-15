@@ -1,0 +1,47 @@
+{
+  "codegemma_7b": {
+    "n": 40,
+    "spearman_rho": 0.3344,
+    "spearman_p": 0.0349,
+    "kendall_tau": 0.3183,
+    "kendall_p": 0.0368,
+    "spearman_p_adj_holm": 0.3494,
+    "kendall_p_adj_holm": 0.3494
+  },
+  "codellama_7b": {
+    "n": 40,
+    "spearman_rho": -0.0268,
+    "spearman_p": 0.8698,
+    "kendall_tau": -0.0253,
+    "kendall_p": 0.8673,
+    "spearman_p_adj_holm": 1.0,
+    "kendall_p_adj_holm": 1.0
+  },
+  "granite-code_8b": {
+    "n": 40,
+    "spearman_rho": -0.0971,
+    "spearman_p": 0.5511,
+    "kendall_tau": -0.0926,
+    "kendall_p": 0.5442,
+    "spearman_p_adj_holm": 1.0,
+    "kendall_p_adj_holm": 1.0
+  },
+  "llama3_1_8b": {
+    "n": 40,
+    "spearman_rho": NaN,
+    "spearman_p": NaN,
+    "kendall_tau": NaN,
+    "kendall_p": NaN,
+    "spearman_p_adj_holm": 1.0,
+    "kendall_p_adj_holm": 1.0
+  },
+  "_pooled": {
+    "n": 160,
+    "spearman_rho": 0.0291,
+    "spearman_p": 0.7145,
+    "kendall_tau": 0.0273,
+    "kendall_p": 0.7133,
+    "spearman_p_adj_holm": 1.0,
+    "kendall_p_adj_holm": 1.0
+  }
+}

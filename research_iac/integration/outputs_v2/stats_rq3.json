@@ -1,0 +1,34 @@
+{
+  "total_fc1_scripts": 6,
+  "total_smell_detections_in_fc1": 11,
+  "smell_distribution_fc1": {
+    "admin_by_default": 9,
+    "hard_coded_secret": 1,
+    "suspicious_comment": 1
+  },
+  "per_model": {
+    "codegemma_7b[P0]": {
+      "fc1_scripts": 1,
+      "smells": {
+        "admin_by_default": 8
+      }
+    },
+    "codellama_7b[P0]": {
+      "fc1_scripts": 4,
+      "smells": {
+        "hard_coded_secret": 1,
+        "admin_by_default": 1,
+        "suspicious_comment": 1
+      }
+    },
+    "granite-code_8b[P0]": {
+      "fc1_scripts": 1,
+      "smells": {}
+    },
+    "llama3_1_8b[P0]": {
+      "fc1_scripts": 0,
+      "smells": {}
+    }
+  },
+  "note": "An\u00e1lisis descriptivo \u2014 muestra de scripts Fc=1 t\u00edpicamente peque\u00f1a. Se omiten tests de hip\u00f3tesis si n<10 en cualquier celda."
+}
