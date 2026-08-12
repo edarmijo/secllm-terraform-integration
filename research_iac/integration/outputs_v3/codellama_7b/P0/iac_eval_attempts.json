@@ -1,0 +1,222 @@
+[
+  {
+    "file": "question_0001.tf",
+    "scenario_index": 1,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0003.a1.tf",
+    "scenario_index": 3,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_us_east its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].us-east is\nrequired, but it has been removed. This occurs when a provider configuration\nis removed while objects created by that provider still exist in the state.\nRe-add the provider configuration to destroy aws_db_instance.replica_us_east,\nafter which you can remove the provider configuration again.\n\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_eu_central its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].eu-central\nis required, but it has been removed. This occurs when a provider\nconfiguration is removed while objects created by that provider still exist\nin the state. Re-add the provider configuration to destroy\naws_db_instance.replica_eu_central, after which you can remove the provider\nconfiguration again.\n\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_ap_southeast its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].ap-southeast\nis required, but it has been removed. This occurs when a provider\nconfiguration is removed while objects created by that provider still exist\nin the state. Re-add the provider configuration to destroy\naws_db_instance.replica_ap_southeast, after which you can remove the provider\nconfiguration again.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a1.tf",
+    "scenario_index": 5,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 1, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n   1: resource \"aws_route53_record\" \"weighted_routing_policy\" {\n\nThe argument \"zone_id\" is required, but no definition was found.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.tf",
+    "scenario_index": 7,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0012.a1.tf",
+    "scenario_index": 12,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 23, in resource \"aws_route53_record\" \"blue\":\n  23:     zone_id                = aws_elastic_beanstalk_environment.blue.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 34, in resource \"aws_route53_record\" \"green\":\n  34:     zone_id                = aws_elastic_beanstalk_environment.green.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 45, in resource \"aws_route53_record\" \"blue-weighted\":\n  45:     zone_id                = aws_elastic_beanstalk_environment.blue.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 56, in resource \"aws_route53_record\" \"green-weighted\":\n  56:     zone_id                = aws_elastic_beanstalk_environment.green.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.tf",
+    "scenario_index": 14,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 34, in resource \"aws_iam_role_policy\" \"eb_ec2_profile_policy\":\n  34:         Resource = \"arn:aws:dynamodb:us-east-1:${var.account_id}:table/default\"\n\nAn input variable with the name \"account_id\" has not been declared. This\nvariable can be declared with a variable \"account_id\" {} block.\n\nError: Reference to undeclared resource\n\n  on main.tf line 42, in resource \"aws_elastic_beanstalk_environment\" \"example\":\n  42:   application         = aws_elastic_beanstalk_application.example.name\n\nA managed resource \"aws_elastic_beanstalk_application\" \"example\" has not been\ndeclared in the root module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 49, in resource \"aws_elastic_beanstalk_environment\" \"example\":\n  49:     value     = aws_iam_instance_profile.eb_ec2_profile.name\n\nA managed resource \"aws_iam_instance_profile\" \"eb_ec2_profile\" has not been\ndeclared in the root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a1.tf",
+    "scenario_index": 14,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"account_id\" {}\n\nThe root module input variable \"account_id\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.tf",
+    "scenario_index": 15,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 34, in resource \"aws_db_instance\" \"prod_db\":\n  34:   name = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 46, in resource \"aws_db_instance\" \"staging_db\":\n  46:   name = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Reference to undeclared resource\n\n  on main.tf line 55, in resource \"aws_elastic_beanstalk_environment\" \"production\":\n  55:   application = aws_elastic_beanstalk_application.example.name\n\nA managed resource \"aws_elastic_beanstalk_application\" \"example\" has not been\ndeclared in the root module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 56, in resource \"aws_elastic_beanstalk_environment\" \"production\":\n  56:   version_label = aws_elastic_beanstalk_application_version.example.name\n\nA managed resource \"aws_elastic_beanstalk_application_version\" \"example\" has\nnot been declared in the root module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_environment\" \"staging\":\n  67:   application = aws_elastic_beanstalk_application.example.name\n\nA managed resource \"aws_elastic_beanstalk_application\" \"example\" has not been\ndeclared in the root module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 68, in resource \"aws_elastic_beanstalk_environment\" \"staging\":\n  68:   version_label = aws_elastic_beanstalk_application_version.example.name\n\nA managed resource \"aws_elastic_beanstalk_application_version\" \"example\" has\nnot been declared in the root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a1.tf",
+    "scenario_index": 15,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 34, in resource \"aws_db_instance\" \"prod_db\":\n  34:   name = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 46, in resource \"aws_db_instance\" \"staging_db\":\n  46:   name = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"name\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"bucket\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"key\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 59, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  59:   version_label = \"1.0\"\n\nAn argument named \"version_label\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a1.tf",
+    "scenario_index": 18,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 93, in resource \"aws_db_instance\" \"webapp_rds\":\n  93:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.a2.tf",
+    "scenario_index": 3,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_ap_southeast its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].ap-southeast\nis required, but it has been removed. This occurs when a provider\nconfiguration is removed while objects created by that provider still exist\nin the state. Re-add the provider configuration to destroy\naws_db_instance.replica_ap_southeast, after which you can remove the provider\nconfiguration again.\n\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_us_east its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].us-east is\nrequired, but it has been removed. This occurs when a provider configuration\nis removed while objects created by that provider still exist in the state.\nRe-add the provider configuration to destroy aws_db_instance.replica_us_east,\nafter which you can remove the provider configuration again.\n\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_eu_central its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].eu-central\nis required, but it has been removed. This occurs when a provider\nconfiguration is removed while objects created by that provider still exist\nin the state. Re-add the provider configuration to destroy\naws_db_instance.replica_eu_central, after which you can remove the provider\nconfiguration again.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.a3.tf",
+    "scenario_index": 3,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_us_east its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].us-east is\nrequired, but it has been removed. This occurs when a provider configuration\nis removed while objects created by that provider still exist in the state.\nRe-add the provider configuration to destroy aws_db_instance.replica_us_east,\nafter which you can remove the provider configuration again.\n\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_eu_central its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].eu-central\nis required, but it has been removed. This occurs when a provider\nconfiguration is removed while objects created by that provider still exist\nin the state. Re-add the provider configuration to destroy\naws_db_instance.replica_eu_central, after which you can remove the provider\nconfiguration again.\n\nError: Provider configuration not present\n\nTo work with aws_db_instance.replica_ap_southeast its original provider\nconfiguration at provider[\"registry.terraform.io/hashicorp/aws\"].ap-southeast\nis required, but it has been removed. This occurs when a provider\nconfiguration is removed while objects created by that provider still exist\nin the state. Re-add the provider configuration to destroy\naws_db_instance.replica_ap_southeast, after which you can remove the provider\nconfiguration again.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a2.tf",
+    "scenario_index": 5,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 1, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n   1: resource \"aws_route53_record\" \"weighted_routing_policy\" {\n\nThe argument \"zone_id\" is required, but no definition was found.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a3.tf",
+    "scenario_index": 5,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 6, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n   6:   zone_id = aws_route53_zone.main.zone_id\n\nA managed resource \"aws_route53_zone\" \"main\" has not been declared in the\nroot module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a2.tf",
+    "scenario_index": 12,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 23, in resource \"aws_route53_record\" \"blue\":\n  23:     zone_id                = aws_elastic_beanstalk_environment.blue.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 34, in resource \"aws_route53_record\" \"green\":\n  34:     zone_id                = aws_elastic_beanstalk_environment.green.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 45, in resource \"aws_route53_record\" \"blue-weighted\":\n  45:     zone_id                = aws_elastic_beanstalk_environment.blue.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 56, in resource \"aws_route53_record\" \"green-weighted\":\n  56:     zone_id                = aws_elastic_beanstalk_environment.green.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a3.tf",
+    "scenario_index": 12,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 23, in resource \"aws_route53_record\" \"blue\":\n  23:     zone_id                = aws_elastic_beanstalk_environment.blue.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 34, in resource \"aws_route53_record\" \"green\":\n  34:     zone_id                = aws_elastic_beanstalk_environment.green.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 45, in resource \"aws_route53_record\" \"blue-weighted\":\n  45:     zone_id                = aws_elastic_beanstalk_environment.blue.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Unsupported attribute\n\n  on main.tf line 56, in resource \"aws_route53_record\" \"green-weighted\":\n  56:     zone_id                = aws_elastic_beanstalk_environment.green.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a2.tf",
+    "scenario_index": 14,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"account_id\" {}\n\nThe root module input variable \"account_id\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a3.tf",
+    "scenario_index": 14,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"account_id\" {}\n\nThe root module input variable \"account_id\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a2.tf",
+    "scenario_index": 15,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 34, in resource \"aws_db_instance\" \"prod_db\":\n  34:   name = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 46, in resource \"aws_db_instance\" \"staging_db\":\n  46:   name = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"key\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"bucket\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"name\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 59, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  59:   version_label = \"1.0\"\n\nAn argument named \"version_label\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a3.tf",
+    "scenario_index": 15,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 34, in resource \"aws_db_instance\" \"prod_db\":\n  34:   name = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 46, in resource \"aws_db_instance\" \"staging_db\":\n  46:   name = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"key\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"name\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 57, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  57: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"bucket\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 59, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  59:   version_label = \"1.0\"\n\nAn argument named \"version_label\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a2.tf",
+    "scenario_index": 18,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 93, in resource \"aws_db_instance\" \"webapp_rds\":\n  93:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a3.tf",
+    "scenario_index": 18,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  }
+]

@@ -1,0 +1,312 @@
+[
+  {
+    "file": "question_0000.a1.tf",
+    "scenario_index": 0,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 35, in resource \"aws_route53_query_logging_config\" \"example\":\n  35: resource \"aws_route53_query_logging_config\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_query_logging_config\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0001.tf",
+    "scenario_index": 1,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0003.a1.tf",
+    "scenario_index": 3,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 46, in resource \"aws_route53_record_set\" \"weighted_routing\":\n  46: resource \"aws_route53_record_set\" \"weighted_routing\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a1.tf",
+    "scenario_index": 5,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 9, in resource \"aws_route53_record_set\" \"db_instances\":\n   9: resource \"aws_route53_record_set\" \"db_instances\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 30, in resource \"aws_route53_weighted_target\" \"db_instance_1\":\n  30: resource \"aws_route53_weighted_target\" \"db_instance_1\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_target\".\n\nError: Invalid resource type\n\n  on main.tf line 36, in resource \"aws_route53_weighted_target\" \"db_instance_2\":\n  36: resource \"aws_route53_weighted_target\" \"db_instance_2\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_target\".\n\nError: Invalid resource type\n\n  on main.tf line 42, in resource \"aws_route53_weighted_routing_policy\" \"db_routing_policy\":\n  42: resource \"aws_route53_weighted_routing_policy\" \"db_routing_policy\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_routing_policy\".\n\nError: Invalid resource type\n\n  on main.tf line 57, in resource \"aws_route53_record_set\" \"weighted_routing\":\n  57: resource \"aws_route53_record_set\" \"weighted_routing\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.tf",
+    "scenario_index": 7,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 37, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  37:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 43, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  43:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 49, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  49:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 55, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  55:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 61, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  61:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  67:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.a1.tf",
+    "scenario_index": 7,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 37, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  37:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 43, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  43:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 49, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  49:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 55, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  55:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 61, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  61:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  67:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a1.tf",
+    "scenario_index": 12,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 45, in resource \"aws_route53_record_set\" \"blue_record\":\n  45: resource \"aws_route53_record_set\" \"blue_record\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 54, in resource \"aws_route53_record_set\" \"green_record\":\n  54: resource \"aws_route53_record_set\" \"green_record\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 63, in resource \"aws_route53_weighted_routing_policy\" \"blue_green_policy\":\n  63: resource \"aws_route53_weighted_routing_policy\" \"blue_green_policy\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_routing_policy\".\n\nError: Invalid resource type\n\n  on main.tf line 79, in resource \"aws_route53_alias_target\" \"blue_target\":\n  79: resource \"aws_route53_alias_target\" \"blue_target\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_alias_target\".\n\nError: Invalid resource type\n\n  on main.tf line 85, in resource \"aws_route53_alias_target\" \"green_target\":\n  85: resource \"aws_route53_alias_target\" \"green_target\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_alias_target\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.tf",
+    "scenario_index": 14,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 30, in resource \"aws_db_instance\" \"default\":\n  30: resource \"aws_db_instance\" \"default\" {\n\nThe argument \"instance_class\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 41, in resource \"aws_elastic_beanstalk_environment\" \"default\":\n  41:   database_connection_string = \"jdbc:postgresql://${aws_db_instance.default.endpoint}:5432/default\"\n\nAn argument named \"database_connection_string\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 42, in resource \"aws_elastic_beanstalk_environment\" \"default\":\n  42:   db_instance_profile_name = aws_iam_instance_profile.eb_ec2_profile.name\n\nAn argument named \"db_instance_profile_name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a1.tf",
+    "scenario_index": 14,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 42, in resource \"aws_elastic_beanstalk_environment\" \"default\":\n  42:   database_connection_string = \"jdbc:postgresql://${aws_db_instance.default.endpoint}:5432/default\"\n\nAn argument named \"database_connection_string\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 43, in resource \"aws_elastic_beanstalk_environment\" \"default\":\n  43:   db_instance_profile_name = aws_iam_instance_profile.eb_ec2_profile.name\n\nAn argument named \"db_instance_profile_name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.tf",
+    "scenario_index": 15,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid character\n\n  on main.tf line 1, in provider \"aws\":\n   1: provider \"aws\" {\n\nThis character is not used within the language.\n\nError: Argument or block definition required\n\n  on main.tf line 1, in provider \"aws\":\n   1: provider \"aws\" {\n\nAn argument or block definition is required here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a1.tf",
+    "scenario_index": 15,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 28, in resource \"aws_rds_db_instance\" \"prod_db\":\n  28: resource \"aws_rds_db_instance\" \"prod_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Invalid resource type\n\n  on main.tf line 42, in resource \"aws_rds_db_instance\" \"staging_db\":\n  42: resource \"aws_rds_db_instance\" \"staging_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Invalid resource type\n\n  on main.tf line 56, in resource \"aws_elasticbeanstalk_application\" \"prod_app\":\n  56: resource \"aws_elasticbeanstalk_application\" \"prod_app\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elasticbeanstalk_application\". Did you mean\n\"aws_elastic_beanstalk_application\"?\n\nError: Invalid resource type\n\n  on main.tf line 60, in resource \"aws_elasticbeanstalk_environment\" \"prod_env\":\n  60: resource \"aws_elasticbeanstalk_environment\" \"prod_env\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elasticbeanstalk_environment\". Did you mean\n\"aws_elastic_beanstalk_environment\"?\n\nError: Invalid resource type\n\n  on main.tf line 73, in resource \"aws_elasticbeanstalk_application\" \"staging_app\":\n  73: resource \"aws_elasticbeanstalk_application\" \"staging_app\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elasticbeanstalk_application\". Did you mean\n\"aws_elastic_beanstalk_application\"?\n\nError: Invalid resource type\n\n  on main.tf line 77, in resource \"aws_elasticbeanstalk_environment\" \"staging_env\":\n  77: resource \"aws_elasticbeanstalk_environment\" \"staging_env\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elasticbeanstalk_environment\". Did you mean\n\"aws_elastic_beanstalk_environment\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a1.tf",
+    "scenario_index": 18,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 63, in resource \"aws_rds_db_instance\" \"web_app_db\":\n  63: resource \"aws_rds_db_instance\" \"web_app_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Unsupported block type\n\n  on main.tf line 102, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n 102:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 107, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n 107:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 112, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n 112:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0020.a1.tf",
+    "scenario_index": 20,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 5, in resource \"aws_route53_record\" \"example\":\n   5: resource \"aws_route53_record\" \"example\" {\n\nThe argument \"zone_id\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 8, in resource \"aws_route53_record\" \"example\":\n   8:   alias {\n\nThe argument \"evaluate_target_health\" is required, but no definition was\nfound.\n\nError: Unsupported argument\n\n  on main.tf line 12, in resource \"aws_route53_record\" \"example\":\n  12:   evaluate_target_health = true\n\nAn argument named \"evaluate_target_health\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0000.a2.tf",
+    "scenario_index": 0,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 35, in resource \"aws_route53_query_logging_config\" \"example\":\n  35: resource \"aws_route53_query_logging_config\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_query_logging_config\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0000.a3.tf",
+    "scenario_index": 0,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 1, in resource \"aws_route53_query_logging_config\" \"example\":\n   1: resource \"aws_route53_query_logging_config\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_query_logging_config\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.a2.tf",
+    "scenario_index": 3,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 46, in resource \"aws_route53_record_set\" \"weighted_routing\":\n  46: resource \"aws_route53_record_set\" \"weighted_routing\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.a3.tf",
+    "scenario_index": 3,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 1, in resource \"aws_route53_record_set\" \"weighted_routing\":\n   1: resource \"aws_route53_record_set\" \"weighted_routing\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a2.tf",
+    "scenario_index": 5,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 9, in resource \"aws_route53_record_set\" \"db_instances\":\n   9: resource \"aws_route53_record_set\" \"db_instances\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 30, in resource \"aws_route53_weighted_target\" \"db_instance_1\":\n  30: resource \"aws_route53_weighted_target\" \"db_instance_1\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_target\".\n\nError: Invalid resource type\n\n  on main.tf line 36, in resource \"aws_route53_weighted_target\" \"db_instance_2\":\n  36: resource \"aws_route53_weighted_target\" \"db_instance_2\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_target\".\n\nError: Invalid resource type\n\n  on main.tf line 42, in resource \"aws_route53_weighted_routing_policy\" \"db_routing_policy\":\n  42: resource \"aws_route53_weighted_routing_policy\" \"db_routing_policy\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_routing_policy\".\n\nError: Invalid resource type\n\n  on main.tf line 57, in resource \"aws_route53_record_set\" \"weighted_routing\":\n  57: resource \"aws_route53_record_set\" \"weighted_routing\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a3.tf",
+    "scenario_index": 5,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 9, in resource \"aws_route53_record_set\" \"db_instances\":\n   9: resource \"aws_route53_record_set\" \"db_instances\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 30, in resource \"aws_route53_weighted_target\" \"db_instance_1\":\n  30: resource \"aws_route53_weighted_target\" \"db_instance_1\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_target\".\n\nError: Invalid resource type\n\n  on main.tf line 36, in resource \"aws_route53_weighted_target\" \"db_instance_2\":\n  36: resource \"aws_route53_weighted_target\" \"db_instance_2\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_target\".\n\nError: Invalid resource type\n\n  on main.tf line 42, in resource \"aws_route53_weighted_routing_policy\" \"db_routing_policy\":\n  42: resource \"aws_route53_weighted_routing_policy\" \"db_routing_policy\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_routing_policy\".\n\nError: Invalid resource type\n\n  on main.tf line 57, in resource \"aws_route53_record_set\" \"weighted_routing\":\n  57: resource \"aws_route53_record_set\" \"weighted_routing\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.a2.tf",
+    "scenario_index": 7,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 37, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  37:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 43, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  43:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 49, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  49:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 55, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  55:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 61, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  61:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  67:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.a3.tf",
+    "scenario_index": 7,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 37, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  37:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 43, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  43:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 49, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  49:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 55, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  55:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 61, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  61:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  67:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a2.tf",
+    "scenario_index": 12,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 45, in resource \"aws_route53_record_set\" \"blue_record\":\n  45: resource \"aws_route53_record_set\" \"blue_record\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 54, in resource \"aws_route53_record_set\" \"green_record\":\n  54: resource \"aws_route53_record_set\" \"green_record\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 63, in resource \"aws_route53_weighted_routing_policy\" \"blue_green_policy\":\n  63: resource \"aws_route53_weighted_routing_policy\" \"blue_green_policy\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_routing_policy\".\n\nError: Invalid resource type\n\n  on main.tf line 79, in resource \"aws_route53_alias_target\" \"blue_target\":\n  79: resource \"aws_route53_alias_target\" \"blue_target\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_alias_target\".\n\nError: Invalid resource type\n\n  on main.tf line 85, in resource \"aws_route53_alias_target\" \"green_target\":\n  85: resource \"aws_route53_alias_target\" \"green_target\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_alias_target\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a3.tf",
+    "scenario_index": 12,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 45, in resource \"aws_route53_record_set\" \"blue_record\":\n  45: resource \"aws_route53_record_set\" \"blue_record\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 54, in resource \"aws_route53_record_set\" \"green_record\":\n  54: resource \"aws_route53_record_set\" \"green_record\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set\".\n\nError: Invalid resource type\n\n  on main.tf line 63, in resource \"aws_route53_weighted_routing_policy\" \"blue_green_policy\":\n  63: resource \"aws_route53_weighted_routing_policy\" \"blue_green_policy\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_weighted_routing_policy\".\n\nError: Invalid resource type\n\n  on main.tf line 79, in resource \"aws_route53_alias_target\" \"blue_target\":\n  79: resource \"aws_route53_alias_target\" \"blue_target\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_alias_target\".\n\nError: Invalid resource type\n\n  on main.tf line 85, in resource \"aws_route53_alias_target\" \"green_target\":\n  85: resource \"aws_route53_alias_target\" \"green_target\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_alias_target\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a2.tf",
+    "scenario_index": 14,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 42, in resource \"aws_elastic_beanstalk_environment\" \"default\":\n  42:   database_connection_string = \"jdbc:postgresql://${aws_db_instance.default.endpoint}:5432/default\"\n\nAn argument named \"database_connection_string\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 43, in resource \"aws_elastic_beanstalk_environment\" \"default\":\n  43:   db_instance_profile_name = aws_iam_instance_profile.eb_ec2_profile.name\n\nAn argument named \"db_instance_profile_name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a3.tf",
+    "scenario_index": 14,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 42, in resource \"aws_elastic_beanstalk_environment\" \"default\":\n  42:   connection_settings {\n\nBlocks of type \"connection_settings\" are not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 51, in resource \"aws_elastic_beanstalk_environment\" \"default\":\n  51:   instance_profile_name = aws_iam_instance_profile.eb_ec2_profile.name\n\nAn argument named \"instance_profile_name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a2.tf",
+    "scenario_index": 15,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 29, in resource \"aws_rds_db_instance\" \"prod_db\":\n  29: resource \"aws_rds_db_instance\" \"prod_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Invalid resource type\n\n  on main.tf line 43, in resource \"aws_rds_db_instance\" \"staging_db\":\n  43: resource \"aws_rds_db_instance\" \"staging_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Invalid resource type\n\n  on main.tf line 57, in resource \"aws_elasticbeanstalk_application\" \"prod_app\":\n  57: resource \"aws_elasticbeanstalk_application\" \"prod_app\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elasticbeanstalk_application\". Did you mean\n\"aws_elastic_beanstalk_application\"?\n\nError: Invalid resource type\n\n  on main.tf line 61, in resource \"aws_elasticbeanstalk_environment\" \"prod_env\":\n  61: resource \"aws_elasticbeanstalk_environment\" \"prod_env\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elasticbeanstalk_environment\". Did you mean\n\"aws_elastic_beanstalk_environment\"?\n\nError: Invalid resource type\n\n  on main.tf line 74, in resource \"aws_elasticbeanstalk_application\" \"staging_app\":\n  74: resource \"aws_elasticbeanstalk_application\" \"staging_app\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elasticbeanstalk_application\". Did you mean\n\"aws_elastic_beanstalk_application\"?\n\nError: Invalid resource type\n\n  on main.tf line 78, in resource \"aws_elasticbeanstalk_environment\" \"staging_env\":\n  78: resource \"aws_elasticbeanstalk_environment\" \"staging_env\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elasticbeanstalk_environment\". Did you mean\n\"aws_elastic_beanstalk_environment\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a3.tf",
+    "scenario_index": 15,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 29, in resource \"aws_rds_db_instance\" \"prod_db\":\n  29: resource \"aws_rds_db_instance\" \"prod_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Invalid resource type\n\n  on main.tf line 43, in resource \"aws_rds_db_instance\" \"staging_db\":\n  43: resource \"aws_rds_db_instance\" \"staging_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Unsupported argument\n\n  on main.tf line 65, in resource \"aws_elastic_beanstalk_environment\" \"prod_env\":\n  65:   db_instances = [aws_rds_db_instance.prod_db.db_instance_identifier]\n\nAn argument named \"db_instances\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 66, in resource \"aws_elastic_beanstalk_environment\" \"prod_env\":\n  66:   tier {\n\nBlocks of type \"tier\" are not expected here. Did you mean to define argument\n\"tier\"? If so, use the equals sign to assign it a value.\n\nError: Unsupported argument\n\n  on main.tf line 71, in resource \"aws_elastic_beanstalk_environment\" \"prod_env\":\n  71:   instance_profile = aws_iam_instance_profile.eb_ec2_profile.name\n\nAn argument named \"instance_profile\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 82, in resource \"aws_elastic_beanstalk_environment\" \"staging_env\":\n  82:   db_instances = [aws_rds_db_instance.staging_db.db_instance_identifier]\n\nAn argument named \"db_instances\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 83, in resource \"aws_elastic_beanstalk_environment\" \"staging_env\":\n  83:   tier {\n\nBlocks of type \"tier\" are not expected here. Did you mean to define argument\n\"tier\"? If so, use the equals sign to assign it a value.\n\nError: Unsupported argument\n\n  on main.tf line 88, in resource \"aws_elastic_beanstalk_environment\" \"staging_env\":\n  88:   instance_profile = aws_iam_instance_profile.eb_ec2_profile.name\n\nAn argument named \"instance_profile\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a2.tf",
+    "scenario_index": 18,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 63, in resource \"aws_rds_db_instance\" \"web_app_db\":\n  63: resource \"aws_rds_db_instance\" \"web_app_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Unsupported block type\n\n  on main.tf line 95, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n  95:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 100, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n 100:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 105, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n 105:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a3.tf",
+    "scenario_index": 18,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 63, in resource \"aws_rds_db_instance\" \"web_app_db\":\n  63: resource \"aws_rds_db_instance\" \"web_app_db\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_rds_db_instance\".\n\nError: Unsupported block type\n\n  on main.tf line 96, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n  96:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 102, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n 102:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 108, in resource \"aws_elastic_beanstalk_environment\" \"web_app_env\":\n 108:   option_settings {\n\nBlocks of type \"option_settings\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0020.a2.tf",
+    "scenario_index": 20,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 5, in resource \"aws_route53_record\" \"example\":\n   5: resource \"aws_route53_record\" \"example\" {\n\nThe argument \"zone_id\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 8, in resource \"aws_route53_record\" \"example\":\n   8:   alias {\n\nThe argument \"evaluate_target_health\" is required, but no definition was\nfound.\n\nError: Unsupported argument\n\n  on main.tf line 12, in resource \"aws_route53_record\" \"example\":\n  12:   evaluate_target_health = true\n\nAn argument named \"evaluate_target_health\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0020.a3.tf",
+    "scenario_index": 20,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 5, in resource \"aws_route53_record\" \"example\":\n   5: resource \"aws_route53_record\" \"example\" {\n\nThe argument \"zone_id\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 8, in resource \"aws_route53_record\" \"example\":\n   8:   alias {\n\nThe argument \"evaluate_target_health\" is required, but no definition was\nfound.\n",
+    "opa_evaluation_error": "None"
+  }
+]

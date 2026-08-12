@@ -1,0 +1,70 @@
+provider "aws" {
+  region = "us-west-1"
+  alias = "main"
+}
+
+provider "aws" {
+  region = "us-east-1"
+  alias = "us-east"
+}
+
+provider "aws" {
+  region = "eu-central-1"
+  alias = "eu-central"
+}
+
+provider "aws" {
+  region = "ap-southeast-1"
+  alias = "ap-southeast"
+}
+
+resource "aws_db_instance" "primary" {
+  instance_class = "db.t2.micro"
+  # ...
+}
+
+resource "aws_db_instance" "replica_us_east" {
+  instance_class = "db.t2.micro"
+  # ...
+}
+
+resource "aws_db_instance" "replica_eu_central" {
+  instance_class = "db.t2.micro"
+  # ...
+}
+
+resource "aws_db_instance" "replica_ap_southeast" {
+  instance_class = "db.t2.micro"
+  # ...
+}
+
+resource "aws_route53_zone" "main" {
+  name = "example.com"
+  # ...
+}
+
+resource "aws_route53_record_set" "weighted_routing" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "example.com"
+  type    = "A"
+
+  alias {
+    name = aws_db_instance.primary.endpoint
+    weight = 40
+  }
+
+  alias {
+    name = aws_db_instance.replica_us_east.endpoint
+    weight = 20
+  }
+
+  alias {
+    name = aws_db_instance.replica_eu_central.endpoint
+    weight = 20
+  }
+
+  alias {
+    name = aws_db_instance.replica_ap_southeast.endpoint
+    weight = 20
+  }
+}

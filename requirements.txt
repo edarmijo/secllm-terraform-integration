@@ -9,11 +9,16 @@
 #
 # Versiones como mínimos (>=) para que funcione en Python 3.10–3.14.
 
-# --- Pipeline de integración (scripts/pipeline.py, generate_report.py) ---
+# --- Pipeline de integración (scripts/pipeline*.py, generate_report*.py) ---
 pandas>=1.5
 requests>=2.28
 PyYAML>=6.0
 tabulate>=0.9        # requerido por DataFrame.to_markdown() en generate_report.py
+scipy>=1.10          # tests estadísticos de generate_report_v2.py (Wilcoxon, Spearman, ...)
+
+# --- Análisis y figuras (notebooks/analisis_resultados.ipynb) ---
+matplotlib>=3.7
+jupyter>=1.0
 
 # --- Núcleo de SecLLM cuando se usa Ollama / API compatible con OpenAI ---
 openai>=1.30

@@ -1,0 +1,312 @@
+[
+  {
+    "file": "question_0000.a1.tf",
+    "scenario_index": 0,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 11, in resource \"aws_cloudwatch_log_resource_policy\" \"route53-query-logging-policy\":\n  11:   log_group_arn   = aws_cloudwatch_log_group.aws_route53_example_com.arn\n\nAn argument named \"log_group_arn\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0001.tf",
+    "scenario_index": 1,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0003.a1.tf",
+    "scenario_index": 3,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"db_password\" {\n\nThe root module input variable \"db_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a1.tf",
+    "scenario_index": 5,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 6, in resource \"aws_route53_record\" \"weighted_routing\":\n   6:   zone_id = aws_route53_zone.main.zone_id\n\nA managed resource \"aws_route53_zone\" \"main\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 14, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n  14:   zone_id = aws_route53_zone.main.zone_id\n\nA managed resource \"aws_route53_zone\" \"main\" has not been declared in the\nroot module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.tf",
+    "scenario_index": 7,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 38, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  38:   instance_profile    = aws_iam_instance_profile.eb_ec2_profile.arn\n\nAn argument named \"instance_profile\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 40, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  40:   autoscaling_settings {\n\nBlocks of type \"autoscaling_settings\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.a1.tf",
+    "scenario_index": 7,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 38, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  38:   instance_profile    = aws_iam_instance_profile.eb_ec2_profile.arn\n\nAn argument named \"instance_profile\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a1.tf",
+    "scenario_index": 12,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  67: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"bucket\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 67, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  67: resource \"aws_elastic_beanstalk_application_version\" \"example\" {\n\nThe argument \"key\" is required, but no definition was found.\n\nError: Unsupported block type\n\n  on main.tf line 71, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n  71:   source_bundle {\n\nBlocks of type \"source_bundle\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.tf",
+    "scenario_index": 14,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 35, in resource \"aws_db_instance\" \"default\":\n  35:   password             = var.rds_password\n\nAn input variable with the name \"rds_password\" has not been declared. This\nvariable can be declared with a variable \"rds_password\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a1.tf",
+    "scenario_index": 14,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 29:\n  29: variable \"rds_password\" {}\n\nThe root module input variable \"rds_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.tf",
+    "scenario_index": 15,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 35, in resource \"aws_db_instance\" \"prod_db\":\n  35:   password             = var.rds_password\n\nAn input variable with the name \"rds_password\" has not been declared. This\nvariable can be declared with a variable \"rds_password\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 47, in resource \"aws_db_instance\" \"staging_db\":\n  47:   password             = var.rds_password\n\nAn input variable with the name \"rds_password\" has not been declared. This\nvariable can be declared with a variable \"rds_password\" {} block.\n\nError: Reference to undeclared resource\n\n  on main.tf line 54, in resource \"aws_elastic_beanstalk_environment\" \"production\":\n  54:   application = aws_elastic_beanstalk_application.example.name\n\nA managed resource \"aws_elastic_beanstalk_application\" \"example\" has not been\ndeclared in the root module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 66, in resource \"aws_elastic_beanstalk_environment\" \"staging\":\n  66:   application = aws_elastic_beanstalk_application.example.name\n\nA managed resource \"aws_elastic_beanstalk_application\" \"example\" has not been\ndeclared in the root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a1.tf",
+    "scenario_index": 15,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"rds_password\" {}\n\nThe root module input variable \"rds_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a1.tf",
+    "scenario_index": 18,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 3, in resource \"aws_iam_role_policy\" \"webapp_policy\":\n   3:   role        = aws_iam_role.webapp_role.name\n\nA managed resource \"aws_iam_role\" \"webapp_role\" has not been declared in the\nroot module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0020.a1.tf",
+    "scenario_index": 20,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: finding Route 53 Hosted Zone: InvalidClientTokenId: The security token included in the request is invalid.\n\tstatus code: 403, request id: a2a5e4ab-77ac-4003-932b-7ead83bce64d\n\n  with data.aws_route53_zone.example,\n  on main.tf line 5, in data \"aws_route53_zone\" \"example\":\n   5: data \"aws_route53_zone\" \"example\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0000.a2.tf",
+    "scenario_index": 0,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 11, in resource \"aws_cloudwatch_log_resource_policy\" \"route53-query-logging-policy\":\n  11:   log_group_arn   = aws_cloudwatch_log_group.aws_route53_example_com.arn\n\nAn argument named \"log_group_arn\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0000.a3.tf",
+    "scenario_index": 0,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 11, in resource \"aws_cloudwatch_log_resource_policy\" \"route53-query-logging-policy\":\n  11:   log_group_arn   = aws_cloudwatch_log_group.aws_route53_example_com.arn\n\nAn argument named \"log_group_arn\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.a2.tf",
+    "scenario_index": 3,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"db_password\" {\n\nThe root module input variable \"db_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.a3.tf",
+    "scenario_index": 3,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 21, in resource \"aws_db_instance\" \"primary\":\n  21:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 33, in resource \"aws_db_instance\" \"replica_us_east\":\n  33:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 45, in resource \"aws_db_instance\" \"replica_eu_central\":\n  45:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 57, in resource \"aws_db_instance\" \"replica_ap_southeast\":\n  57:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a2.tf",
+    "scenario_index": 5,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 6, in resource \"aws_route53_record\" \"weighted_routing\":\n   6:   zone_id = aws_route53_zone.main.zone_id\n\nA managed resource \"aws_route53_zone\" \"main\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 14, in resource \"aws_route53_record\" \"weighted_routing_policy\":\n  14:   zone_id = aws_route53_zone.main.zone_id\n\nA managed resource \"aws_route53_zone\" \"main\" has not been declared in the\nroot module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a3.tf",
+    "scenario_index": 5,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0007.a2.tf",
+    "scenario_index": 7,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 38, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  38:   instance_profile    = aws_iam_instance_profile.eb_ec2_profile.arn\n\nAn argument named \"instance_profile\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.a3.tf",
+    "scenario_index": 7,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 3, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n   3:   application         = aws_elastic_beanstalk_application.my_api_app.name\n\nA managed resource \"aws_elastic_beanstalk_application\" \"my_api_app\" has not\nbeen declared in the root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a2.tf",
+    "scenario_index": 12,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 3, in resource \"aws_elastic_beanstalk_application_version\" \"example\":\n   3:   application  = aws_elastic_beanstalk_application.example.name\n\nA managed resource \"aws_elastic_beanstalk_application\" \"example\" has not been\ndeclared in the root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a3.tf",
+    "scenario_index": 12,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 18, in resource \"aws_route53_record\" \"blue\":\n  18:   zone_id = aws_route53_zone.example.zone_id\n\nA managed resource \"aws_route53_zone\" \"example\" has not been declared in the\nroot module.\n\nError: Unsupported attribute\n\n  on main.tf line 23, in resource \"aws_route53_record\" \"blue\":\n  23:     zone_id                = aws_elastic_beanstalk_environment.blue.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Reference to undeclared resource\n\n  on main.tf line 29, in resource \"aws_route53_record\" \"green\":\n  29:   zone_id = aws_route53_zone.example.zone_id\n\nA managed resource \"aws_route53_zone\" \"example\" has not been declared in the\nroot module.\n\nError: Unsupported attribute\n\n  on main.tf line 34, in resource \"aws_route53_record\" \"green\":\n  34:     zone_id                = aws_elastic_beanstalk_environment.green.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n\nError: Reference to undeclared resource\n\n  on main.tf line 40, in resource \"aws_route53_record\" \"weighted\":\n  40:   zone_id = aws_route53_zone.example.zone_id\n\nA managed resource \"aws_route53_zone\" \"example\" has not been declared in the\nroot module.\n\nError: Unsupported attribute\n\n  on main.tf line 45, in resource \"aws_route53_record\" \"weighted\":\n  45:     zone_id                = aws_elastic_beanstalk_environment.blue.zone_id\n\nThis object has no argument, nested block, or exported attribute named\n\"zone_id\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a2.tf",
+    "scenario_index": 14,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 29:\n  29: variable \"rds_password\" {\n\nThe root module input variable \"rds_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a3.tf",
+    "scenario_index": 14,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 38, in resource \"aws_db_instance\" \"default\":\n  38:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a2.tf",
+    "scenario_index": 15,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 28:\n  28: variable \"rds_password\" {}\n\nThe root module input variable \"rds_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a3.tf",
+    "scenario_index": 15,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 28:\n  28: variable \"rds_password\" {}\n\nThe root module input variable \"rds_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a2.tf",
+    "scenario_index": 18,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 3, in resource \"aws_iam_role_policy\" \"webapp_policy\":\n   3:   role        = aws_iam_role.webapp_role.name\n\nA managed resource \"aws_iam_role\" \"webapp_role\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 37, in resource \"aws_db_subnet_group\" \"webapp_rds_sg\":\n  37:   subnet_ids = [aws_subnet.webapp_subnet1.id, aws_subnet.webapp_subnet2.id]\n\nA managed resource \"aws_subnet\" \"webapp_subnet1\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 37, in resource \"aws_db_subnet_group\" \"webapp_rds_sg\":\n  37:   subnet_ids = [aws_subnet.webapp_subnet1.id, aws_subnet.webapp_subnet2.id]\n\nA managed resource \"aws_subnet\" \"webapp_subnet2\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 43, in resource \"aws_security_group\" \"webapp_rds_sg\":\n  43:   vpc_id      = aws_vpc.webapp_vpc.id\n\nA managed resource \"aws_vpc\" \"webapp_vpc\" has not been declared in the root\nmodule.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a3.tf",
+    "scenario_index": 18,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 1, in resource \"aws_iam_role\" \"webapp_role\":\n   1: resource \"aws_iam_role\" \"webapp_role\" {\n\nThe argument \"assume_role_policy\" is required, but no definition was found.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0020.a2.tf",
+    "scenario_index": 20,
+    "attempt": 2,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: finding Route 53 Hosted Zone: InvalidClientTokenId: The security token included in the request is invalid.\n\tstatus code: 403, request id: e6471b84-09fe-4572-8d7f-65649d28b76b\n\n  with data.aws_route53_zone.example,\n  on main.tf line 5, in data \"aws_route53_zone\" \"example\":\n   5: data \"aws_route53_zone\" \"example\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0020.a3.tf",
+    "scenario_index": 20,
+    "attempt": 3,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 7, in data \"aws_route53_zone\" \"example\":\n   7:   access_key = \"<YOUR_ACCESS_KEY>\"\n\nAn argument named \"access_key\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 8, in data \"aws_route53_zone\" \"example\":\n   8:   secret_key = \"<YOUR_SECRET_KEY>\"\n\nAn argument named \"secret_key\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  }
+]
