@@ -1,5 +1,5 @@
 {
-  "total_fc1_scripts": 6,
+  "total_fc1_scripts": 15,
   "total_smell_detections_in_fc1": 11,
   "smell_distribution_fc1": {
     "admin_by_default": 9,
@@ -8,13 +8,13 @@
   },
   "per_model": {
     "codegemma_7b[P0]": {
-      "fc1_scripts": 1,
+      "fc1_scripts": 2,
       "smells": {
         "admin_by_default": 8
       }
     },
     "codellama_7b[P0]": {
-      "fc1_scripts": 4,
+      "fc1_scripts": 8,
       "smells": {
         "hard_coded_secret": 1,
         "admin_by_default": 1,
@@ -22,11 +22,11 @@
       }
     },
     "granite-code_8b[P0]": {
-      "fc1_scripts": 1,
+      "fc1_scripts": 3,
       "smells": {}
     },
     "llama3_1_8b[P0]": {
-      "fc1_scripts": 0,
+      "fc1_scripts": 2,
       "smells": {}
     }
   },

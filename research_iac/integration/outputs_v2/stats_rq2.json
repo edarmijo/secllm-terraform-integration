@@ -1,50 +1,50 @@
 {
   "codegemma_7b": {
-    "n_paired": 40,
-    "Sc_mean_P0": 0.675,
-    "Sc_mean_P1": 0.25,
+    "n_paired": 80,
+    "Sc_mean_P0": 0.613,
+    "Sc_mean_P1": 0.312,
     "Fc_rate_P0": 0.025,
     "Fc_rate_P1": 0.025,
-    "Sc_W": 22.0,
-    "Sc_p": 0.0457,
-    "Sc_r": 0.2095,
+    "Sc_W": 97.0,
+    "Sc_p": 0.0225,
+    "Sc_r": 0.2566,
     "Fc_note": "diferencias insuficientes para Wilcoxon",
-    "Sc_p_adj_holm": 0.1371
+    "Sc_p_adj_holm": 0.045
   },
   "codellama_7b": {
-    "n_paired": 40,
-    "Sc_mean_P0": 0.925,
-    "Sc_mean_P1": 0.725,
+    "n_paired": 80,
+    "Sc_mean_P0": 0.9,
+    "Sc_mean_P1": 0.512,
     "Fc_rate_P0": 0.1,
-    "Fc_rate_P1": 0.15,
-    "Sc_W": 40.5,
-    "Sc_p": 0.445,
-    "Sc_r": 0.3857,
+    "Fc_rate_P1": 0.125,
+    "Sc_W": 82.5,
+    "Sc_p": 0.0093,
+    "Sc_r": 0.2183,
     "Fc_note": "diferencias insuficientes para Wilcoxon",
-    "Sc_p_adj_holm": 0.8594
+    "Sc_p_adj_holm": 0.0278
   },
   "granite-code_8b": {
-    "n_paired": 40,
-    "Sc_mean_P0": 0.6,
-    "Sc_mean_P1": 0.425,
-    "Fc_rate_P0": 0.025,
+    "n_paired": 80,
+    "Sc_mean_P0": 0.637,
+    "Sc_mean_P1": 0.45,
+    "Fc_rate_P0": 0.037,
     "Fc_rate_P1": 0.025,
-    "Sc_W": 19.0,
-    "Sc_p": 0.4297,
-    "Sc_r": 0.3455,
+    "Sc_W": 154.0,
+    "Sc_p": 0.2533,
+    "Sc_r": 0.3793,
     "Fc_note": "diferencias insuficientes para Wilcoxon",
-    "Sc_p_adj_holm": 0.8594
+    "Sc_p_adj_holm": 0.2533
   },
   "llama3_1_8b": {
-    "n_paired": 40,
-    "Sc_mean_P0": 1.75,
+    "n_paired": 80,
+    "Sc_mean_P0": 1.425,
     "Sc_mean_P1": 0.7,
-    "Fc_rate_P0": 0.0,
+    "Fc_rate_P0": 0.025,
     "Fc_rate_P1": 0.0,
-    "Sc_W": 57.0,
-    "Sc_p": 0.0229,
-    "Sc_r": 0.2253,
+    "Sc_W": 174.0,
+    "Sc_p": 0.004,
+    "Sc_r": 0.2348,
     "Fc_note": "diferencias insuficientes para Wilcoxon",
-    "Sc_p_adj_holm": 0.0917
+    "Sc_p_adj_holm": 0.0159
   }
 }

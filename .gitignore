@@ -56,3 +56,33 @@ env/
 #  Notas personales
 # ─────────────────────────────────────────────────────────────
 historial_conversacion.txt
+
+# ─────────────────────────────────────────────────────────────
+#  R: sesión/historial (nunca se versiona) y salidas de texto
+#  generadas por los scripts de análisis (se regeneran)
+# ─────────────────────────────────────────────────────────────
+.RData
+.Rhistory
+mcnemar_fc.txt
+mcnemar_tablas_latex.txt
+
+# ─────────────────────────────────────────────────────────────
+#  Paper / material de escritura académica en progreso
+#  (no forma parte de las pruebas/documentación del proyecto)
+# ─────────────────────────────────────────────────────────────
+paper_entrega/
+diagrama/
+
+# ─────────────────────────────────────────────────────────────
+#  Scripts de conveniencia personal para lanzar/monitorear el
+#  pipeline en la máquina local (no son herramientas del proyecto)
+# ─────────────────────────────────────────────────────────────
+research_iac/integration/_monitor_pipeline.ps1
+research_iac/integration/lanzar_oculto.vbs
+research_iac/integration/run_overnight_v2*.bat
+research_iac/integration/watchdog_log.txt
+
+# ─────────────────────────────────────────────────────────────
+#  Backups temporales de datos de experimento
+# ─────────────────────────────────────────────────────────────
+research_iac/integration/outputs_v2/experiment_sample_*_backup.json

@@ -318,5 +318,325 @@
     "opa_evaluation_result": "No opa_result",
     "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_iam_role\" \"efs_lifecycle_policy\":\n   8:   name        = \"${var.name}-efs-lifecycle-policy\"\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 26, in resource \"aws_iam_policy\" \"efs_lifecycle_policy\":\n  26:   name        = \"${var.name}-efs-lifecycle-policy\"\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 51, in resource \"aws_efs_file_system\" \"example\":\n  51:   creation_token   = var.name\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 61, in resource \"aws_security_group\" \"example\":\n  61:   name        = \"${var.name}-efs-sg\"\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 68, in resource \"aws_security_group\" \"example\":\n  68:     cidr_blocks = [var.cidr_block]\n\nAn input variable with the name \"cidr_block\" has not been declared. This\nvariable can be declared with a variable \"cidr_block\" {} block.\n",
     "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.tf",
+    "scenario_index": 15,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 67, in data \"aws_secretsmanager_secret\" \"rds_prod_db_password\":\n  67:   name = var.rds_prod_db_password_secret_name\n\nAn input variable with the name \"rds_prod_db_password_secret_name\" has not\nbeen declared. This variable can be declared with a variable\n\"rds_prod_db_password_secret_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 96, in resource \"aws_security_group\" \"prod_sg\":\n  96:   vpc_id      = var.vpc_id\n\nAn input variable with the name \"vpc_id\" has not been declared. This variable\ncan be declared with a variable \"vpc_id\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 102, in resource \"aws_security_group\" \"prod_sg\":\n 102:     cidr_blocks = [var.prod_sg_cidr_block]\n\nAn input variable with the name \"prod_sg_cidr_block\" has not been declared.\nThis variable can be declared with a variable \"prod_sg_cidr_block\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 110, in resource \"aws_db_subnet_group\" \"prod_subnet_group\":\n 110:   subnet_ids = var.subnet_ids\n\nAn input variable with the name \"subnet_ids\" has not been declared. This\nvariable can be declared with a variable \"subnet_ids\" {} block.\n\nError: Invalid resource type\n\n  on main.tf line 113, in resource \"aws_rds_instance\" \"prod_db\":\n 113: resource \"aws_rds_instance\" \"prod_db\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n\nError: Reference to undeclared input variable\n\n  on main.tf line 125, in resource \"aws_elastic_beanstalk_environment\" \"prod_env\":\n 125:   application         = var.elastic_beanstalk_app_name\n\nAn input variable with the name \"elastic_beanstalk_app_name\" has not been\ndeclared. This variable can be declared with a variable\n\"elastic_beanstalk_app_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 132, in resource \"aws_elastic_beanstalk_environment\" \"prod_env\":\n 132:     value            = var.vpc_id\n\nAn input variable with the name \"vpc_id\" has not been declared. This variable\ncan be declared with a variable \"vpc_id\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 138, in resource \"aws_elastic_beanstalk_environment\" \"staging_env\":\n 138:   application         = var.elastic_beanstalk_app_name\n\nAn input variable with the name \"elastic_beanstalk_app_name\" has not been\ndeclared. This variable can be declared with a variable\n\"elastic_beanstalk_app_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 145, in resource \"aws_elastic_beanstalk_environment\" \"staging_env\":\n 145:     value            = var.vpc_id\n\nAn input variable with the name \"vpc_id\" has not been declared. This variable\ncan be declared with a variable \"vpc_id\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0023.tf",
+    "scenario_index": 23,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_iam_role\" \"route53_verification\":\n   8:   name        = \"${var.zone_name}-route53-verification\"\n\nAn input variable with the name \"zone_name\" has not been declared. This\nvariable can be declared with a variable \"zone_name\" {} block.\n\nError: Unsupported argument\n\n  on main.tf line 50, in resource \"aws_route53_delegation_set\" \"example\":\n  50:   name           = \"${var.zone_name}-delegation-set\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 51, in resource \"aws_route53_delegation_set\" \"example\":\n  51:   caller_reference = data.aws_caller_identity.current.account_id\n\nAn argument named \"caller_reference\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0031.tf",
+    "scenario_index": 31,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 10, in resource \"aws_iam_role\" \"elastic_beanstalk_exec_role\":\n  10:   name        = \"${var.app_name}-elastic-beanstalk-exec-role\"\n\nAn input variable with the name \"app_name\" has not been declared. This\nvariable can be declared with a variable \"app_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 99, in resource \"aws_elastic_beanstalk_application\" \"elastic_beanstalk_app\":\n  99:   name        = var.app_name\n\nAn input variable with the name \"app_name\" has not been declared. This\nvariable can be declared with a variable \"app_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 116, in resource \"aws_s3_bucket\" \"elastic_beanstalk_app\":\n 116:   bucket = var.app_name\n\nAn input variable with the name \"app_name\" has not been declared. This\nvariable can be declared with a variable \"app_name\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0037.tf",
+    "scenario_index": 37,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Duplicate module call\n\n  on main.tf line 40:\n  40: module \"example_iam_role\" {\n\nA module call named \"example_iam_role\" was already defined at main.tf:7,1-26.\nModule calls must have unique names within a module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0045.tf",
+    "scenario_index": 45,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 18, in resource \"aws_lex_bot\" \"pizza_ordering_bot\":\n  18: resource \"aws_lex_bot\" \"pizza_ordering_bot\" {\n\nThe argument \"child_directed\" is required, but no definition was found.\n\nError: Insufficient abort_statement blocks\n\n  on main.tf line 18, in resource \"aws_lex_bot\" \"pizza_ordering_bot\":\n  18: resource \"aws_lex_bot\" \"pizza_ordering_bot\" {\n\nAt least 1 \"abort_statement\" blocks are required.\n\nError: Insufficient intent blocks\n\n  on main.tf line 18, in resource \"aws_lex_bot\" \"pizza_ordering_bot\":\n  18: resource \"aws_lex_bot\" \"pizza_ordering_bot\" {\n\nAt least 1 \"intent\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 20, in resource \"aws_lex_bot\" \"pizza_ordering_bot\":\n  20:   role_arn        = aws_iam_role.lex_bot_exec_role.arn\n\nAn argument named \"role_arn\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 22, in resource \"aws_lex_bot\" \"pizza_ordering_bot\":\n  22:   conversation_flow_arn = aws_lex_conversation_flow.pizza_ordering_flow.arn\n\nAn argument named \"conversation_flow_arn\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 24, in resource \"aws_lex_bot\" \"pizza_ordering_bot\":\n  24:   alias {\n\nBlocks of type \"alias\" are not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 29, in resource \"aws_lex_conversation_flow\" \"pizza_ordering_flow\":\n  29: resource \"aws_lex_conversation_flow\" \"pizza_ordering_flow\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_lex_conversation_flow\".\n\nError: Insufficient fulfillment_activity blocks\n\n  on main.tf line 62, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n  62: resource \"aws_lex_intent\" \"order_pizza_intent\" {\n\nAt least 1 \"fulfillment_activity\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 64, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n  64:   locale          = \"en-US\"\n\nAn argument named \"locale\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 67, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n  67:   slots {\n\nBlocks of type \"slots\" are not expected here. Did you mean \"slot\"?\n\nError: Unsupported block type\n\n  on main.tf line 71, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n  71:   slots {\n\nBlocks of type \"slots\" are not expected here. Did you mean \"slot\"?\n\nError: Unsupported block type\n\n  on main.tf line 75, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n  75:   slots {\n\nBlocks of type \"slots\" are not expected here. Did you mean \"slot\"?\n\nError: Unsupported block type\n\n  on main.tf line 80, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n  80:   reponses {\n\nBlocks of type \"reponses\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0056.tf",
+    "scenario_index": 56,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing key/value separator\n\n  on main.tf line 28, in resource \"aws_kms_key\" \"example\":\n  23:       {\n  24:         Sid       = \"Allow Kinesis to use the key\"\n  25:         Effect    = \"Allow\"\n  26:         Action    = [\"kms:Encrypt\", \"kms:ReEncrypt\", \"kms:GenerateDataKey\"]\n  27:         Resource  = aws_kinesis_stream.example.arn\n  28:         Principal {\n\nExpected an equals sign (\"=\") to mark the beginning of the attribute value.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0085.tf",
+    "scenario_index": 85,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 74, in resource \"aws_route53_zone\" \"primary\":\n  74:   delegation_set_id = aws_route53_delegation_set.primary.id\n\nA managed resource \"aws_route53_delegation_set\" \"primary\" has not been\ndeclared in the root module.\n\nError: Invalid resource type\n\n  on main.tf line 82, in resource \"aws_route53_routing_policy\" \"location_based\":\n  82: resource \"aws_route53_routing_policy\" \"location_based\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_routing_policy\".\n\nError: Reference to undeclared resource\n\n  on main.tf line 88, in resource \"aws_route53_routing_policy\" \"location_based\":\n  88:   depends_on = [aws_route53_delegation_set.primary]\n\nA managed resource \"aws_route53_delegation_set\" \"primary\" has not been\ndeclared in the root module.\n\nError: Invalid resource type\n\n  on main.tf line 91, in resource \"aws_route53_routing_policy\" \"location_based_eu\":\n  91: resource \"aws_route53_routing_policy\" \"location_based_eu\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_routing_policy\".\n\nError: Reference to undeclared resource\n\n  on main.tf line 97, in resource \"aws_route53_routing_policy\" \"location_based_eu\":\n  97:   depends_on = [aws_route53_delegation_set.primary]\n\nA managed resource \"aws_route53_delegation_set\" \"primary\" has not been\ndeclared in the root module.\n\nError: Invalid resource type\n\n  on main.tf line 101, in resource \"aws_route53_record_set_group\" \"primary_us\":\n 101: resource \"aws_route53_record_set_group\" \"primary_us\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set_group\".\n\nError: Reference to undeclared resource\n\n  on main.tf line 107, in resource \"aws_route53_record_set_group\" \"primary_us\":\n 107:   depends_on = [aws_route53_delegation_set.primary]\n\nA managed resource \"aws_route53_delegation_set\" \"primary\" has not been\ndeclared in the root module.\n\nError: Invalid resource type\n\n  on main.tf line 110, in resource \"aws_route53_record_set_group\" \"primary_eu\":\n 110: resource \"aws_route53_record_set_group\" \"primary_eu\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_record_set_group\".\n\nError: Reference to undeclared resource\n\n  on main.tf line 116, in resource \"aws_route53_record_set_group\" \"primary_eu\":\n 116:   depends_on = [aws_route53_delegation_set.primary]\n\nA managed resource \"aws_route53_delegation_set\" \"primary\" has not been\ndeclared in the root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0102.tf",
+    "scenario_index": 102,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 43, in resource \"aws_eks_cluster\" \"example\":\n  43:   endpoint_private_access       = false\n\nAn argument named \"endpoint_private_access\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 44, in resource \"aws_eks_cluster\" \"example\":\n  44:   endpoint_public_access        = true\n\nAn argument named \"endpoint_public_access\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 45, in resource \"aws_eks_cluster\" \"example\":\n  45:   enable_log_types              = [\"api\", \"authenticatord\", \"controllerManager\", \"scheduler\"]\n\nAn argument named \"enable_log_types\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 64, in resource \"aws_eks_cluster_auth\" \"example\":\n  64: resource \"aws_eks_cluster_auth\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_eks_cluster_auth\".\n\nDid you intend to use the data source \"aws_eks_cluster_auth\"? If so, declare\nthis using a \"data\" block instead of a \"resource\" block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0112.tf",
+    "scenario_index": 112,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing attribute value\n\n  on main.tf line 95, in resource \"aws_s3_bucket_policy\" \"example-bucket-policy\":\n  94:           NotIpAddress = {\n  95:             aws_s3_bucket.example-bucket.id,\n\nExpected an attribute value, introduced by an equals sign (\"=\").\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0116.tf",
+    "scenario_index": 116,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_s3_bucket\" \"example\":\n   8:   bucket = \"${var.bucket_prefix}-${uuid()}\"\n\nAn input variable with the name \"bucket_prefix\" has not been declared. This\nvariable can be declared with a variable \"bucket_prefix\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 30, in data \"aws_secretsmanager_secret\" \"s3_policy_secret\":\n  30:   name = var.s3_policy_secret_name\n\nAn input variable with the name \"s3_policy_secret_name\" has not been\ndeclared. This variable can be declared with a variable\n\"s3_policy_secret_name\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0129.tf",
+    "scenario_index": 129,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 16, in resource \"aws_subnet\" \"public\":\n  16:   availability_zone = var.aws_availability_zone\n\nAn input variable with the name \"aws_availability_zone\" has not been\ndeclared. This variable can be declared with a variable\n\"aws_availability_zone\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 26, in resource \"aws_subnet\" \"private-1\":\n  26:   availability_zone = var.aws_availability_zone\n\nAn input variable with the name \"aws_availability_zone\" has not been\ndeclared. This variable can be declared with a variable\n\"aws_availability_zone\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 34, in resource \"aws_subnet\" \"private-2\":\n  34:   availability_zone = var.aws_availability_zone\n\nAn input variable with the name \"aws_availability_zone\" has not been\ndeclared. This variable can be declared with a variable\n\"aws_availability_zone\" {} block.\n\nError: Reference to undeclared resource\n\n  on main.tf line 109, in resource \"aws_iam_policy\" \"ec2-policy\":\n 109:         Resource = aws_s3_bucket.example.arn\n\nA managed resource \"aws_s3_bucket\" \"example\" has not been declared in the\nroot module.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 155, in resource \"aws_db_instance\" \"database\":\n 155:   username             = var.rds_username\n\nAn input variable with the name \"rds_username\" has not been declared. This\nvariable can be declared with a variable \"rds_username\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 156, in resource \"aws_db_instance\" \"database\":\n 156:   password             = var.rds_password\n\nAn input variable with the name \"rds_password\" has not been declared. This\nvariable can be declared with a variable \"rds_password\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 171, in resource \"aws_secretsmanager_secret_version\" \"rds-secret-version\":\n 171:     username = var.rds_username,\n\nAn input variable with the name \"rds_username\" has not been declared. This\nvariable can be declared with a variable \"rds_username\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 172, in resource \"aws_secretsmanager_secret_version\" \"rds-secret-version\":\n 172:     password = var.rds_password,\n\nAn input variable with the name \"rds_password\" has not been declared. This\nvariable can be declared with a variable \"rds_password\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0130.tf",
+    "scenario_index": 130,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 39, in resource \"aws_efs_mount_target\" \"private\":\n  39:   security_groups = [aws_security_group.efs.id]\n\nA managed resource \"aws_security_group\" \"efs\" has not been declared in the\nroot module.\n\nError: Invalid function argument\n\n  on main.tf line 117, in resource \"aws_instance\" \"example\":\n 117:     private_key = file(\"~/.ssh/my-key\")\n    \u00e2\u201d\u0153\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\n    \u00e2\u201d\u201a while calling file(path)\n\nInvalid value for \"path\" parameter: no file exists at \"~/.ssh/my-key\"; this\nfunction works only with files that are distributed as part of the\nconfiguration source code, so if this file will be created by a resource in\nthis configuration you must instead obtain this result from an attribute of\nthat resource.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0134.tf",
+    "scenario_index": 134,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 6, in data \"aws_secretsmanager_secret_version\" \"cache_password\":\n   6:   secret_id = var.cache_password_secret_id\n\nAn input variable with the name \"cache_password_secret_id\" has not been\ndeclared. This variable can be declared with a variable\n\"cache_password_secret_id\" {} block.\n\nError: Unsupported argument\n\n  on main.tf line 22, in resource \"aws_elasticache_cluster\" \"example\":\n  22:   preferred_maintenance_window = \"sun:05:00-sun:06:00\"\n\nAn argument named \"preferred_maintenance_window\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 24, in resource \"aws_elasticache_cluster\" \"example\":\n  24:   vpc_security_group_ids = [aws_security_group.elasticache.id]\n\nAn argument named \"vpc_security_group_ids\" is not expected here.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 54, in resource \"aws_security_group\" \"elasticache\":\n  54:     cidr_blocks = [var.elasticache_cidr_block]\n\nAn input variable with the name \"elasticache_cidr_block\" has not been\ndeclared. This variable can be declared with a variable\n\"elasticache_cidr_block\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0138.tf",
+    "scenario_index": 138,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_iam_role\" \"cache_user\":\n   8:   name        = \"${var.cache_cluster_name}-user-role\"\n\nAn input variable with the name \"cache_cluster_name\" has not been declared.\nThis variable can be declared with a variable \"cache_cluster_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 46, in resource \"aws_iam_role\" \"cache_user_group\":\n  46:   name        = \"${var.cache_cluster_name}-user-group-role\"\n\nAn input variable with the name \"cache_cluster_name\" has not been declared.\nThis variable can be declared with a variable \"cache_cluster_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 84, in resource \"aws_iam_user\" \"cache_user\":\n  84:   name = var.cache_user_name\n\nAn input variable with the name \"cache_user_name\" has not been declared. This\nvariable can be declared with a variable \"cache_user_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 95, in resource \"aws_iam_group\" \"cache_user_group\":\n  95:   name = \"${var.cache_cluster_name}-user-group\"\n\nAn input variable with the name \"cache_cluster_name\" has not been declared.\nThis variable can be declared with a variable \"cache_cluster_name\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0146.tf",
+    "scenario_index": 146,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_iam_role\" \"redshift_cluster_role\":\n   8:   name        = \"${var.cluster_name}-redshift-cluster-role\"\n\nAn input variable with the name \"cluster_name\" has not been declared. This\nvariable can be declared with a variable \"cluster_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 27, in resource \"aws_iam_policy\" \"redshift_cluster_policy\":\n  27:   name        = \"${var.cluster_name}-redshift-cluster-policy\"\n\nAn input variable with the name \"cluster_name\" has not been declared. This\nvariable can be declared with a variable \"cluster_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 68, in resource \"aws_security_group\" \"redshift_sg\":\n  68:   name        = \"${var.cluster_name}-redshift-sg\"\n\nAn input variable with the name \"cluster_name\" has not been declared. This\nvariable can be declared with a variable \"cluster_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 75, in resource \"aws_security_group\" \"redshift_sg\":\n  75:     cidr_blocks = [var.vpc_cidr_block]\n\nAn input variable with the name \"vpc_cidr_block\" has not been declared. This\nvariable can be declared with a variable \"vpc_cidr_block\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 81, in resource \"aws_secretsmanager_secret\" \"redshift_master_password\":\n  81:   name        = \"${var.cluster_name}-redshift-master-password\"\n\nAn input variable with the name \"cluster_name\" has not been declared. This\nvariable can be declared with a variable \"cluster_name\" {} block.\n\nError: Invalid resource type\n\n  on main.tf line 89, in resource \"aws_redshift_cluster_instance_role\" \"example\":\n  89: resource \"aws_redshift_cluster_instance_role\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_redshift_cluster_instance_role\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0155.tf",
+    "scenario_index": 155,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 6, in data \"aws_secretsmanager_secret_version\" \"lambda_execution_role\":\n   6:   secret_id = var.lambda_execution_role_arn\n\nAn input variable with the name \"lambda_execution_role_arn\" has not been\ndeclared. This variable can be declared with a variable\n\"lambda_execution_role_arn\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 17, in locals:\n  17:         Resource  = var.lambda_execution_role_arn\n\nAn input variable with the name \"lambda_execution_role_arn\" has not been\ndeclared. This variable can be declared with a variable\n\"lambda_execution_role_arn\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 62, in resource \"aws_cloudwatch_event_rule\" \"lambda_invocation_rule\":\n  62:   name                = var.lambda_function_name\n\nAn input variable with the name \"lambda_function_name\" has not been declared.\nThis variable can be declared with a variable \"lambda_function_name\" {}\nblock.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0156.tf",
+    "scenario_index": 156,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: reading STS Caller Identity\n\n  with data.aws_caller_identity.current,\n  on main.tf line 5, in data \"aws_caller_identity\" \"current\":\n   5: data \"aws_caller_identity\" \"current\" {}\n\noperation error STS: GetCallerIdentity, https response error StatusCode: 403,\nRequestID: 76c554a5-ff7a-49d6-9325-7663fd3ebf80, api error\nInvalidClientTokenId: The security token included in the request is invalid.\n\nError: Archive creation error\n\n  with data.archive_file.lambda_zip,\n  on main.tf line 119, in data \"archive_file\" \"lambda_zip\":\n 119: data \"archive_file\" \"lambda_zip\" {\n\nerror creating archive: error archiving file: could not archive missing file:\n./lambda_function_payload/index.js\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0193.tf",
+    "scenario_index": 193,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_iam_role\" \"database_instance\":\n   8:   name        = \"${var.database_name}-instance-role\"\n\nAn input variable with the name \"database_name\" has not been declared. This\nvariable can be declared with a variable \"database_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 27, in resource \"aws_iam_policy\" \"database_instance\":\n  27:   name        = \"${var.database_name}-instance-policy\"\n\nAn input variable with the name \"database_name\" has not been declared. This\nvariable can be declared with a variable \"database_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 56, in resource \"aws_secretsmanager_secret\" \"database_credentials\":\n  56:   name        = \"${var.database_name}-credentials\"\n\nAn input variable with the name \"database_name\" has not been declared. This\nvariable can be declared with a variable \"database_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 66, in resource \"aws_iam_role\" \"database_instance_least_privilege\":\n  66:   name        = \"${var.database_name}-instance-role-least-privilege\"\n\nAn input variable with the name \"database_name\" has not been declared. This\nvariable can be declared with a variable \"database_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 85, in resource \"aws_iam_policy\" \"database_instance_least_privilege\":\n  85:   name        = \"${var.database_name}-instance-policy-least-privilege\"\n\nAn input variable with the name \"database_name\" has not been declared. This\nvariable can be declared with a variable \"database_name\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0203.tf",
+    "scenario_index": 203,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 24, in resource \"aws_msk_cluster\" \"managed_msk_cluster\":\n  24: resource \"aws_msk_cluster\" \"managed_msk_cluster\" {\n\nThe argument \"number_of_broker_nodes\" is required, but no definition was\nfound.\n\nError: Insufficient broker_node_group_info blocks\n\n  on main.tf line 24, in resource \"aws_msk_cluster\" \"managed_msk_cluster\":\n  24: resource \"aws_msk_cluster\" \"managed_msk_cluster\" {\n\nAt least 1 \"broker_node_group_info\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 27, in resource \"aws_msk_cluster\" \"managed_msk_cluster\":\n  27:   number_of_node_groups = 1\n\nAn argument named \"number_of_node_groups\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 29, in resource \"aws_msk_cluster\" \"managed_msk_cluster\":\n  29:   node_group {\n\nBlocks of type \"node_group\" are not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 37, in resource \"aws_msk_cluster\" \"managed_msk_cluster\":\n  37:     key_arn = aws_kms_key.msk_key.arn\n\nAn argument named \"key_arn\" is not expected here.\n\nError: Insufficient broker_logs blocks\n\n  on main.tf line 40, in resource \"aws_msk_cluster\" \"managed_msk_cluster\":\n  40:   logging_info {\n\nAt least 1 \"broker_logs\" blocks are required.\n\nError: Unsupported block type\n\n  on main.tf line 41, in resource \"aws_msk_cluster\" \"managed_msk_cluster\":\n  41:     cloudwatch_logging_info {\n\nBlocks of type \"cloudwatch_logging_info\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0209.tf",
+    "scenario_index": 209,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_kms_key\" \"msk_key\":\n   8:   description             = \"MSK Key for ${var.cluster_name}\"\n\nAn input variable with the name \"cluster_name\" has not been declared. This\nvariable can be declared with a variable \"cluster_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 19, in resource \"aws_kms_key\" \"msk_key\":\n  19:           Service = \"kafka.${var.aws_region}.amazonaws.com\"\n\nAn input variable with the name \"aws_region\" has not been declared. This\nvariable can be declared with a variable \"aws_region\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 38, in resource \"aws_msk_cluster\" \"msk_cluster\":\n  38:   cluster_name           = var.cluster_name\n\nAn input variable with the name \"cluster_name\" has not been declared. This\nvariable can be declared with a variable \"cluster_name\" {} block.\n\nError: Missing required argument\n\n  on main.tf line 59, in resource \"aws_msk_configuration\" \"cluster_config\":\n  59: resource \"aws_msk_configuration\" \"cluster_config\" {\n\nThe argument \"name\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 59, in resource \"aws_msk_configuration\" \"cluster_config\":\n  59: resource \"aws_msk_configuration\" \"cluster_config\" {\n\nThe argument \"server_properties\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 60, in resource \"aws_msk_configuration\" \"cluster_config\":\n  60:   cluster_config = jsonencode({\n\nAn argument named \"cluster_config\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0224.tf",
+    "scenario_index": 224,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing key/value separator\n\n  on main.tf line 101, in resource \"aws_kms_key\" \"example\":\n  96:       {\n  97:         Sid       = \"Enable IAM User Permissions\"\n  98:         Effect    = \"Allow\"\n  99:         Action    = [\"kms:*\"]\n 100:         Resource  = \"*\"\n 101:         Principal {\n\nExpected an equals sign (\"=\") to mark the beginning of the attribute value.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0235.tf",
+    "scenario_index": 235,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 18, in resource \"aws_vpc\" \"example\":\n  18:     Environment = var.environment\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0242.tf",
+    "scenario_index": 242,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 60, in resource \"aws_subnet\" \"neptune_cluster_subnet1\":\n  60:   availability_zone = var.aws_availability_zone\n\nAn input variable with the name \"aws_availability_zone\" has not been\ndeclared. This variable can be declared with a variable\n\"aws_availability_zone\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 70, in resource \"aws_subnet\" \"neptune_cluster_subnet2\":\n  70:   availability_zone = var.aws_availability_zone\n\nAn input variable with the name \"aws_availability_zone\" has not been\ndeclared. This variable can be declared with a variable\n\"aws_availability_zone\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0252.tf",
+    "scenario_index": 252,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 9, in resource \"aws_chime_voice_connector\" \"example\":\n   9:   tags       = var.tags\n\nAn input variable with the name \"tags\" has not been declared. This variable\ncan be declared with a variable \"tags\" {} block.\n\nError: Invalid resource type\n\n  on main.tf line 13, in resource \"aws_chime_voice_connector_endpoint\" \"example\":\n  13: resource \"aws_chime_voice_connector_endpoint\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_chime_voice_connector_endpoint\".\n\nError: Reference to undeclared input variable\n\n  on main.tf line 40, in resource \"aws_iam_role\" \"voice_connector_execution_role\":\n  40:   name        = \"voice-connector-execution-role-${var.account_id}\"\n\nAn input variable with the name \"account_id\" has not been declared. This\nvariable can be declared with a variable \"account_id\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0265.tf",
+    "scenario_index": 265,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 55, in resource \"aws_iam_user_policy_attachment\" \"example_attach\":\n  55:   policy_arn = aws_iam_user_policy.example_policy.arn\n\nThis object has no argument, nested block, or exported attribute named \"arn\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0294.tf",
+    "scenario_index": 294,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 7, in resource \"aws_codebuild_project\" \"autograder\":\n   7: resource \"aws_codebuild_project\" \"autograder\" {\n\nThe argument \"service_role\" is required, but no definition was found.\n\nError: Insufficient source blocks\n\n  on main.tf line 7, in resource \"aws_codebuild_project\" \"autograder\":\n   7: resource \"aws_codebuild_project\" \"autograder\" {\n\nAt least 1 \"source\" blocks are required.\n\nError: Insufficient artifacts blocks\n\n  on main.tf line 7, in resource \"aws_codebuild_project\" \"autograder\":\n   7: resource \"aws_codebuild_project\" \"autograder\" {\n\nAt least 1 \"artifacts\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 10, in resource \"aws_codebuild_project\" \"autograder\":\n  10:   source_type  = \"GITHUB\"\n\nAn argument named \"source_type\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 11, in resource \"aws_codebuild_project\" \"autograder\":\n  11:   source_config {\n\nBlocks of type \"source_config\" are not expected here.\n\nError: Missing required argument\n\n  on main.tf line 24, in resource \"aws_codecommit_repository\" \"cs_class\":\n  24: resource \"aws_codecommit_repository\" \"cs_class\" {\n\nThe argument \"repository_name\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 25, in resource \"aws_codecommit_repository\" \"cs_class\":\n  25:   name        = \"cs-class-autograder-repo\"\n\nAn argument named \"name\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 120, in resource \"aws_codebuild_project_source\" \"github_token\":\n 120: resource \"aws_codebuild_project_source\" \"github_token\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_codebuild_project_source\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0316.tf",
+    "scenario_index": 316,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Cycle: aws_acm_certificate_validation.video_cert, aws_route53_record.validation_record\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0319.tf",
+    "scenario_index": 319,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 56, in resource \"aws_route53_zone\" \"netflix\":\n  56:   name = var.netflix_domain_name\n\nAn input variable with the name \"netflix_domain_name\" has not been declared.\nThis variable can be declared with a variable \"netflix_domain_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 82, in resource \"aws_cloudfront_origin_access_control\" \"s3_video_content\":\n  82:   name               = var.netflix_domain_name\n\nAn input variable with the name \"netflix_domain_name\" has not been declared.\nThis variable can be declared with a variable \"netflix_domain_name\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0335.tf",
+    "scenario_index": 335,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 6, in data \"aws_secretsmanager_secret_version\" \"rds_password\":\n   6:   secret_id = var.rds_password_secret_id\n\nAn input variable with the name \"rds_password_secret_id\" has not been\ndeclared. This variable can be declared with a variable\n\"rds_password_secret_id\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 34, in resource \"aws_security_group\" \"airbyte_connector_test\":\n  34:     cidr_blocks = [var.airbyte_connector_test_cidr_block]\n\nAn input variable with the name \"airbyte_connector_test_cidr_block\" has not\nbeen declared. This variable can be declared with a variable\n\"airbyte_connector_test_cidr_block\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 49, in resource \"aws_db_subnet_group\" \"airbyte_connector_test\":\n  49:   subnet_ids = [var.public_subnet_id, var.public_subnet_id]\n\nAn input variable with the name \"public_subnet_id\" has not been declared.\nThis variable can be declared with a variable \"public_subnet_id\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 49, in resource \"aws_db_subnet_group\" \"airbyte_connector_test\":\n  49:   subnet_ids = [var.public_subnet_id, var.public_subnet_id]\n\nAn input variable with the name \"public_subnet_id\" has not been declared.\nThis variable can be declared with a variable \"public_subnet_id\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0348.tf",
+    "scenario_index": 348,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 16, in resource \"aws_subnet\" \"example\":\n  16:   availability_zone = var.aws_availability_zone\n\nAn input variable with the name \"aws_availability_zone\" has not been\ndeclared. This variable can be declared with a variable\n\"aws_availability_zone\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 30, in resource \"aws_security_group\" \"example\":\n  30:     cidr_blocks = [var.allowed_cidr_block]\n\nAn input variable with the name \"allowed_cidr_block\" has not been declared.\nThis variable can be declared with a variable \"allowed_cidr_block\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0365.tf",
+    "scenario_index": 365,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 11, in resource \"aws_secretsmanager_secret_version\" \"ssh_key\":\n  11:   secret_string = file(var.ssh_private_key_path)\n\nAn input variable with the name \"ssh_private_key_path\" has not been declared.\nThis variable can be declared with a variable \"ssh_private_key_path\" {}\nblock.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 24, in resource \"aws_lightsail_key_pair\" \"example\":\n  24:   name       = var.key_pair_name\n\nAn input variable with the name \"key_pair_name\" has not been declared. This\nvariable can be declared with a variable \"key_pair_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 25, in resource \"aws_lightsail_key_pair\" \"example\":\n  25:   public_key = file(var.ssh_public_key_path)\n\nAn input variable with the name \"ssh_public_key_path\" has not been declared.\nThis variable can be declared with a variable \"ssh_public_key_path\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0366.tf",
+    "scenario_index": 366,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 15, in resource \"aws_secretsmanager_secret_version\" \"database_credentials\":\n  15:     username = var.database_username\n\nAn input variable with the name \"database_username\" has not been declared.\nThis variable can be declared with a variable \"database_username\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 16, in resource \"aws_secretsmanager_secret_version\" \"database_credentials\":\n  16:     password = var.database_password\n\nAn input variable with the name \"database_password\" has not been declared.\nThis variable can be declared with a variable \"database_password\" {} block.\n\nError: Unsupported argument\n\n  on main.tf line 68, in resource \"aws_iam_instance_profile\" \"lightsail_managed_database_instance_profile\":\n  68:   description = \"Instance profile for Lightsail managed database\"\n\nAn argument named \"description\" is not expected here.\n\nError: Missing required argument\n\n  on main.tf line 72, in resource \"aws_lightsail_database\" \"example\":\n  72: resource \"aws_lightsail_database\" \"example\" {\n\nThe argument \"master_database_name\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 72, in resource \"aws_lightsail_database\" \"example\":\n  72: resource \"aws_lightsail_database\" \"example\" {\n\nThe argument \"relational_database_name\" is required, but no definition was\nfound.\n\nError: Missing required argument\n\n  on main.tf line 72, in resource \"aws_lightsail_database\" \"example\":\n  72: resource \"aws_lightsail_database\" \"example\" {\n\nThe argument \"master_password\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 72, in resource \"aws_lightsail_database\" \"example\":\n  72: resource \"aws_lightsail_database\" \"example\" {\n\nThe argument \"master_username\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 72, in resource \"aws_lightsail_database\" \"example\":\n  72: resource \"aws_lightsail_database\" \"example\" {\n\nThe argument \"blueprint_id\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 72, in resource \"aws_lightsail_database\" \"example\":\n  72: resource \"aws_lightsail_database\" \"example\" {\n\nThe argument \"bundle_id\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 73, in resource \"aws_lightsail_database\" \"example\":\n  73:   name                  = var.database_name\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 74, in resource \"aws_lightsail_database\" \"example\":\n  74:   username              = var.database_username\n\nAn argument named \"username\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 75, in resource \"aws_lightsail_database\" \"example\":\n  75:   password              = var.database_password\n\nAn argument named \"password\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 76, in resource \"aws_lightsail_database\" \"example\":\n  76:   master_user_password  = var.database_password\n\nAn argument named \"master_user_password\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 77, in resource \"aws_lightsail_database\" \"example\":\n  77:   backup_retention_period = 1\n\nAn argument named \"backup_retention_period\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 78, in resource \"aws_lightsail_database\" \"example\":\n  78:   instance_size          = \"db-b-2\"\n\nAn argument named \"instance_size\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 81, in resource \"aws_lightsail_database_parameter_group\" \"example\":\n  81: resource \"aws_lightsail_database_parameter_group\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_lightsail_database_parameter_group\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0372.tf",
+    "scenario_index": 372,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_secretsmanager_secret\" \"lightsail_disk_password\":\n   8:   name        = \"${var.project_name}-lightsail-disk-password\"\n\nAn input variable with the name \"project_name\" has not been declared. This\nvariable can be declared with a variable \"project_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 29, in resource \"aws_iam_role\" \"lightsail_instance_role\":\n  29:   name               = \"${var.project_name}-lightsail-instance-role\"\n\nAn input variable with the name \"project_name\" has not been declared. This\nvariable can be declared with a variable \"project_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 51, in resource \"aws_iam_role\" \"lightsail_disk_role\":\n  51:   name               = \"${var.project_name}-lightsail-disk-role\"\n\nAn input variable with the name \"project_name\" has not been declared. This\nvariable can be declared with a variable \"project_name\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0416.tf",
+    "scenario_index": 416,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 58, in data \"aws_s3_bucket\" \"database_backup\":\n  58:   bucket = var.database_backup_bucket_name\n\nAn input variable with the name \"database_backup_bucket_name\" has not been\ndeclared. This variable can be declared with a variable\n\"database_backup_bucket_name\" {} block.\n\nError: Invalid index\n\n  on main.tf line 66, in resource \"aws_rds_cluster\" \"database_cluster\":\n  66:   master_username        = data.aws_secretsmanager_secret_version.database_credentials.secret_string[\"username\"]\n\nThis value does not have any indices.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0419.tf",
+    "scenario_index": 419,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 72, in resource \"aws_db_instance\" \"example\":\n  72:   password             = aws_secretsmanager_secret.example.version_1.SecretString\n\nThis object has no argument, nested block, or exported attribute named\n\"version_1\".\n\nError: Reference to undeclared resource\n\n  on main.tf line 75, in resource \"aws_db_instance\" \"example\":\n  75:   db_subnet_group_name = aws_db_subnet_group.example.name\n\nA managed resource \"aws_db_subnet_group\" \"example\" has not been declared in\nthe root module.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 109, in resource \"aws_secretsmanager_secret_version\" \"example\":\n 109:   secret_string = var.db_password\n\nAn input variable with the name \"db_password\" has not been declared. This\nvariable can be declared with a variable \"db_password\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0429.tf",
+    "scenario_index": 429,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: fetching Availability Zones: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 401, RequestID: e4f37f42-f31e-421a-95c0-fe2498efe0f0, api error AuthFailure: AWS was not able to validate the provided access credentials\n\n  with data.aws_availability_zones.available,\n  on main.tf line 5, in data \"aws_availability_zones\" \"available\":\n   5: data \"aws_availability_zones\" \"available\" {}\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0430.tf",
+    "scenario_index": 430,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 13, in resource \"aws_vpc\" \"example\":\n  13:     Name        = var.name\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 14, in resource \"aws_vpc\" \"example\":\n  14:     Environment = var.environment\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 78, in resource \"aws_iam_role\" \"example\":\n  78:   name        = var.name\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 96, in resource \"aws_iam_policy\" \"example\":\n  96:   name        = var.name\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0432.tf",
+    "scenario_index": 432,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 13, in resource \"aws_vpc\" \"example\":\n  13:     Name        = var.name\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 14, in resource \"aws_vpc\" \"example\":\n  14:     Environment = var.environment\n\nAn input variable with the name \"environment\" has not been declared. This\nvariable can be declared with a variable \"environment\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0438.tf",
+    "scenario_index": 438,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 55, in resource \"aws_subnet\" \"public1\":\n  55:   availability_zone = var.aws_region == \"us-west-2\" ? \"us-west-2a\" : \"eu-central-1a\"\n\nAn input variable with the name \"aws_region\" has not been declared. This\nvariable can be declared with a variable \"aws_region\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 65, in resource \"aws_subnet\" \"public2\":\n  65:   availability_zone = var.aws_region == \"us-west-2\" ? \"us-west-2b\" : \"eu-central-1b\"\n\nAn input variable with the name \"aws_region\" has not been declared. This\nvariable can be declared with a variable \"aws_region\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0453.tf",
+    "scenario_index": 453,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 54, in resource \"aws_vpc_peering_connection\" \"pike_peering_conn\":\n  54:   vpc_id             = var.peer_vpc_id\n\nAn input variable with the name \"peer_vpc_id\" has not been declared. This\nvariable can be declared with a variable \"peer_vpc_id\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 55, in resource \"aws_vpc_peering_connection\" \"pike_peering_conn\":\n  55:   peer_vpc_id        = var.base_vpc_id\n\nAn input variable with the name \"base_vpc_id\" has not been declared. This\nvariable can be declared with a variable \"base_vpc_id\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 71, in resource \"aws_security_group\" \"pike_peering_sg\":\n  71:   vpc_id = var.peer_vpc_id\n\nAn input variable with the name \"peer_vpc_id\" has not been declared. This\nvariable can be declared with a variable \"peer_vpc_id\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 77, in resource \"aws_security_group\" \"pike_peering_sg\":\n  77:     cidr_blocks = [var.base_cidr_block]\n\nAn input variable with the name \"base_cidr_block\" has not been declared. This\nvariable can be declared with a variable \"base_cidr_block\" {} block.\n",
+    "opa_evaluation_error": "None"
   }
 ]
