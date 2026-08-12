@@ -71,6 +71,7 @@ import subprocess
 import sys
 import time
 import uuid
+from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 
@@ -107,11 +108,18 @@ RANDOM_SEED = 42
 # auto-auditoría).
 COMMON_AUDITOR = os.environ.get("COMMON_AUDITOR", "devstral-small-2:latest")
 
-# Auditor con el que se produjeron las auditorías heredadas de outputs_v2
-# (según INSTRUCCIONES_EXPERIMENTO_V2.md y el default de pipeline_v2.py).
-# Medido en esta máquina: devstral-small-2 pesa 15 GB, no cabe en 8 GB de VRAM
-# y tarda ~220 s por archivo; un auditor de 7B que sí quepa tarda ~48 s.
-V2_AUDITOR = "devstral-small-2:latest"
+# Auditor que produjo REALMENTE las auditorías heredadas de outputs_v2.
+# No es el default de pipeline_v2.py ni lo que decía este archivo: según
+# outputs_v2/pipeline_v2_log.txt:1041-1328, las 8 celdas que aquí se importan
+# (codegemma, codellama, granite-code y llama3.1, P0 y P1) las auditó
+# 'qwen25-coder-audit'. Dar por bueno 'devstral-small-2:latest' hacía que la
+# importación pasara el control de auditor y se acabaran mezclando dos
+# detectores en el mismo secllm_results.json.
+#
+# OJO: 'qwen25-coder-audit' era un Modelfile propio que ya no existe en Ollama y
+# del que no hay copia en el repo. Mientras no se recupere, estas auditorías se
+# pueden identificar pero no continuar: hay que re-auditar con un auditor nuevo.
+V2_AUDITOR = "qwen25-coder-audit"
 
 CONDITIONS = ["P0", "P1"]
 
@@ -275,6 +283,13 @@ def build_override(code: str) -> str:
 # ============================================================================
 # UTILIDADES
 # ============================================================================
+
+# Etiqueta única de esta corrida. Todo lo que se escriba fuera de las carpetas
+# de resultados va marcado con ella, para que dos corridas simultáneas en la
+# misma máquina (repartir el experimento por turnos invita a eso) no compartan
+# ni un solo archivo temporal.
+_RUN_TAG = str(os.getpid())
+
 
 def log(msg: str) -> None:
     line = f"[{datetime.now():%Y-%m-%d %H:%M:%S}] {msg}"
@@ -450,12 +465,14 @@ def seed_from_v2(model: str, condition: str, reeval: bool = False,
     if auditor != V2_AUDITOR:
         return imported
     if src_audit.exists() and not dst_audit.exists():
-        shutil.copy2(src_audit, dst_audit)
+        # Cada fila se estampa con el auditor que la produjo en lugar de copiar
+        # el archivo tal cual: así la procedencia viaja dentro del dato y no
+        # depende de un marcador que se pueda perder o sobrescribir.
+        filas = json.loads(src_audit.read_text(encoding="utf-8"))
+        for fila in filas:
+            fila["AUDITOR"] = V2_AUDITOR
+        dst_audit.write_text(json.dumps(filas, indent=2), encoding="utf-8")
 
-    # Las filas heredadas las produjo el auditor de v2. Sin dejarlo anotado, una
-    # corrida de v3 con otro auditor las mezclaría en silencio. Se escribe
-    # siempre que falte el marcador, no solo al copiar: si el marcador se
-    # pierde, la celda quedaría desprotegida.
     marker = dst / "auditor.json"
     if dst_audit.exists() and not marker.exists():
         marker.write_text(
@@ -463,6 +480,49 @@ def seed_from_v2(model: str, condition: str, reeval: bool = False,
             encoding="utf-8")
 
     return imported
+
+
+def reparar_etiquetas_auditor() -> None:
+    """
+    Corrige la procedencia de las auditorías que se importaron cuando este
+    archivo aún declaraba mal V2_AUDITOR.
+
+    Esas celdas quedaron con `auditor.json` apuntando a devstral y con filas sin
+    campo AUDITOR, cuando en realidad las produjo `qwen25-coder-audit`
+    (outputs_v2/pipeline_v2_log.txt:1041-1328). Mientras la etiqueta siga mal,
+    una corrida con devstral pasa el control de la celda y le añade filas
+    encima, que es exactamente la mezcla que hay que evitar.
+
+    Es idempotente y solo toca celdas marcadas como importadas de v2.
+    """
+    for m in MODELS:
+        for c in CONDITIONS:
+            cell = OUTPUT_BASE / model_slug(m) / c
+            audit_json = cell / "secllm_results.json"
+            marker = cell / "auditor.json"
+            if not audit_json.exists() or not marker.exists():
+                continue
+            try:
+                meta = json.loads(marker.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
+            if meta.get("origen") != "outputs_v2":
+                continue
+
+            filas = _load_json_list(audit_json)
+            sin_etiqueta = [f for f in filas if not f.get("AUDITOR")]
+            if not sin_etiqueta and meta.get("auditor") == V2_AUDITOR:
+                continue
+
+            for f in sin_etiqueta:
+                f["AUDITOR"] = V2_AUDITOR
+            audit_json.write_text(json.dumps(filas, indent=2), encoding="utf-8")
+            marker.write_text(
+                json.dumps({"auditor": V2_AUDITOR, "origen": "outputs_v2"},
+                           indent=2), encoding="utf-8")
+            log(f"[corregido] {m} [{c}]: {len(sin_etiqueta)} filas heredadas de "
+                f"v2 reetiquetadas como '{V2_AUDITOR}' (el marcador decía "
+                f"'{meta.get('auditor')}').")
 
 
 # ============================================================================
@@ -549,7 +609,13 @@ def _walk_values(node):
 # Aquí se reutiliza UN solo workspace por proceso: init se ejecuta una vez y
 # entre archivos solo se intercambia main.tf. Además de no acumular disco, baja
 # el coste por evaluación de ~20 s a ~5 s.
-_WS_DIR = Path("./tmp/tf_ws_v3")
+#
+# La ruta lleva el identificador de la corrida: con una ruta fija, dos procesos
+# en la misma máquina escribían su main.tf en el mismo sitio y uno podía acabar
+# ejecutando `terraform plan` sobre el código del otro, registrando el resultado
+# como propio. No fallaba: producía valores de Fc equivocados en silencio.
+_WS_DIR = Path(f"./tmp/tf_ws_v3_{_RUN_TAG}")
+_REGO_BASE = Path(f"./tmp/rego_config_v3_{_RUN_TAG}")
 _ws_ready = False
 _ws_override = None
 
@@ -581,9 +647,12 @@ def cleanup_workspace() -> None:
     260 caracteres de MAX_PATH. El prefijo \\?\ evita lo segundo y los
     reintentos lo primero. Un fallo aquí solo desperdicia disco, así que nunca
     propaga: se reporta y sigue.
+
+    Borra SOLO los directorios de esta corrida. Con las rutas fijas de antes, el
+    proceso que terminaba primero le borraba el workspace al que seguía
+    corriendo.
     """
-    for base in (Path("./tmp/tf_ws_v3"), Path("./tmp/terraform_config_v3"),
-                 Path("./tmp/rego_config_v3")):
+    for base in (_WS_DIR, _REGO_BASE):
         for intento in range(4):
             if not base.exists():
                 break
@@ -617,7 +686,7 @@ def functional_eval(code: str, policy_rego: str, run_uuid: str) -> dict:
     }
 
     ws = _WS_DIR
-    rego_dir = Path("./tmp/rego_config_v3") / run_uuid
+    rego_dir = _REGO_BASE / run_uuid
     cwd = os.getcwd()
 
     try:
@@ -790,8 +859,8 @@ def run_generation_and_eval(model: str, condition: str, samples: pd.DataFrame,
             by_file[base_name] = record
             attempts.append({"file": base_name, "scenario_index": int(idx),
                              "attempt": 0, **res})
-            _dump(func_json, results)
-            _dump(attempts_json, attempts)
+            _dump_results(func_json, results)
+            _dump_attempts(attempts_json, attempts)
 
         # ---------- Rondas de reparación ----------
         # Solo si el plan del último intento falló. Si el plan pasa pero OPA
@@ -825,8 +894,8 @@ def run_generation_and_eval(model: str, condition: str, samples: pd.DataFrame,
                 record["fc_at_k"] = 1
             last_code, last_error = fixed, res.get("terraform_plan_error", "")
 
-            _dump(func_json, results)
-            _dump(attempts_json, attempts)
+            _dump_results(func_json, results)
+            _dump_attempts(attempts_json, attempts)
 
             if record["fc_at_k"] == 1:
                 log(f"  [{idx}] RECUPERADO por reparación en la ronda {k}.")
@@ -871,8 +940,60 @@ def _load_json_list(path: Path) -> list:
         return []
 
 
-def _dump(path: Path, data) -> None:
-    path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+# --- Escritura segura de los archivos compartidos ---------------------------
+# Dos corridas de la misma máquina pueden trabajar sobre la MISMA celda con
+# escenarios distintos: es justo lo que pasa al repartir el experimento por
+# turnos. Cada una cargaba la lista entera en memoria y la reescribía completa,
+# así que la última en escribir borraba los registros de la otra sin dar error.
+# Aquí toda escritura toma un lock por archivo, relee lo que haya en disco,
+# funde por clave y reemplaza de forma atómica.
+
+@contextmanager
+def _file_lock(path: Path, timeout: float = 120.0):
+    lock = path.with_suffix(path.suffix + ".lock")
+    lock.parent.mkdir(parents=True, exist_ok=True)
+    inicio = time.time()
+    while True:
+        try:
+            fd = os.open(str(lock), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            break
+        except FileExistsError:
+            # Un proceso que muere deja el lock puesto. Sin esta salida, la
+            # siguiente corrida se quedaría esperando para siempre.
+            try:
+                if time.time() - lock.stat().st_mtime > timeout:
+                    lock.unlink(missing_ok=True)
+                    continue
+            except OSError:
+                pass
+            if time.time() - inicio > timeout:
+                raise TimeoutError(f"no se pudo tomar el lock de {path}")
+            time.sleep(0.1)
+    try:
+        os.close(fd)
+        yield
+    finally:
+        lock.unlink(missing_ok=True)
+
+
+def _merge_json_list(path: Path, nuevos: list, clave) -> None:
+    """Funde `nuevos` con lo que ya haya en `path`, indexando por `clave`."""
+    with _file_lock(path):
+        indexado = {clave(r): r for r in _load_json_list(path)}
+        for r in nuevos:
+            indexado[clave(r)] = r
+        tmp = path.with_suffix(path.suffix + f".{_RUN_TAG}.tmp")
+        tmp.write_text(json.dumps(list(indexado.values()), indent=2),
+                       encoding="utf-8")
+        os.replace(tmp, path)
+
+
+def _dump_results(path: Path, records: list) -> None:
+    _merge_json_list(path, records, lambda r: r["file"])
+
+
+def _dump_attempts(path: Path, attempts: list) -> None:
+    _merge_json_list(path, attempts, lambda r: (r["file"], r["attempt"]))
 
 
 # ============================================================================
@@ -888,7 +1009,11 @@ def write_audit_config(auditor_model: str) -> Path:
     c["url"] = OLLAMA_OPENAI_URL
     c["use_huggingface"] = False
     c["temperature"] = 0
-    temp = SECLLM_DIR / f"temp_audit_{model_slug(auditor_model)}.yaml"
+    # Lleva la etiqueta de la corrida: si dos procesos usan el mismo auditor,
+    # el primero en terminar borraba este archivo (main() lo hace en su finally)
+    # mientras el otro seguía auditando, y sus llamadas a SecLLM se quedaban sin
+    # configuración.
+    temp = SECLLM_DIR / f"temp_audit_{model_slug(auditor_model)}_{_RUN_TAG}.yaml"
     with open(temp, "w", encoding="utf-8") as f:
         yaml.dump(cfg, f, allow_unicode=True)
     return temp
@@ -898,13 +1023,38 @@ def load_done_paths(results_json: Path) -> set:
     return {item.get("PATH") for item in _load_json_list(results_json)}
 
 
-def audit_file(tf_file: Path, results_json: Path, config_path: Path) -> None:
-    subprocess.run(
-        [sys.executable, str(SECLLM_SCRIPT),
-         "-f", str(tf_file), "-o", str(results_json), "-c", str(config_path),
-         "-t", str(AUDIT_THREADS), "-a", "-j"],
-        cwd=str(SECLLM_DIR), timeout=AUDIT_FILE_TIMEOUT,
-    )
+def audit_file(tf_file: Path, results_json: Path, config_path: Path,
+               auditor_model: str) -> None:
+    """
+    Audita un archivo y funde el resultado en el JSON de la celda.
+
+    SecLLM con `-a` hace read-modify-write sobre el archivo de salida, así que
+    dos corridas auditando la misma celda se pisaban los resultados. Aquí cada
+    llamada escribe en un parcial propio y la fusión pasa por el lock, que solo
+    se retiene durante la escritura y no durante la inferencia.
+
+    De paso se estampa el auditor en cada fila: SecLLM no lo registra, y sin eso
+    la única traza de qué detector produjo cada detección era un marcador
+    aparte, que se pierde o se sobrescribe con facilidad.
+    """
+    parcial = results_json.parent / f".audit_{_RUN_TAG}_{tf_file.stem}.json"
+    parcial.unlink(missing_ok=True)
+    try:
+        subprocess.run(
+            [sys.executable, str(SECLLM_SCRIPT),
+             "-f", str(tf_file), "-o", str(parcial), "-c", str(config_path),
+             "-t", str(AUDIT_THREADS), "-j"],
+            cwd=str(SECLLM_DIR), timeout=AUDIT_FILE_TIMEOUT,
+        )
+        filas = _load_json_list(parcial)
+        for fila in filas:
+            fila["AUDITOR"] = auditor_model
+        if filas:
+            _merge_json_list(
+                results_json, filas,
+                lambda r: (r["PATH"], str(r["LINE"]), r["SMELL"]))
+    finally:
+        parcial.unlink(missing_ok=True)
 
 
 def run_security_audit(model: str, condition: str, samples: pd.DataFrame,
@@ -920,28 +1070,26 @@ def run_security_audit(model: str, condition: str, samples: pd.DataFrame,
     tf_dir = cond_dir / "terraform"
     audit_json = cond_dir / "secllm_results.json"
 
-    # SecLLM no escribe qué modelo produjo cada fila, así que dos auditores
-    # distintos sobre el mismo directorio quedan mezclados sin dejar rastro: el
-    # resultado ya no mide "lo que ve un auditor", sino una mezcla. Se registra
-    # el auditor usado y se aborta la celda si cambia.
-    marker = cond_dir / "auditor.json"
-    previo = None
-    if marker.exists():
-        try:
-            previo = json.loads(marker.read_text(encoding="utf-8")).get("auditor")
-        except (json.JSONDecodeError, OSError):
-            previo = None
-
-    if previo and previo != auditor_model and audit_json.exists():
-        log(f"[ABORTADA] {model} [{condition}]: ya fue auditado por '{previo}' y "
-            f"ahora se pide '{auditor_model}'. Mezclar auditores invalida la "
-            f"comparación. Borra secllm_results.json y auditor.json de esa "
-            f"carpeta para re-auditar desde cero.")
+    # Mezclar dos auditores en la misma celda hace que el resultado deje de
+    # medir "lo que ve un auditor" y pase a medir una mezcla. El control se hace
+    # sobre las FILAS ya escritas, no sobre el marcador: el marcador es un solo
+    # archivo que se puede perder, sobrescribir o —como pasó con las auditorías
+    # heredadas de v2— llevar el nombre equivocado.
+    previos = {r.get("AUDITOR") for r in _load_json_list(audit_json)}
+    previos.discard(None)
+    ajenos = previos - {auditor_model}
+    if ajenos:
+        log(f"[ABORTADA] {model} [{condition}]: la celda ya tiene filas de "
+            f"{sorted(ajenos)} y ahora se pide '{auditor_model}'. Mezclar "
+            f"auditores invalida la comparación. Borra secllm_results.json y "
+            f"auditor.json de esa carpeta para re-auditar desde cero.")
         return
 
+    # El marcador se conserva por comodidad al inspeccionar una carpeta a mano,
+    # pero ya no es la fuente de verdad: esa es el campo AUDITOR de cada fila.
     cond_dir.mkdir(parents=True, exist_ok=True)
-    marker.write_text(json.dumps({"auditor": auditor_model}, indent=2),
-                      encoding="utf-8")
+    (cond_dir / "auditor.json").write_text(
+        json.dumps({"auditor": auditor_model}, indent=2), encoding="utf-8")
 
     log(f"--- {model} [{condition}]: auditoría con '{auditor_model}' ---")
     done = load_done_paths(audit_json)
@@ -959,7 +1107,7 @@ def run_security_audit(model: str, condition: str, samples: pd.DataFrame,
             continue
         log(f"  auditando {tf_file.name} ...")
         try:
-            audit_file(tf_file, audit_json, audit_config)
+            audit_file(tf_file, audit_json, audit_config, auditor_model)
         except subprocess.TimeoutExpired:
             log(f"  TIMEOUT auditando {tf_file.name}; se continúa.")
         except Exception as e:
@@ -1087,6 +1235,10 @@ def main():
     if args.summary_only:
         summarize(models, conditions)
         return
+
+    # Se ejecuta siempre, también con --no-seed-from-v2: las etiquetas
+    # incorrectas ya están en disco de corridas anteriores.
+    reparar_etiquetas_auditor()
 
     # Reutilizar todo lo que v2 ya produjo (no toca outputs_v2).
     if not args.no_seed_from_v2:

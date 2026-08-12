@@ -537,3 +537,12 @@
 [2026-08-12 10:45:23] codegemma_7b         P0      44       5       5     1     1
 [2026-08-12 10:45:23] TOTAL                        44       5       5     1     1
 [2026-08-12 10:45:23] ========================================================================
+[2026-08-12 16:19:08] [corregido] codegemma:7b [P0]: 55 filas heredadas de v2 reetiquetadas como 'qwen25-coder-audit' (el marcador decía 'devstral-small-2:latest').
+[2026-08-12 16:19:08] [corregido] codegemma:7b [P1]: 41 filas heredadas de v2 reetiquetadas como 'qwen25-coder-audit' (el marcador decía 'devstral-small-2:latest').
+[2026-08-12 16:19:08] [corregido] codellama:7b [P0]: 65 filas heredadas de v2 reetiquetadas como 'qwen25-coder-audit' (el marcador decía 'devstral-small-2:latest').
+[2026-08-12 16:19:08] [corregido] codellama:7b [P1]: 52 filas heredadas de v2 reetiquetadas como 'qwen25-coder-audit' (el marcador decía 'devstral-small-2:latest').
+[2026-08-12 16:19:08] [corregido] granite-code:8b [P0]: 53 filas heredadas de v2 reetiquetadas como 'qwen25-coder-audit' (el marcador decía 'devstral-small-2:latest').
+[2026-08-12 16:19:08] [corregido] granite-code:8b [P1]: 48 filas heredadas de v2 reetiquetadas como 'qwen25-coder-audit' (el marcador decía 'devstral-small-2:latest').
+[2026-08-12 16:19:08] [corregido] llama3.1:8b [P0]: 93 filas heredadas de v2 reetiquetadas como 'qwen25-coder-audit' (el marcador decía 'devstral-small-2:latest').
+[2026-08-12 16:19:08] [corregido] llama3.1:8b [P1]: 50 filas heredadas de v2 reetiquetadas como 'qwen25-coder-audit' (el marcador decía 'devstral-small-2:latest').
+[2026-08-12 16:19:51] [ABORTADA] codegemma:7b [P0]: la celda ya tiene filas de ['qwen25-coder-audit'] y ahora se pide 'devstral-small-2:latest'. Mezclar auditores invalida la comparación. Borra secllm_results.json y auditor.json de esa carpeta para re-auditar desde cero.

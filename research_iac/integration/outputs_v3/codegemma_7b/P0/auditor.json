@@ -1,4 +1,4 @@
 {
-  "auditor": "devstral-small-2:latest",
+  "auditor": "qwen25-coder-audit",
   "origen": "outputs_v2"
 }
