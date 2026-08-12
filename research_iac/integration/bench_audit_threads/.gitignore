@@ -1,0 +1,3 @@
+# Salidas intermedias de cada medición del benchmark: se regeneran solas y no
+# aportan nada que no esté ya agregado en bench_results.json.
+tmp/
