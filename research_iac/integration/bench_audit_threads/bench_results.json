@@ -1,0 +1,606 @@
+{
+  "preflight": null,
+  "auditor": "qwen2.5-coder:7b",
+  "mediciones": [
+    {
+      "file": "question_0289.tf",
+      "size_bytes": 85,
+      "threads": 1,
+      "wall_s": 21.658229099999517,
+      "secllm_time_s": 19.23648738861084,
+      "tokens_in": 5816,
+      "tokens_out": 501,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0289.tf",
+      "size_bytes": 85,
+      "threads": 2,
+      "wall_s": 21.233180500001254,
+      "secllm_time_s": 18.734196424484253,
+      "tokens_in": 5816,
+      "tokens_out": 501,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0289.tf",
+      "size_bytes": 85,
+      "threads": 8,
+      "wall_s": 21.510645899999872,
+      "secllm_time_s": 19.019847631454468,
+      "tokens_in": 5816,
+      "tokens_out": 501,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0261.tf",
+      "size_bytes": 404,
+      "threads": 1,
+      "wall_s": 32.36678860000029,
+      "secllm_time_s": 29.576135396957397,
+      "tokens_in": 6848,
+      "tokens_out": 743,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0261.tf",
+      "size_bytes": 404,
+      "threads": 2,
+      "wall_s": 27.104092799998398,
+      "secllm_time_s": 24.581311464309692,
+      "tokens_in": 6848,
+      "tokens_out": 754,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0261.tf",
+      "size_bytes": 404,
+      "threads": 8,
+      "wall_s": 31.893002000000706,
+      "secllm_time_s": 29.312500715255737,
+      "tokens_in": 6848,
+      "tokens_out": 754,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0190.tf",
+      "size_bytes": 911,
+      "threads": 1,
+      "wall_s": 57.9670956000009,
+      "secllm_time_s": 55.4427444934845,
+      "tokens_in": 8912,
+      "tokens_out": 1287,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0190.tf",
+      "size_bytes": 911,
+      "threads": 2,
+      "wall_s": 45.835331100000985,
+      "secllm_time_s": 42.96220350265503,
+      "tokens_in": 8912,
+      "tokens_out": 1291,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0190.tf",
+      "size_bytes": 911,
+      "threads": 8,
+      "wall_s": 39.69158080000125,
+      "secllm_time_s": 36.91141128540039,
+      "tokens_in": 8912,
+      "tokens_out": 1291,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0249.tf",
+      "size_bytes": 1768,
+      "threads": 1,
+      "wall_s": 48.04942739999933,
+      "secllm_time_s": 45.18752455711365,
+      "tokens_in": 10056,
+      "tokens_out": 1433,
+      "detecciones": [
+        [
+          "39",
+          "unrestricted_ip_address"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0249.tf",
+      "size_bytes": 1768,
+      "threads": 2,
+      "wall_s": 46.22245850000036,
+      "secllm_time_s": 43.581987142562866,
+      "tokens_in": 10056,
+      "tokens_out": 1434,
+      "detecciones": [
+        [
+          "39",
+          "unrestricted_ip_address"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0249.tf",
+      "size_bytes": 1768,
+      "threads": 8,
+      "wall_s": 45.86186169999928,
+      "secllm_time_s": 43.1760368347168,
+      "tokens_in": 10056,
+      "tokens_out": 1434,
+      "detecciones": [
+        [
+          "39",
+          "unrestricted_ip_address"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0012.tf",
+      "size_bytes": 6537,
+      "threads": 1,
+      "wall_s": 36.2920107000009,
+      "secllm_time_s": 33.620930433273315,
+      "tokens_in": 25496,
+      "tokens_out": 529,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0012.tf",
+      "size_bytes": 6537,
+      "threads": 2,
+      "wall_s": 21.615964700000404,
+      "secllm_time_s": 18.98592472076416,
+      "tokens_in": 25496,
+      "tokens_out": 529,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0012.tf",
+      "size_bytes": 6537,
+      "threads": 8,
+      "wall_s": 21.18408090000048,
+      "secllm_time_s": 18.432016372680664,
+      "tokens_in": 25496,
+      "tokens_out": 529,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 0,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0289.tf",
+      "size_bytes": 85,
+      "threads": 8,
+      "wall_s": 23.451820100000987,
+      "secllm_time_s": 20.875385284423828,
+      "tokens_in": 5816,
+      "tokens_out": 501,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0289.tf",
+      "size_bytes": 85,
+      "threads": 2,
+      "wall_s": 27.04900230000021,
+      "secllm_time_s": 24.17780375480652,
+      "tokens_in": 5816,
+      "tokens_out": 501,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0289.tf",
+      "size_bytes": 85,
+      "threads": 1,
+      "wall_s": 20.614366300000256,
+      "secllm_time_s": 18.10837459564209,
+      "tokens_in": 5816,
+      "tokens_out": 501,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0261.tf",
+      "size_bytes": 404,
+      "threads": 8,
+      "wall_s": 29.261162400000103,
+      "secllm_time_s": 26.613202810287476,
+      "tokens_in": 6848,
+      "tokens_out": 743,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0261.tf",
+      "size_bytes": 404,
+      "threads": 2,
+      "wall_s": 26.497960599999715,
+      "secllm_time_s": 23.976778030395508,
+      "tokens_in": 6848,
+      "tokens_out": 754,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0261.tf",
+      "size_bytes": 404,
+      "threads": 1,
+      "wall_s": 28.874851799999306,
+      "secllm_time_s": 26.299932956695557,
+      "tokens_in": 6848,
+      "tokens_out": 754,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P0"
+    },
+    {
+      "file": "question_0190.tf",
+      "size_bytes": 911,
+      "threads": 8,
+      "wall_s": 47.90607249999994,
+      "secllm_time_s": 45.430933475494385,
+      "tokens_in": 8912,
+      "tokens_out": 1265,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0190.tf",
+      "size_bytes": 911,
+      "threads": 2,
+      "wall_s": 50.979013599999234,
+      "secllm_time_s": 48.413909673690796,
+      "tokens_in": 8912,
+      "tokens_out": 1268,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0190.tf",
+      "size_bytes": 911,
+      "threads": 1,
+      "wall_s": 44.085091200000534,
+      "secllm_time_s": 41.54157376289368,
+      "tokens_in": 8912,
+      "tokens_out": 1268,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0249.tf",
+      "size_bytes": 1768,
+      "threads": 8,
+      "wall_s": 46.32398169999942,
+      "secllm_time_s": 43.73615837097168,
+      "tokens_in": 10056,
+      "tokens_out": 1433,
+      "detecciones": [
+        [
+          "39",
+          "unrestricted_ip_address"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0249.tf",
+      "size_bytes": 1768,
+      "threads": 2,
+      "wall_s": 47.361505699998816,
+      "secllm_time_s": 44.945411682128906,
+      "tokens_in": 10056,
+      "tokens_out": 1434,
+      "detecciones": [
+        [
+          "39",
+          "unrestricted_ip_address"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0249.tf",
+      "size_bytes": 1768,
+      "threads": 1,
+      "wall_s": 45.608815499999764,
+      "secllm_time_s": 43.2105028629303,
+      "tokens_in": 10056,
+      "tokens_out": 1434,
+      "detecciones": [
+        [
+          "39",
+          "unrestricted_ip_address"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0012.tf",
+      "size_bytes": 6537,
+      "threads": 8,
+      "wall_s": 24.05488090000108,
+      "secllm_time_s": 21.466702938079834,
+      "tokens_in": 25496,
+      "tokens_out": 529,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0012.tf",
+      "size_bytes": 6537,
+      "threads": 2,
+      "wall_s": 23.04365930000131,
+      "secllm_time_s": 20.613269567489624,
+      "tokens_in": 25496,
+      "tokens_out": 529,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    },
+    {
+      "file": "question_0012.tf",
+      "size_bytes": 6537,
+      "threads": 1,
+      "wall_s": 23.36796250000043,
+      "secllm_time_s": 21.02298855781555,
+      "tokens_in": 25496,
+      "tokens_out": 529,
+      "detecciones": [
+        [
+          "0",
+          "none"
+        ]
+      ],
+      "n_filas": 1,
+      "returncode": 0,
+      "stderr_tail": "",
+      "rep": 1,
+      "corpus_cell": "P1"
+    }
+  ]
+}

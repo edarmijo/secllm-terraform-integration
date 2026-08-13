@@ -1,0 +1,94 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_iam_role" "blue_green_role" {
+  name = "blue_green_role"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "elasticbeanstalk.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy" "blue_green_policy" {
+  name = "blue_green_policy"
+  role = aws_iam_role.blue_green_role.name
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "elasticbeanstalk:*",
+        "route53:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_route53_record_set" "blue_record" {
+  name = "blue.example.com"
+  type = "A"
+  alias {
+    name = aws_elastic_beanstalk_environment.blue.dns_name
+    zone_id = aws_route53_zone.example.zone_id
+  }
+}
+
+resource "aws_route53_record_set" "green_record" {
+  name = "green.example.com"
+  type = "A"
+  alias {
+    name = aws_elastic_beanstalk_environment.green.dns_name
+    zone_id = aws_route53_zone.example.zone_id
+  }
+}
+
+resource "aws_route53_weighted_routing_policy" "blue_green_policy" {
+  name = "blue_green_policy"
+
+  routing_policy {
+    weight = 50
+    health_check_id = aws_route53_health_check.blue.id
+  }
+
+  routing_policy {
+    weight = 50
+    health_check_id = aws_route53_health_check.green.id
+  }
+}
+
+resource "aws_route53_alias_target" "blue_target" {
+  domain_name = aws_elastic_beanstalk_environment.blue.dns_name
+  hosted_zone_id = aws_route53_zone.example.zone_id
+}
+
+resource "aws_route53_alias_target" "green_target" {
+  domain_name = aws_elastic_beanstalk_environment.green.dns_name
+  hosted_zone_id = aws_route53_zone.example.zone_id
+}
+
+resource "aws_route53_record_set" "blue_green_record" {
+  name = "example.com"
+  type = "A"
+  alias {
+    name = aws_route53_weighted_routing_policy.blue_green_policy.name
+    zone_id = aws_route53_zone.example.zone_id
+  }
+}

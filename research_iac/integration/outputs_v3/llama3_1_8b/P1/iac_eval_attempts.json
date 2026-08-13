@@ -1,0 +1,142 @@
+[
+  {
+    "file": "question_0000.a1.tf",
+    "scenario_index": 0,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 65, in resource \"aws_route53_query_log_config\" \"query_log_config\":\n  65: resource \"aws_route53_query_log_config\" \"query_log_config\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_route53_query_log_config\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0001.tf",
+    "scenario_index": 1,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in resource \"aws_iam_role\" \"route53_zone_association\":\n   8:   name        = \"${var.name}-route53-zone-association-role\"\n\nAn input variable with the name \"name\" has not been declared. This variable\ncan be declared with a variable \"name\" {} block.\n\nError: Reference to undeclared resource\n\n  on main.tf line 58, in resource \"aws_route53_zone_association\" \"example\":\n  58:   vpc_id  = aws_vpc.example.id\n\nA managed resource \"aws_vpc\" \"example\" has not been declared in the root\nmodule.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0001.a1.tf",
+    "scenario_index": 1,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 7:\n   7: variable \"name\" {\n\nThe root module input variable \"name\" is not set, and has no default value.\nUse a -var or -var-file command line argument to provide a value for this\nvariable.\n\nError: No value for required variable\n\n  on main.tf line 12:\n  12: variable \"zone_id\" {\n\nThe root module input variable \"zone_id\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0003.a1.tf",
+    "scenario_index": 3,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 1:\n   1: variable \"db_password\" {\n\nThe root module input variable \"db_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0005.a1.tf",
+    "scenario_index": 5,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 1:\n   1: variable \"aws_region\" {\n\nThe root module input variable \"aws_region\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"db_username\" {\n\nThe root module input variable \"db_username\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n\nError: No value for required variable\n\n  on main.tf line 9:\n   9: variable \"db_password\" {\n\nThe root module input variable \"db_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n\nError: No value for required variable\n\n  on main.tf line 13:\n  13: variable \"primary_db_instance_dns_name\" {\n\nThe root module input variable \"primary_db_instance_dns_name\" is not set, and\nhas no default value. Use a -var or -var-file command line argument to\nprovide a value for this variable.\n\nError: No value for required variable\n\n  on main.tf line 17:\n  17: variable \"primary_db_instance_hosted_zone_id\" {\n\nThe root module input variable \"primary_db_instance_hosted_zone_id\" is not\nset, and has no default value. Use a -var or -var-file command line argument\nto provide a value for this variable.\n\nError: No value for required variable\n\n  on main.tf line 21:\n  21: variable \"replica_1_db_instance_dns_name\" {\n\nThe root module input variable \"replica_1_db_instance_dns_name\" is not set,\nand has no default value. Use a -var or -var-file command line argument to\nprovide a value for this variable.\n\nError: No value for required variable\n\n  on main.tf line 25:\n  25: variable \"replica_1_db_instance_hosted_zone_id\" {\n\nThe root module input variable \"replica_1_db_instance_hosted_zone_id\" is not\nset, and has no default value. Use a -var or -var-file command line argument\nto provide a value for this variable.\n\nError: No value for required variable\n\n  on main.tf line 29:\n  29: variable \"replica_2_db_instance_dns_name\" {\n\nThe root module input variable \"replica_2_db_instance_dns_name\" is not set,\nand has no default value. Use a -var or -var-file command line argument to\nprovide a value for this variable.\n\nError: No value for required variable\n\n  on main.tf line 33:\n  33: variable \"replica_2_db_instance_hosted_zone_id\" {\n\nThe root module input variable \"replica_2_db_instance_hosted_zone_id\" is not\nset, and has no default value. Use a -var or -var-file command line argument\nto provide a value for this variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.tf",
+    "scenario_index": 7,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 8, in data \"aws_secretsmanager_secret_version\" \"eb_access_key_id\":\n   8:   secret_id = var.eb_access_key_id_secret_id\n\nAn input variable with the name \"eb_access_key_id_secret_id\" has not been\ndeclared. This variable can be declared with a variable\n\"eb_access_key_id_secret_id\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 12, in data \"aws_secretsmanager_secret_version\" \"eb_secret_access_key\":\n  12:   secret_id = var.eb_secret_access_key_secret_id\n\nAn input variable with the name \"eb_secret_access_key_secret_id\" has not been\ndeclared. This variable can be declared with a variable\n\"eb_secret_access_key_secret_id\" {} block.\n\nError: Reference to undeclared resource\n\n  on main.tf line 44, in resource \"aws_iam_role_policy\" \"eb_ec2_role_policy\":\n  44:         Resource = \"${aws_s3_bucket.eb_bucket.arn}/*\"\n\nA managed resource \"aws_s3_bucket\" \"eb_bucket\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 64, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  64:     value     = aws_vpc.default.id\n\nA managed resource \"aws_vpc\" \"default\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 69, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  69:     value     = \"${aws_subnet.private_a.id},${aws_subnet.private_b.id}\"\n\nA managed resource \"aws_subnet\" \"private_a\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 69, in resource \"aws_elastic_beanstalk_environment\" \"my_api_env\":\n  69:     value     = \"${aws_subnet.private_a.id},${aws_subnet.private_b.id}\"\n\nA managed resource \"aws_subnet\" \"private_b\" has not been declared in the root\nmodule.\n\nError: Invalid resource type\n\n  on main.tf line 103, in resource \"aws_elastic_beanstalk_environment_config\" \"my_api_env_config\":\n 103: resource \"aws_elastic_beanstalk_environment_config\" \"my_api_env_config\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_elastic_beanstalk_environment_config\".\n\nError: Reference to undeclared input variable\n\n  on main.tf line 146, in resource \"aws_elastic_beanstalk_application\" \"my_api_app\":\n 146:   name        = var.elastic_beanstalk_app_name\n\nAn input variable with the name \"elastic_beanstalk_app_name\" has not been\ndeclared. This variable can be declared with a variable\n\"elastic_beanstalk_app_name\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0007.a1.tf",
+    "scenario_index": 7,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 7:\n   7: variable \"eb_access_key_id_secret_id\" {\n\nThe root module input variable \"eb_access_key_id_secret_id\" is not set, and\nhas no default value. Use a -var or -var-file command line argument to\nprovide a value for this variable.\n\nError: No value for required variable\n\n  on main.tf line 12:\n  12: variable \"eb_secret_access_key_secret_id\" {\n\nThe root module input variable \"eb_secret_access_key_secret_id\" is not set,\nand has no default value. Use a -var or -var-file command line argument to\nprovide a value for this variable.\n\nError: No value for required variable\n\n  on main.tf line 17:\n  17: variable \"elastic_beanstalk_app_name\" {\n\nThe root module input variable \"elastic_beanstalk_app_name\" is not set, and\nhas no default value. Use a -var or -var-file command line argument to\nprovide a value for this variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0012.a1.tf",
+    "scenario_index": 12,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 1:\n   1: variable \"environment\" {\n\nThe root module input variable \"environment\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"region\" {\n\nThe root module input variable \"region\" is not set, and has no default value.\nUse a -var or -var-file command line argument to provide a value for this\nvariable.\n\nError: No value for required variable\n\n  on main.tf line 9:\n   9: variable \"domain\" {\n\nThe root module input variable \"domain\" is not set, and has no default value.\nUse a -var or -var-file command line argument to provide a value for this\nvariable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.tf",
+    "scenario_index": 14,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 66, in resource \"aws_db_instance\" \"default\":\n  66:   password             = data.aws_secretsmanager_secret_value.rds_password.secret_string\n\nA data resource \"aws_secretsmanager_secret_value\" \"rds_password\" has not been\ndeclared in the root module.\n\nError: Unsupported block type\n\n  on main.tf line 108, in resource \"aws_elastic_beanstalk_application\" \"default\":\n 108:   setting {\n\nBlocks of type \"setting\" are not expected here.\n\nError: Reference to undeclared resource\n\n  on main.tf line 126, in resource \"aws_secretsmanager_secret_version\" \"rds_password\":\n 126:   secret_string = data.aws_secretsmanager_secret_value.rds_password.secret_string\n\nA data resource \"aws_secretsmanager_secret_value\" \"rds_password\" has not been\ndeclared in the root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0014.a1.tf",
+    "scenario_index": 14,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 104, in resource \"aws_elastic_beanstalk_application\" \"default\":\n 104:   setting {\n\nBlocks of type \"setting\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.tf",
+    "scenario_index": 15,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 51, in resource \"aws_db_instance\" \"prod_db\":\n  51:   password             = aws_secretsmanager_secret.prod_db_password.arn\n\nA managed resource \"aws_secretsmanager_secret\" \"prod_db_password\" has not\nbeen declared in the root module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 60, in resource \"aws_db_instance\" \"staging_db\":\n  60:   password             = aws_secretsmanager_secret.staging_db_password.arn\n\nA managed resource \"aws_secretsmanager_secret\" \"staging_db_password\" has not\nbeen declared in the root module.\n\nError: Unsupported argument\n\n  on main.tf line 107, in resource \"aws_elastic_beanstalk_environment\" \"prod_env\":\n 107:   environment_name    = \"prod-env\"\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 110, in resource \"aws_elastic_beanstalk_environment\" \"prod_env\":\n 110:   settings           = jsonencode({\n\nAn argument named \"settings\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 118, in resource \"aws_elastic_beanstalk_environment\" \"staging_env\":\n 118:   environment_name    = \"staging-env\"\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 121, in resource \"aws_elastic_beanstalk_environment\" \"staging_env\":\n 121:   settings           = jsonencode({\n\nAn argument named \"settings\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0015.a1.tf",
+    "scenario_index": 15,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 52, in resource \"aws_secretsmanager_secret_version\" \"prod_db_password\":\n  52:   secret_string = var.prod_db_password\n\nAn input variable with the name \"prod_db_password\" has not been declared.\nThis variable can be declared with a variable \"prod_db_password\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 70, in resource \"aws_secretsmanager_secret_version\" \"staging_db_password\":\n  70:   secret_string = var.staging_db_password\n\nAn input variable with the name \"staging_db_password\" has not been declared.\nThis variable can be declared with a variable \"staging_db_password\" {} block.\n\nError: Unsupported argument\n\n  on main.tf line 138, in resource \"aws_elastic_beanstalk_environment\" \"prod_env\":\n 138:   environment_name    = aws_elastic_beanstalk_environment.prod_env.id\n\nAn argument named \"environment_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 146, in resource \"aws_elastic_beanstalk_environment\" \"staging_env\":\n 146:   environment_name    = aws_elastic_beanstalk_environment.staging_env.id\n\nAn argument named \"environment_name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0018.a1.tf",
+    "scenario_index": 18,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 141:\n 141: variable \"db_username\" {\n\nThe root module input variable \"db_username\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n\nError: No value for required variable\n\n  on main.tf line 146:\n 146: variable \"db_password\" {\n\nThe root module input variable \"db_password\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0020.a1.tf",
+    "scenario_index": 20,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 1:\n   1: variable \"region\" {\n\nThe root module input variable \"region\" is not set, and has no default value.\nUse a -var or -var-file command line argument to provide a value for this\nvariable.\n\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"domain_name\" {\n\nThe root module input variable \"domain_name\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n\nError: No value for required variable\n\n  on main.tf line 9:\n   9: variable \"zone_id\" {\n\nThe root module input variable \"zone_id\" is not set, and has no default\nvalue. Use a -var or -var-file command line argument to provide a value for\nthis variable.\n\nError: No value for required variable\n\n  on main.tf line 13:\n  13: variable \"aws_access_key_id\" {\n\nThe root module input variable \"aws_access_key_id\" is not set, and has no\ndefault value. Use a -var or -var-file command line argument to provide a\nvalue for this variable.\n\nError: No value for required variable\n\n  on main.tf line 17:\n  17: variable \"aws_secret_access_key\" {\n\nThe root module input variable \"aws_secret_access_key\" is not set, and has no\ndefault value. Use a -var or -var-file command line argument to provide a\nvalue for this variable.\n\nError: No value for required variable\n\n  on main.tf line 22:\n  22: variable \"ami_id\" {\n\nThe root module input variable \"ami_id\" is not set, and has no default value.\nUse a -var or -var-file command line argument to provide a value for this\nvariable.\n",
+    "opa_evaluation_error": "None"
+  }
+]
