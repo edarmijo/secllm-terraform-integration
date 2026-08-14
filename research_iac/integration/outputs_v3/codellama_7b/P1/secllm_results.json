@@ -518,5 +518,225 @@
     "TOKEN_OUT": 542,
     "CONFIDENCE": 1.0,
     "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0007.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 34.761799573898315,
+    "TOKEN_IN": 9376,
+    "TOKEN_OUT": 1282,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0014.tf",
+    "LINE": "34",
+    "SMELL": "admin_by_default",
+    "TIME": 33.63769865036011,
+    "TOKEN_IN": 9280,
+    "TOKEN_OUT": 1297,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0021.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 14.646836757659912,
+    "TOKEN_IN": 6144,
+    "TOKEN_OUT": 481,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0035.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 16.325635194778442,
+    "TOKEN_IN": 7952,
+    "TOKEN_OUT": 527,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0059.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 20.03693985939026,
+    "TOKEN_IN": 8224,
+    "TOKEN_OUT": 684,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0086.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 19.71310067176819,
+    "TOKEN_IN": 7072,
+    "TOKEN_OUT": 696,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0097.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 17.771562099456787,
+    "TOKEN_IN": 6640,
+    "TOKEN_OUT": 621,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0123.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 15.810121059417725,
+    "TOKEN_IN": 6240,
+    "TOKEN_OUT": 529,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0167.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 19.971296548843384,
+    "TOKEN_IN": 7192,
+    "TOKEN_OUT": 701,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0202.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 17.17515993118286,
+    "TOKEN_IN": 6384,
+    "TOKEN_OUT": 575,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0219.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 17.427801609039307,
+    "TOKEN_IN": 10544,
+    "TOKEN_OUT": 525,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0264.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 16.556044340133667,
+    "TOKEN_IN": 6424,
+    "TOKEN_OUT": 559,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0275.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 16.855923652648926,
+    "TOKEN_IN": 6320,
+    "TOKEN_OUT": 583,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0293.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 35.885491371154785,
+    "TOKEN_IN": 7256,
+    "TOKEN_OUT": 1416,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0317.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 17.215662479400635,
+    "TOKEN_IN": 10128,
+    "TOKEN_OUT": 531,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0318.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 33.19965982437134,
+    "TOKEN_IN": 46728,
+    "TOKEN_OUT": 499,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0355.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 40.399500131607056,
+    "TOKEN_IN": 12992,
+    "TOKEN_OUT": 1429,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0384.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 16.319517850875854,
+    "TOKEN_IN": 7392,
+    "TOKEN_OUT": 524,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0424.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 15.695290565490723,
+    "TOKEN_IN": 7000,
+    "TOKEN_OUT": 516,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0427.tf",
+    "LINE": "24",
+    "SMELL": "unrestricted_ip_address",
+    "TIME": 32.086549282073975,
+    "TOKEN_IN": 8208,
+    "TOKEN_OUT": 1226,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0441.tf",
+    "LINE": "48",
+    "SMELL": "unrestricted_ip_address",
+    "TIME": 39.17253232002258,
+    "TOKEN_IN": 9712,
+    "TOKEN_OUT": 1539,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0452.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 15.452162742614746,
+    "TOKEN_IN": 6440,
+    "TOKEN_OUT": 510,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
   }
 ]

@@ -1,0 +1,12 @@
+resource "aws_egress_only_internet_gateway" "example" {
+  vpc_id = aws_vpc.example.id
+}
+
+resource "aws_route_table" "example" {
+  vpc_id = aws_vpc.example.id
+
+  route {
+    cidr_block = "::/0"
+    gateway_id = aws_egress_only_internet_gateway.example.id
+  }
+}

@@ -308,5 +308,415 @@
     "opa_evaluation_result": "No opa_result",
     "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 7, in data \"aws_route53_zone\" \"example\":\n   7:   access_key = \"<YOUR_ACCESS_KEY>\"\n\nAn argument named \"access_key\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 8, in data \"aws_route53_zone\" \"example\":\n   8:   secret_key = \"<YOUR_SECRET_KEY>\"\n\nAn argument named \"secret_key\" is not expected here.\n",
     "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0021.tf",
+    "scenario_index": 21,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 2, in resource \"aws_route53_record\" \"example\":\n   2:   zone_id = aws_route53_zone.example.id\n\nA managed resource \"aws_route53_zone\" \"example\" has not been declared in the\nroot module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0021.a1.tf",
+    "scenario_index": 21,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 2, in resource \"aws_route53_record\" \"example\":\n   2:   zone_id = aws_route53_zone.example.zone_id\n\nA managed resource \"aws_route53_zone\" \"example\" has not been declared in the\nroot module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0035.tf",
+    "scenario_index": 35,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Insufficient source blocks\n\n  on main.tf line 1, in resource \"aws_codebuild_project\" \"example\":\n   1: resource \"aws_codebuild_project\" \"example\" {\n\nAt least 1 \"source\" blocks are required.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0035.a1.tf",
+    "scenario_index": 35,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Success",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "No error"
+  },
+  {
+    "file": "question_0059.tf",
+    "scenario_index": 59,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 5, in resource \"aws_kinesis_firehose_delivery_stream\" \"example\":\n   5:   extended_s3_destination_configuration {\n\nBlocks of type \"extended_s3_destination_configuration\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0059.a1.tf",
+    "scenario_index": 59,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 5, in resource \"aws_kinesis_firehose_delivery_stream\" \"example\":\n   5:   extended_s3_destination_configuration {\n\nBlocks of type \"extended_s3_destination_configuration\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0086.tf",
+    "scenario_index": 86,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 16, in resource \"aws_route53_traffic_policy\" \"example\":\n  16:       \"Resource\": \"arn:aws:route53:::hostedzone/${var.hosted_zone_id}\"\n\nAn input variable with the name \"hosted_zone_id\" has not been declared. This\nvariable can be declared with a variable \"hosted_zone_id\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0086.a1.tf",
+    "scenario_index": 86,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 23:\n  23: variable \"hosted_zone_id\" {\n\nThe root module input variable \"hosted_zone_id\" is not set, and has no\ndefault value. Use a -var or -var-file command line argument to provide a\nvalue for this variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0097.tf",
+    "scenario_index": 97,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 5, in resource \"aws_eks_cluster\" \"example\":\n   5: resource \"aws_eks_cluster\" \"example\" {\n\nThe argument \"role_arn\" is required, but no definition was found.\n\nError: Insufficient vpc_config blocks\n\n  on main.tf line 5, in resource \"aws_eks_cluster\" \"example\":\n   5: resource \"aws_eks_cluster\" \"example\" {\n\nAt least 1 \"vpc_config\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 11, in resource \"aws_eks_cluster\" \"example\":\n  11:       client_id     = \"your-client-id\"\n\nAn argument named \"client_id\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 12, in resource \"aws_eks_cluster\" \"example\":\n  12:       identity_provider_config {\n\nBlocks of type \"identity_provider_config\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0097.a1.tf",
+    "scenario_index": 97,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 5, in resource \"aws_eks_cluster\" \"example\":\n   5: resource \"aws_eks_cluster\" \"example\" {\n\nThe argument \"role_arn\" is required, but no definition was found.\n\nError: Insufficient vpc_config blocks\n\n  on main.tf line 5, in resource \"aws_eks_cluster\" \"example\":\n   5: resource \"aws_eks_cluster\" \"example\" {\n\nAt least 1 \"vpc_config\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 11, in resource \"aws_eks_cluster\" \"example\":\n  11:       client_id     = \"your-client-id\"\n\nAn argument named \"client_id\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 12, in resource \"aws_eks_cluster\" \"example\":\n  12:       issuer_url    = \"https://your-issuer-url.com\"\n\nAn argument named \"issuer_url\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 13, in resource \"aws_eks_cluster\" \"example\":\n  13:       identity_provider_config {\n\nBlocks of type \"identity_provider_config\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0123.tf",
+    "scenario_index": 123,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0167.tf",
+    "scenario_index": 167,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 18, in resource \"aws_dynamodb_global_table\" \"example\":\n  18:   replica_count = 2\n\nAn argument named \"replica_count\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0167.a1.tf",
+    "scenario_index": 167,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0180.a1.tf",
+    "scenario_index": 180,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 3, in resource \"aws_sagemaker_notebook_instance\" \"example\":\n   3:   role_arn    = aws_iam_role.example.arn\n\nA managed resource \"aws_iam_role\" \"example\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 5, in resource \"aws_sagemaker_notebook_instance\" \"example\":\n   5:   subnet_id   = aws_subnet.example.id\n\nA managed resource \"aws_subnet\" \"example\" has not been declared in the root\nmodule.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0202.tf",
+    "scenario_index": 202,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 5, in resource \"aws_msk_cluster\" \"example\":\n   5: resource \"aws_msk_cluster\" \"example\" {\n\nThe argument \"kafka_version\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 5, in resource \"aws_msk_cluster\" \"example\":\n   5: resource \"aws_msk_cluster\" \"example\" {\n\nThe argument \"cluster_name\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 6, in resource \"aws_msk_cluster\" \"example\":\n   6:   name                   = \"example-msk-cluster\"\n\nAn argument named \"name\" is not expected here.\n\nError: Missing required argument\n\n  on main.tf line 8, in resource \"aws_msk_cluster\" \"example\":\n   8:   broker_node_group_info {\n\nThe argument \"security_groups\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 8, in resource \"aws_msk_cluster\" \"example\":\n   8:   broker_node_group_info {\n\nThe argument \"client_subnets\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 10, in resource \"aws_msk_cluster\" \"example\":\n  10:     ebs_volume_size = 100\n\nAn argument named \"ebs_volume_size\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0202.a1.tf",
+    "scenario_index": 202,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 6, in resource \"aws_msk_cluster\" \"example\":\n   6:   name                   = \"example-msk-cluster\"\n\nAn argument named \"name\" is not expected here.\n\nError: Missing required argument\n\n  on main.tf line 10, in resource \"aws_msk_cluster\" \"example\":\n  10:   broker_node_group_info {\n\nThe argument \"client_subnets\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 10, in resource \"aws_msk_cluster\" \"example\":\n  10:   broker_node_group_info {\n\nThe argument \"security_groups\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 12, in resource \"aws_msk_cluster\" \"example\":\n  12:     ebs_volume_size = 100\n\nAn argument named \"ebs_volume_size\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0212.a1.tf",
+    "scenario_index": 212,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 5, in resource \"aws_msk_cluster\" \"example\":\n   5: resource \"aws_msk_cluster\" \"example\" {\n\nThe argument \"kafka_version\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 10, in resource \"aws_msk_cluster\" \"example\":\n  10:     ebs_volume_size = 100\n\nAn argument named \"ebs_volume_size\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 18, in resource \"aws_msk_cluster\" \"example\":\n  18:     encryption_at_rest {\n\nBlocks of type \"encryption_at_rest\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 65, in resource \"aws_kinesis_firehose_delivery_stream\" \"example\":\n  65:   s3_configuration {\n\nBlocks of type \"s3_configuration\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0219.tf",
+    "scenario_index": 219,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 12, in resource \"aws_db_instance\" \"my_mysql_instance\":\n  12:   username                  = var.mysql_username\n\nAn input variable with the name \"mysql_username\" has not been declared. This\nvariable can be declared with a variable \"mysql_username\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 13, in resource \"aws_db_instance\" \"my_mysql_instance\":\n  13:   password                  = var.mysql_password\n\nAn input variable with the name \"mysql_password\" has not been declared. This\nvariable can be declared with a variable \"mysql_password\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0219.a1.tf",
+    "scenario_index": 219,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 5:\n   5: variable \"mysql_username\" {\n\nThe root module input variable \"mysql_username\" is not set, and has no\ndefault value. Use a -var or -var-file command line argument to provide a\nvalue for this variable.\n\nError: No value for required variable\n\n  on main.tf line 9:\n   9: variable \"mysql_password\" {\n\nThe root module input variable \"mysql_password\" is not set, and has no\ndefault value. Use a -var or -var-file command line argument to provide a\nvalue for this variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0255.a1.tf",
+    "scenario_index": 255,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 9:\n   9: variable \"master_password\" {}\n\nThe root module input variable \"master_password\" is not set, and has no\ndefault value. Use a -var or -var-file command line argument to provide a\nvalue for this variable.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0264.tf",
+    "scenario_index": 264,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 11, in resource \"aws_iam_group_membership\" \"example\":\n  11:     aws_iam_user.example1.name,\n\nA managed resource \"aws_iam_user\" \"example1\" has not been declared in the\nroot module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 12, in resource \"aws_iam_group_membership\" \"example\":\n  12:     aws_iam_user.example2.name,\n\nA managed resource \"aws_iam_user\" \"example2\" has not been declared in the\nroot module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0264.a1.tf",
+    "scenario_index": 264,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Success",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "No error"
+  },
+  {
+    "file": "question_0275.tf",
+    "scenario_index": 275,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Success",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "No error"
+  },
+  {
+    "file": "question_0293.tf",
+    "scenario_index": 293,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0317.tf",
+    "scenario_index": 317,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 48, in resource \"aws_route53_record\" \"video_streaming\":\n  48:   zone_id = aws_route53_zone.example.zone_id\n\nA managed resource \"aws_route53_zone\" \"example\" has not been declared in the\nroot module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0317.a1.tf",
+    "scenario_index": 317,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0318.tf",
+    "scenario_index": 318,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Argument or block definition required\n\n  on main.tf line 536, in resource \"aws_cloudfront_distribution\" \"example\":\n 536:     forwarded_values\n\nAn argument or block definition is required here. To set an argument, use the\nequals sign \"=\" to introduce the argument value.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0318.a1.tf",
+    "scenario_index": 318,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Argument or block definition required\n\n  on main.tf line 536, in resource \"aws_cloudfront_distribution\" \"example\":\n 536:     forwarded_values\n\nAn argument or block definition is required here. To set an argument, use the\nequals sign \"=\" to introduce the argument value.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0355.tf",
+    "scenario_index": 355,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 77, in resource \"aws_db_instance\" \"example\":\n  77:   preferred_backup_window = \"07:00-09:00\"\n\nAn argument named \"preferred_backup_window\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 83, in resource \"aws_db_instance\" \"example\":\n  83:   iam_roles              = [aws_iam_role.rds_proxy_role.arn]\n\nAn argument named \"iam_roles\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0355.a1.tf",
+    "scenario_index": 355,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 77, in resource \"aws_db_instance\" \"example\":\n  77:   preferred_backup_window = \"07:00-09:00\"\n\nAn argument named \"preferred_backup_window\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0375.a1.tf",
+    "scenario_index": 375,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 8, in resource \"aws_lightsail_bucket\" \"example\":\n   8:   access_type = \"private\"\n\nAn argument named \"access_type\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0384.tf",
+    "scenario_index": 384,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 1, in resource \"aws_s3_vault\" \"example\":\n   1: resource \"aws_s3_vault\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_s3_vault\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0384.a1.tf",
+    "scenario_index": 384,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Failure",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "Rule violation found."
+  },
+  {
+    "file": "question_0424.tf",
+    "scenario_index": 424,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 5, in resource \"aws_efs\" \"example\":\n   5: resource \"aws_efs\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_efs\". Did you\nmean \"aws_eip\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0424.a1.tf",
+    "scenario_index": 424,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 5, in resource \"aws_efs\" \"example\":\n   5: resource \"aws_efs\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_efs\". Did you\nmean \"aws_elb\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0427.tf",
+    "scenario_index": 427,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 13, in resource \"aws_subnet\" \"public\":\n  13:   availability_zone = element(data.aws_availability_zones.available.names, count.index)\n\nA data resource \"aws_availability_zones\" \"available\" has not been declared in\nthe root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0427.a1.tf",
+    "scenario_index": 427,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: fetching Availability Zones: AuthFailure: AWS was not able to validate the provided access credentials\n\tstatus code: 401, request id: be7c6a5b-2260-457d-b6e8-b4a05f3b2ee9\n\n  with data.aws_availability_zones.available,\n  on main.tf line 5, in data \"aws_availability_zones\" \"available\":\n   5: data \"aws_availability_zones\" \"available\" {}\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0441.tf",
+    "scenario_index": 441,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 6, in resource \"aws_internet_gateway\" \"example\":\n   6:   vpc_id = aws_vpc.example.id\n\nA managed resource \"aws_vpc\" \"example\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 14, in resource \"aws_egress_only_internet_gateway\" \"example\":\n  14:   vpc_id = aws_vpc.example.id\n\nA managed resource \"aws_vpc\" \"example\" has not been declared in the root\nmodule.\n\nError: Reference to undeclared resource\n\n  on main.tf line 42, in resource \"aws_security_group\" \"example\":\n  42:   vpc_id      = aws_vpc.example.id\n\nA managed resource \"aws_vpc\" \"example\" has not been declared in the root\nmodule.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0441.a1.tf",
+    "scenario_index": 441,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared resource\n\n  on main.tf line 43, in resource \"aws_route_table_association\" \"example\":\n  43:   subnet_id      = aws_subnet.example.id\n\nA managed resource \"aws_subnet\" \"example\" has not been declared in the root\nmodule.\n\nError: \"::/0\" is not a valid IPv4 CIDR block\n\n  with aws_security_group.example,\n  on main.tf line 47, in resource \"aws_security_group\" \"example\":\n  47: resource \"aws_security_group\" \"example\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0452.tf",
+    "scenario_index": 452,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid reference\n\n  on main.tf line 6, in resource \"aws_vpc_peering_connection\" \"pike\":\n   6:   peer_owner_id = aws_account_id\n\nA reference to a resource type must be followed by at least one attribute\naccess, specifying the resource name.\n\nError: Reference to undeclared resource\n\n  on main.tf line 7, in resource \"aws_vpc_peering_connection\" \"pike\":\n   7:   peer_vpc_id   = aws_vpc.base.id\n\nA managed resource \"aws_vpc\" \"base\" has not been declared in the root module.\n\nError: Reference to undeclared resource\n\n  on main.tf line 8, in resource \"aws_vpc_peering_connection\" \"pike\":\n   8:   vpc_id        = aws_vpc.peer.id\n\nA managed resource \"aws_vpc\" \"peer\" has not been declared in the root module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0452.a1.tf",
+    "scenario_index": 452,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid reference\n\n  on main.tf line 14, in resource \"aws_vpc_peering_connection\" \"pike\":\n  14:   peer_owner_id = aws_account_id\n\nA reference to a resource type must be followed by at least one attribute\naccess, specifying the resource name.\n",
+    "opa_evaluation_error": "None"
   }
 ]
