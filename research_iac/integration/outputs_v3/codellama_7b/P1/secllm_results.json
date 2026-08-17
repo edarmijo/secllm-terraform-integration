@@ -738,5 +738,95 @@
     "TOKEN_OUT": 510,
     "CONFIDENCE": 1.0,
     "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0025.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 656.1440045833588,
+    "TOKEN_IN": 19456,
+    "TOKEN_OUT": 4076,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0048.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 650.1700451374054,
+    "TOKEN_IN": 13984,
+    "TOKEN_OUT": 4874,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0088.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 574.8997910022736,
+    "TOKEN_IN": 12368,
+    "TOKEN_OUT": 4633,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0111.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 505.40506887435913,
+    "TOKEN_IN": 8256,
+    "TOKEN_OUT": 4016,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0121.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 667.1066827774048,
+    "TOKEN_IN": 12192,
+    "TOKEN_OUT": 4587,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0154.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 209.40815782546997,
+    "TOKEN_IN": 7976,
+    "TOKEN_OUT": 1985,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0156.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 300.63629627227783,
+    "TOKEN_IN": 12520,
+    "TOKEN_OUT": 2363,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0170.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 298.1557545661926,
+    "TOKEN_IN": 8312,
+    "TOKEN_OUT": 2908,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0197.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 354.33769369125366,
+    "TOKEN_IN": 8424,
+    "TOKEN_OUT": 3394,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
   }
 ]

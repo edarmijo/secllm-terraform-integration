@@ -788,5 +788,195 @@
     "TOKEN_OUT": 539,
     "CONFIDENCE": 1.0,
     "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0025.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 531.2652995586395,
+    "TOKEN_IN": 16864,
+    "TOKEN_OUT": 3439,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0048.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 294.25506043434143,
+    "TOKEN_IN": 11232,
+    "TOKEN_OUT": 2478,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0088.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 545.6683502197266,
+    "TOKEN_IN": 10120,
+    "TOKEN_OUT": 5172,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0111.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 220.0216498374939,
+    "TOKEN_IN": 7968,
+    "TOKEN_OUT": 2269,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0121.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 192.22371411323547,
+    "TOKEN_IN": 8624,
+    "TOKEN_OUT": 1966,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0154.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 225.656396150589,
+    "TOKEN_IN": 7952,
+    "TOKEN_OUT": 2397,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0156.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 634.431960105896,
+    "TOKEN_IN": 13440,
+    "TOKEN_OUT": 5232,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0170.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 471.2507371902466,
+    "TOKEN_IN": 11848,
+    "TOKEN_OUT": 4054,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0197.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 310.9477870464325,
+    "TOKEN_IN": 8312,
+    "TOKEN_OUT": 3186,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0205.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 287.29675674438477,
+    "TOKEN_IN": 9400,
+    "TOKEN_OUT": 2839,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0221.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 148.89338612556458,
+    "TOKEN_IN": 7848,
+    "TOKEN_OUT": 1590,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0292.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 215.28378319740295,
+    "TOKEN_IN": 8392,
+    "TOKEN_OUT": 2241,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0341.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 438.39166951179504,
+    "TOKEN_IN": 12368,
+    "TOKEN_OUT": 3866,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0345.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 282.4074866771698,
+    "TOKEN_IN": 8840,
+    "TOKEN_OUT": 2869,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0364.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 235.43658638000488,
+    "TOKEN_IN": 8784,
+    "TOKEN_OUT": 2391,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0390.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 320.97901129722595,
+    "TOKEN_IN": 10976,
+    "TOKEN_OUT": 2931,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0420.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 256.7399318218231,
+    "TOKEN_IN": 8456,
+    "TOKEN_OUT": 2659,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0423.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 543.8097448348999,
+    "TOKEN_IN": 12864,
+    "TOKEN_OUT": 4660,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
+  },
+  {
+    "PATH": "question_0429.tf",
+    "LINE": 0,
+    "SMELL": "none",
+    "TIME": 342.8943705558777,
+    "TOKEN_IN": 11088,
+    "TOKEN_OUT": 3066,
+    "CONFIDENCE": 1.0,
+    "AUDITOR": "qwen25-coder-audit"
   }
 ]

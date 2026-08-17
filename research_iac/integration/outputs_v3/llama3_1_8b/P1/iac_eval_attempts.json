@@ -598,5 +598,475 @@
     "opa_evaluation_result": "No opa_result",
     "terraform_plan_error": "\nError: No value for required variable\n\n  on main.tf line 79:\n  79: variable \"aws_account_id\" {\n\nThe root module input variable \"aws_account_id\" is not set, and has no\ndefault value. Use a -var or -var-file command line argument to provide a\nvalue for this variable.\n",
     "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0025.tf",
+    "scenario_index": 25,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unterminated tuple constructor expression\n\n  on main.tf line 492, in resource \"aws_elastic_beanstalk_environment\" \"myenv_us_east\":\n 492:     value     = jsonencode([aws_subnet\n\nThere is no corresponding closing bracket before the end of the file. This\nmay be caused by incorrect bracket nesting elsewhere in this file.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0025.a1.tf",
+    "scenario_index": 25,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 1:\n   1: setting {\n\nBlocks of type \"setting\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0048.tf",
+    "scenario_index": 48,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 74, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n  74: resource \"aws_lex_bot\" \"kids_pizza_bot\" {\n\nThe argument \"child_directed\" is required, but no definition was found.\n\nError: Insufficient abort_statement blocks\n\n  on main.tf line 74, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n  74: resource \"aws_lex_bot\" \"kids_pizza_bot\" {\n\nAt least 1 \"abort_statement\" blocks are required.\n\nError: Insufficient intent blocks\n\n  on main.tf line 74, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n  74: resource \"aws_lex_bot\" \"kids_pizza_bot\" {\n\nAt least 1 \"intent\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 77, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n  77:   intent_schema = <<EOF\n\nAn argument named \"intent_schema\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 102, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n 102:   alias = \"KidsPizzaAlias\"\n\nAn argument named \"alias\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 106, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n 106:   conversation_flow_arn = aws_lex_bot_conversation_flow.kids_pizza_flow.arn\n\nAn argument named \"conversation_flow_arn\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 108, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n 108:   role_arn = aws_iam_role.lex_bot_role.arn\n\nAn argument named \"role_arn\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 111, in resource \"aws_lex_bot_conversation_flow\" \"kids_pizza_flow\":\n 111: resource \"aws_lex_bot_conversation_flow\" \"kids_pizza_flow\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_lex_bot_conversation_flow\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0048.a1.tf",
+    "scenario_index": 48,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Insufficient abort_statement blocks\n\n  on main.tf line 74, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n  74: resource \"aws_lex_bot\" \"kids_pizza_bot\" {\n\nAt least 1 \"abort_statement\" blocks are required.\n\nError: Insufficient intent blocks\n\n  on main.tf line 74, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n  74: resource \"aws_lex_bot\" \"kids_pizza_bot\" {\n\nAt least 1 \"intent\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 78, in resource \"aws_lex_bot\" \"kids_pizza_bot\":\n  78:   intent_schema = <<EOF\n\nAn argument named \"intent_schema\" is not expected here.\n\nError: Insufficient fulfillment_activity blocks\n\n  on main.tf line 106, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n 106: resource \"aws_lex_intent\" \"order_pizza_intent\" {\n\nAt least 1 \"fulfillment_activity\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 108, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n 108:   parent = aws_lex_bot.kids_pizza_bot.id\n\nAn argument named \"parent\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 109, in resource \"aws_lex_intent\" \"order_pizza_intent\":\n 109:   slots = [\n\nAn argument named \"slots\" is not expected here.\n\nError: Insufficient enumeration_value blocks\n\n  on main.tf line 125, in resource \"aws_lex_slot_type\" \"crust_slot_type\":\n 125: resource \"aws_lex_slot_type\" \"crust_slot_type\" {\n\nAt least 1 \"enumeration_value\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 127, in resource \"aws_lex_slot_type\" \"crust_slot_type\":\n 127:   type = \"LIST\"\n\nAn argument named \"type\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 128, in resource \"aws_lex_slot_type\" \"crust_slot_type\":\n 128:   values = [\"ThinCrust\", \"ThickCrust\", \"GlutenFree\"]\n\nAn argument named \"values\" is not expected here.\n\nError: Insufficient enumeration_value blocks\n\n  on main.tf line 131, in resource \"aws_lex_slot_type\" \"sauce_slot_type\":\n 131: resource \"aws_lex_slot_type\" \"sauce_slot_type\" {\n\nAt least 1 \"enumeration_value\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 133, in resource \"aws_lex_slot_type\" \"sauce_slot_type\":\n 133:   type = \"LIST\"\n\nAn argument named \"type\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 134, in resource \"aws_lex_slot_type\" \"sauce_slot_type\":\n 134:   values = [\"Marinara\", \"Alfredo\", \"BBQ\"]\n\nAn argument named \"values\" is not expected here.\n\nError: Insufficient enumeration_value blocks\n\n  on main.tf line 137, in resource \"aws_lex_slot_type\" \"cheese_slot_type\":\n 137: resource \"aws_lex_slot_type\" \"cheese_slot_type\" {\n\nAt least 1 \"enumeration_value\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 139, in resource \"aws_lex_slot_type\" \"cheese_slot_type\":\n 139:   type = \"LIST\"\n\nAn argument named \"type\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 140, in resource \"aws_lex_slot_type\" \"cheese_slot_type\":\n 140:   values = [\"Mozzarella\", \"Cheddar\", \"Parmesan\"]\n\nAn argument named \"values\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0051.a1.tf",
+    "scenario_index": 51,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "TIMEOUT: terraform init/plan",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0088.tf",
+    "scenario_index": 88,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Duplicate resource \"aws_eks_cluster\" configuration\n\n  on main.tf line 46:\n  46: resource \"aws_eks_cluster\" \"eks_cluster\" {\n\nA aws_eks_cluster resource named \"eks_cluster\" was already declared at\nmain.tf:31,1-41. Resource names must be unique per type in each module.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0088.a1.tf",
+    "scenario_index": 88,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 46, in resource \"aws_eks_cluster_version\" \"eks_cluster_version\":\n  46: resource \"aws_eks_cluster_version\" \"eks_cluster_version\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_eks_cluster_version\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0111.tf",
+    "scenario_index": 111,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: expected object_lock_configuration.0.object_lock_enabled to be one of [\"Enabled\"], got true\n\n  with aws_s3_bucket.example-bucket,\n  on main.tf line 83, in resource \"aws_s3_bucket\" \"example-bucket\":\n  83:     object_lock_enabled = true\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0111.a1.tf",
+    "scenario_index": 111,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: reading Secrets Manager Secret: UnrecognizedClientException: The security token included in the request is invalid.\n\tstatus code: 400, request id: b2b68197-f7c6-4956-abf2-7fe622c5d918\n\n  with data.aws_secretsmanager_secret.s3_bucket_secret,\n  on main.tf line 5, in data \"aws_secretsmanager_secret\" \"s3_bucket_secret\":\n   5: data \"aws_secretsmanager_secret\" \"s3_bucket_secret\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0121.tf",
+    "scenario_index": 121,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: reading Secrets Manager Secret: UnrecognizedClientException: The security token included in the request is invalid.\n\tstatus code: 400, request id: a6323f85-ca74-482f-9d72-704833ed9754\n\n  with data.aws_secretsmanager_secret.s3_access,\n  on main.tf line 6, in data \"aws_secretsmanager_secret\" \"s3_access\":\n   6: data \"aws_secretsmanager_secret\" \"s3_access\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0121.a1.tf",
+    "scenario_index": 121,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Duplicate provider configuration\n\n  on main.tf line 109:\n 109: provider \"aws\" {\n\nA default (non-aliased) provider configuration for \"aws\" was already given at\nmain.tf:1,1-15. If multiple configurations are required, set the \"alias\"\nargument for alternative configurations.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0153.a1.tf",
+    "scenario_index": 153,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "TIMEOUT: terraform init/plan",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0154.tf",
+    "scenario_index": 154,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: reading STS Caller Identity\n\n  with data.aws_caller_identity.current,\n  on main.tf line 5, in data \"aws_caller_identity\" \"current\":\n   5: data \"aws_caller_identity\" \"current\" {}\n\noperation error STS: GetCallerIdentity, https response error StatusCode: 403,\nRequestID: aeae1de9-4599-400c-8bba-c4139eb55d13, api error\nInvalidClientTokenId: The security token included in the request is invalid.\n\nError: reading Secrets Manager Secret: UnrecognizedClientException: The security token included in the request is invalid.\n\tstatus code: 400, request id: 213d6021-0fc4-40ad-9ac1-b3438722c191\n\n  with data.aws_secretsmanager_secret.lambda_layer_secret,\n  on main.tf line 7, in data \"aws_secretsmanager_secret\" \"lambda_layer_secret\":\n   7: data \"aws_secretsmanager_secret\" \"lambda_layer_secret\" {\n\n\nError: Archive creation error\n\n  with data.archive_file.lambda_layer_payload,\n  on main.tf line 15, in data \"archive_file\" \"lambda_layer_payload\":\n  15: data \"archive_file\" \"lambda_layer_payload\" {\n\nerror creating archive: error archiving file: could not archive missing file:\nlambda_layer_payload.zip\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0154.a1.tf",
+    "scenario_index": 154,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 6, in data \"aws_caller_identity\" \"current\":\n   6:   skip_credentials_validation = true\n\nAn argument named \"skip_credentials_validation\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0156.tf",
+    "scenario_index": 156,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: reading STS Caller Identity\n\n  with data.aws_caller_identity.current,\n  on main.tf line 5, in data \"aws_caller_identity\" \"current\":\n   5: data \"aws_caller_identity\" \"current\" {}\n\noperation error STS: GetCallerIdentity, https response error StatusCode: 403,\nRequestID: 9e6e9f79-9971-4382-b9ed-c7e9a6a94668, api error\nInvalidClientTokenId: The security token included in the request is invalid.\n\nError: reading Secrets Manager Secret: UnrecognizedClientException: The security token included in the request is invalid.\n\tstatus code: 400, request id: 8ce3af0a-d60b-414d-ac34-d1f18dc0e3e7\n\n  with data.aws_secretsmanager_secret.lambda_secret,\n  on main.tf line 9, in data \"aws_secretsmanager_secret\" \"lambda_secret\":\n   9: data \"aws_secretsmanager_secret\" \"lambda_secret\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0156.a1.tf",
+    "scenario_index": 156,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Cannot assume IAM Role\n\n  with provider[\"registry.terraform.io/hashicorp/aws\"],\n  on main.tf line 1, in provider \"aws\":\n   1: provider \"aws\" {\n\nIAM Role (arn:aws:iam::123456789012:role/your-execution-role) cannot be\nassumed.\n\nThere are a number of possible causes of this - the most common are:\n  * The credentials used in order to assume the role are invalid\n  * The credentials do not have appropriate permission to assume the role\n  * The role ARN is not valid\n\nError: operation error STS: AssumeRole, https response error StatusCode: 403,\nRequestID: eb1faa43-4224-4bdc-b5f9-b5bca9f73f24, api error\nInvalidClientTokenId: The security token included in the request is invalid.\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0170.tf",
+    "scenario_index": 170,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Missing required argument\n\n  on main.tf line 90, in resource \"aws_dax_cluster\" \"example\":\n  90: resource \"aws_dax_cluster\" \"example\" {\n\nThe argument \"node_type\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 90, in resource \"aws_dax_cluster\" \"example\":\n  90: resource \"aws_dax_cluster\" \"example\" {\n\nThe argument \"replication_factor\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 94, in resource \"aws_dax_cluster\" \"example\":\n  94:   preferred_maintenance_window = \"sun:03:00-sun:04:00\"\n\nAn argument named \"preferred_maintenance_window\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 95, in resource \"aws_dax_cluster\" \"example\":\n  95:   notification_configuration {\n\nBlocks of type \"notification_configuration\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0170.a1.tf",
+    "scenario_index": 170,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: reading STS Caller Identity\n\n  with data.aws_caller_identity.current,\n  on main.tf line 7, in data \"aws_caller_identity\" \"current\":\n   7: data \"aws_caller_identity\" \"current\" {}\n\noperation error STS: GetCallerIdentity, https response error StatusCode: 403,\nRequestID: 86e34e0f-8cc5-458e-aba7-33487a5184f5, api error\nInvalidClientTokenId: The security token included in the request is invalid.\n\nError: reading Secrets Manager Secret: UnrecognizedClientException: The security token included in the request is invalid.\n\tstatus code: 400, request id: 2a0e51e9-6f9c-46c7-872c-47f8470b24be\n\n  with data.aws_secretsmanager_secret.dax_cluster_secret,\n  on main.tf line 9, in data \"aws_secretsmanager_secret\" \"dax_cluster_secret\":\n   9: data \"aws_secretsmanager_secret\" \"dax_cluster_secret\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0186.a1.tf",
+    "scenario_index": 186,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "TIMEOUT: terraform init/plan",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0197.tf",
+    "scenario_index": 197,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 78, in resource \"aws_iam_user\" \"cache_user1\":\n  78:   policies = [\n\nAn argument named \"policies\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 87, in resource \"aws_iam_user\" \"cache_user2\":\n  87:   policies = [\n\nAn argument named \"policies\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 96, in resource \"aws_iam_user\" \"cache_user3\":\n  96:   policies = [\n\nAn argument named \"policies\" is not expected here.\n\nError: Missing required argument\n\n  on main.tf line 101, in resource \"aws_iam_user_group_membership\" \"cache_user_group_membership\":\n 101: resource \"aws_iam_user_group_membership\" \"cache_user_group_membership\" {\n\nThe argument \"user\" is required, but no definition was found.\n\nError: Missing required argument\n\n  on main.tf line 101, in resource \"aws_iam_user_group_membership\" \"cache_user_group_membership\":\n 101: resource \"aws_iam_user_group_membership\" \"cache_user_group_membership\" {\n\nThe argument \"groups\" is required, but no definition was found.\n\nError: Unsupported argument\n\n  on main.tf line 102, in resource \"aws_iam_user_group_membership\" \"cache_user_group_membership\":\n 102:   user_can_delete = true\n\nAn argument named \"user_can_delete\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 103, in resource \"aws_iam_user_group_membership\" \"cache_user_group_membership\":\n 103:   user_ids        = [aws_iam_user.cache_user1.id, aws_iam_user.cache_user2.id, aws_iam_user.cache_user3.id]\n\nAn argument named \"user_ids\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 104, in resource \"aws_iam_user_group_membership\" \"cache_user_group_membership\":\n 104:   group_id        = aws_iam_group.cache_user_group.id\n\nAn argument named \"group_id\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0197.a1.tf",
+    "scenario_index": 197,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: reading Secrets Manager Secret: UnrecognizedClientException: The security token included in the request is invalid.\n\tstatus code: 400, request id: 3cdc8ae5-1553-4a96-a17f-35194070e9d3\n\n  with data.aws_secretsmanager_secret.cache_password,\n  on main.tf line 5, in data \"aws_secretsmanager_secret\" \"cache_password\":\n   5: data \"aws_secretsmanager_secret\" \"cache_password\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0205.tf",
+    "scenario_index": 205,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 60, in resource \"aws_kafka_cluster\" \"example\":\n  60: resource \"aws_kafka_cluster\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_kafka_cluster\".\n\nError: Unsupported block type\n\n  on main.tf line 89, in resource \"aws_kinesis_firehose_delivery_stream\" \"example\":\n  89:   kinesis_stream_source {\n\nBlocks of type \"kinesis_stream_source\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 93, in resource \"aws_kinesis_firehose_delivery_stream\" \"example\":\n  93:   s3_bucket_destination {\n\nBlocks of type \"s3_bucket_destination\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0205.a1.tf",
+    "scenario_index": 205,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Insufficient broker_node_group_info blocks\n\n  on main.tf line 60, in resource \"aws_msk_cluster\" \"example\":\n  60: resource \"aws_msk_cluster\" \"example\" {\n\nAt least 1 \"broker_node_group_info\" blocks are required.\n\nError: Unsupported argument\n\n  on main.tf line 64, in resource \"aws_msk_cluster\" \"example\":\n  64:   broker_node_type = \"kafka.m5.large\"\n\nAn argument named \"broker_node_type\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 65, in resource \"aws_msk_cluster\" \"example\":\n  65:   vpc_security_group_ids = [aws_security_group.msk_cluster.id]\n\nAn argument named \"vpc_security_group_ids\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 66, in resource \"aws_msk_cluster\" \"example\":\n  66:   subnet_ids = [aws_subnet.msk_cluster.id]\n\nAn argument named \"subnet_ids\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 67, in resource \"aws_msk_cluster\" \"example\":\n  67:   encryption_in_transit = \"TLS\"\n\nAn argument named \"encryption_in_transit\" is not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 89, in resource \"aws_kinesis_firehose_delivery_stream\" \"example\":\n  89:   kinesis_stream_source {\n\nBlocks of type \"kinesis_stream_source\" are not expected here.\n\nError: Unsupported block type\n\n  on main.tf line 93, in resource \"aws_kinesis_firehose_delivery_stream\" \"example\":\n  93:   s3_bucket_destination {\n\nBlocks of type \"s3_bucket_destination\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0215.a1.tf",
+    "scenario_index": 215,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "TIMEOUT: terraform init/plan",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0221.tf",
+    "scenario_index": 221,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 79, in resource \"aws_dynamodb_table\" \"dynamodb_table\":\n  79:     kms_master_key_id = aws_kms_key.dynamodb_table_key.arn\n\nAn argument named \"kms_master_key_id\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0221.a1.tf",
+    "scenario_index": 221,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid format of \"item\": Decoding failed: json: cannot unmarshal string into Go value of type dynamodb.AttributeValue\n\n  with aws_dynamodb_table_item.dynamodb_table_item,\n  on main.tf line 105, in resource \"aws_dynamodb_table_item\" \"dynamodb_table_item\":\n 105:   item = jsonencode({\n 106:     id = \"id-1\"\n 107:     name = \"name-1\"\n 108:   })\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0231.a1.tf",
+    "scenario_index": 231,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "TIMEOUT: terraform init/plan",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0289.a1.tf",
+    "scenario_index": 289,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "TIMEOUT: terraform init/plan",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0292.tf",
+    "scenario_index": 292,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Reference to undeclared input variable\n\n  on main.tf line 86, in resource \"aws_s3_bucket\" \"example\":\n  86:   bucket = var.s3_bucket_name\n\nAn input variable with the name \"s3_bucket_name\" has not been declared. This\nvariable can be declared with a variable \"s3_bucket_name\" {} block.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 104, in resource \"aws_s3_bucket\" \"example_2\":\n 104:   bucket = var.s3_bucket_name_2\n\nAn input variable with the name \"s3_bucket_name_2\" has not been declared.\nThis variable can be declared with a variable \"s3_bucket_name_2\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0292.a1.tf",
+    "scenario_index": 292,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported block type\n\n  on main.tf line 182, in resource \"aws_s3_bucket_notification\" \"example\":\n 182:   log {\n\nBlocks of type \"log\" are not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0336.a1.tf",
+    "scenario_index": 336,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 18, in resource \"aws_rds_cluster_instance\" \"airbyte_postgres\":\n  18:   database_name           = \"airbyte\"\n\nAn argument named \"database_name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 19, in resource \"aws_rds_cluster_instance\" \"airbyte_postgres\":\n  19:   username                = var.rds_username\n\nAn argument named \"username\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 20, in resource \"aws_rds_cluster_instance\" \"airbyte_postgres\":\n  20:   password                = data.aws_secretsmanager_secret_version.rds_password.secret_string\n\nAn argument named \"password\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 22, in resource \"aws_rds_cluster_instance\" \"airbyte_postgres\":\n  22:   skip_final_snapshot     = true\n\nAn argument named \"skip_final_snapshot\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 25, in resource \"aws_rds_cluster_instance\" \"airbyte_postgres\":\n  25:   vpc_security_group_ids = [aws_security_group.airbyte_postgres.id]\n\nAn argument named \"vpc_security_group_ids\" is not expected here.\n\nError: Reference to undeclared input variable\n\n  on main.tf line 47, in resource \"aws_security_group\" \"airbyte_postgres\":\n  47:     cidr_blocks = [var.airbyte_vpc_cidr]\n\nAn input variable with the name \"airbyte_vpc_cidr\" has not been declared.\nThis variable can be declared with a variable \"airbyte_vpc_cidr\" {} block.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0341.tf",
+    "scenario_index": 341,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 103, in resource \"aws_db_instance\" \"main_rds\":\n 103:   username             = aws_secretsmanager_secret_version.database_credentials.secret_string.username\n\nCan't access attributes on a primitive-typed value (string).\n\nError: Unsupported attribute\n\n  on main.tf line 104, in resource \"aws_db_instance\" \"main_rds\":\n 104:   password             = aws_secretsmanager_secret_version.database_credentials.secret_string.password\n\nCan't access attributes on a primitive-typed value (string).\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0341.a1.tf",
+    "scenario_index": 341,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 102, in resource \"aws_db_instance\" \"main_rds\":\n 102:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 106, in resource \"aws_db_instance\" \"main_rds\":\n 106:   vpc_id               = aws_vpc.main_vpc.id\n\nAn argument named \"vpc_id\" is not expected here.\n\nError: Unsupported argument\n\n  on main.tf line 107, in resource \"aws_db_instance\" \"main_rds\":\n 107:   subnet_id            = aws_subnet.subnet1.id\n\nAn argument named \"subnet_id\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0342.a1.tf",
+    "scenario_index": 342,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "TIMEOUT: terraform init/plan",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0345.tf",
+    "scenario_index": 345,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 43, in resource \"aws_rds_instance\" \"mysql_instance\":\n  43: resource \"aws_rds_instance\" \"mysql_instance\" {\n\nThe provider hashicorp/aws does not support resource type \"aws_rds_instance\".\nDid you mean \"aws_db_instance\"?\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0345.a1.tf",
+    "scenario_index": 345,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 47, in resource \"aws_db_instance\" \"mysql_instance\":\n  47:   name                 = \"mysql-instance\"\n\nAn argument named \"name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0364.tf",
+    "scenario_index": 364,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 91, in resource \"aws_lightsail_instance\" \"example\":\n  91:   iam_instance_profile_name = aws_iam_instance_profile.lightsail_profile.name\n\nAn argument named \"iam_instance_profile_name\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 100, in resource \"aws_lightsail_load_balancer\" \"example\":\n 100: resource \"aws_lightsail_load_balancer\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_lightsail_load_balancer\".\n\nError: Invalid resource type\n\n  on main.tf line 104, in resource \"aws_lightsail_instance_attachment\" \"example\":\n 104: resource \"aws_lightsail_instance_attachment\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_lightsail_instance_attachment\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0364.a1.tf",
+    "scenario_index": 364,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid resource type\n\n  on main.tf line 98, in resource \"aws_lightsail_instance_attachment\" \"example\":\n  98: resource \"aws_lightsail_instance_attachment\" \"example\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_lightsail_instance_attachment\".\n\nError: Unsupported argument\n\n  on main.tf line 110, in resource \"aws_lightsail_static_ip\" \"example_dualstack\":\n 110:   ip_address_type = \"dualstack\"\n\nAn argument named \"ip_address_type\" is not expected here.\n\nError: Invalid resource type\n\n  on main.tf line 113, in resource \"aws_lightsail_instance_attachment\" \"example_dualstack\":\n 113: resource \"aws_lightsail_instance_attachment\" \"example_dualstack\" {\n\nThe provider hashicorp/aws does not support resource type\n\"aws_lightsail_instance_attachment\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0390.tf",
+    "scenario_index": 390,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Invalid reference\n\n  on main.tf line 60, in resource \"aws_iam_role_policy\" \"alb_policy\":\n  60:           \"arn:aws:elasticloadbalancing:${aws_region}:123456789012:loadbalancer/test-lb-tf\",\n\nA reference to a resource type must be followed by at least one attribute\naccess, specifying the resource name.\n\nError: Invalid reference\n\n  on main.tf line 61, in resource \"aws_iam_role_policy\" \"alb_policy\":\n  61:           \"arn:aws:elasticloadbalancing:${aws_region}:123456789012:targetgroup/test-lb-tf/12345678-1234-1234-1234-123456789012\",\n\nA reference to a resource type must be followed by at least one attribute\naccess, specifying the resource name.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0390.a1.tf",
+    "scenario_index": 390,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 61, in resource \"aws_iam_role_policy\" \"alb_policy\":\n  61:           aws_lb.test-lb-tf.target_group_arns[0],\n\nThis object has no argument, nested block, or exported attribute named\n\"target_group_arns\".\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0420.tf",
+    "scenario_index": 420,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported attribute\n\n  on main.tf line 78, in resource \"aws_db_instance\" \"rds_instance\":\n  78:   username             = aws_secretsmanager_secret_version.rds_secret_version.secret_string.username\n\nCan't access attributes on a primitive-typed value (string).\n\nError: Unsupported attribute\n\n  on main.tf line 79, in resource \"aws_db_instance\" \"rds_instance\":\n  79:   password             = aws_secretsmanager_secret_version.rds_secret_version.secret_string.password\n\nCan't access attributes on a primitive-typed value (string).\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0420.a1.tf",
+    "scenario_index": 420,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 77, in resource \"aws_db_instance\" \"rds_instance\":\n  77:   name                 = \"mydb\"\n\nAn argument named \"name\" is not expected here.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0422.a1.tf",
+    "scenario_index": 422,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "TIMEOUT: terraform init/plan",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0423.tf",
+    "scenario_index": 423,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Value for unconfigurable attribute\n\n  with aws_efs_file_system.efs,\n  on main.tf line 64, in resource \"aws_efs_file_system\" \"efs\":\n  64:   name = \"my-efs-file-system\"\n\nCan't configure a value for \"name\": its value will be decided automatically\nbased on the result of applying this configuration.\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0423.a1.tf",
+    "scenario_index": 423,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": true,
+    "opa_evaluation_result": "Success",
+    "terraform_plan_error": "No error",
+    "opa_evaluation_error": "No error"
+  },
+  {
+    "file": "question_0429.tf",
+    "scenario_index": 429,
+    "attempt": 0,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: reading Secrets Manager Secret: UnrecognizedClientException: The security token included in the request is invalid.\n\tstatus code: 400, request id: 5323cf78-6f6d-46e2-87cf-c495075c0194\n\n  with data.aws_secretsmanager_secret.vpc_cidr,\n  on main.tf line 5, in data \"aws_secretsmanager_secret\" \"vpc_cidr\":\n   5: data \"aws_secretsmanager_secret\" \"vpc_cidr\" {\n\n",
+    "opa_evaluation_error": "None"
+  },
+  {
+    "file": "question_0429.a1.tf",
+    "scenario_index": 429,
+    "attempt": 1,
+    "init_success": true,
+    "terraform_plan_success": false,
+    "opa_evaluation_result": "No opa_result",
+    "terraform_plan_error": "\nError: Unsupported argument\n\n  on main.tf line 4, in provider \"aws\":\n   4:     Tags = {\n\nAn argument named \"Tags\" is not expected here. Did you mean \"tags\"?\n",
+    "opa_evaluation_error": "None"
   }
 ]
