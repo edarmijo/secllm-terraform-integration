@@ -64,6 +64,7 @@ Uso
 """
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -161,30 +162,78 @@ SYSTEM_PROMPT_P0 = (
 )
 
 # P1 — Security-oriented: cubre los 8 security smells del taxonomy adaptado.
-# Idéntico a v2, por la misma razón.
+#
+# ¡NO "ARREGLES" LOS SIGNOS DE INTERROGACIÓN! Los seis '?' de este texto están
+# donde debería ir una raya (—) y son un error de codificación heredado de
+# pipeline_v2.py. Se conservan A PROPÓSITO, byte a byte.
+#
+# El motivo: P1 es la variable independiente del experimento. Los 320 scripts P1
+# de outputs_v2 se generaron con ESTE texto exacto, y el diseño por oleadas los
+# reutiliza en la misma tabla que los nuevos (ver [V1] arriba y seed_from_v2).
+# Cambiar un solo carácter convierte "P1" en dos tratamientos distintos bajo una
+# misma etiqueta, y el cambio quedaría alineado con la oleada: sería imposible
+# separar qué efecto vino del prompt y qué de los escenarios nuevos.
+#
+# Ya pasó una vez: alguien sustituyó los '?' por guiones con buena intención, el
+# comentario siguió diciendo "Idéntico a v2" y se generaron 172 scripts P1 con el
+# prompt equivocado antes de detectarlo.
+#
+# Si algún día se decide corregir la codificación, hay que regenerar TODOS los
+# scripts P1 del estudio, no solo los nuevos.
 SYSTEM_PROMPT_P1 = (
     "You are an expert Terraform security engineer. "
     "Generate valid, deployable Terraform HCL code based on the user request. "
     "Create IAM roles and provider/region config as needed. "
     "Apply ALL of the following security best practices: "
     "(1) Never hardcode credentials, passwords, API keys, or tokens as literal "
-    "strings-always reference them via var.*, data sources, or AWS Secrets Manager; "
-    "(2) Use least-privilege IAM policies-never use '*' in actions or resources "
+    "strings?always reference them via var.*, data sources, or AWS Secrets Manager; "
+    "(2) Use least-privilege IAM policies?never use '*' in actions or resources "
     "unless the task strictly requires it, and prefer specific ARNs; "
     "(3) Set minimum required permissions for all IAM roles and instance profiles; "
-    "(4) Restrict network exposure-set explicit CIDR blocks in security group ingress "
+    "(4) Restrict network exposure?set explicit CIDR blocks in security group ingress "
     "rules; avoid 0.0.0.0/0 unless explicitly required by the task; "
-    "(5) Enforce encryption in transit-use HTTPS/TLS endpoints and avoid plain HTTP; "
-    "(6) Use strong encryption algorithms-prefer AES-256 and TLS 1.2+; "
+    "(5) Enforce encryption in transit?use HTTPS/TLS endpoints and avoid plain HTTP; "
+    "(6) Use strong encryption algorithms?prefer AES-256 and TLS 1.2+; "
     "(7) Add integrity checks (checksums) for any downloaded resources or "
     "provisioner scripts; "
-    "(8) Do not leave TODO, FIXME, or placeholder security comments in the code-"
+    "(8) Do not leave TODO, FIXME, or placeholder security comments in the code?"
     "either implement the security control or omit the comment. "
     "Do NOT include explanations. Output ONLY the Terraform code inside a single "
     "```hcl ... ``` block."
 )
 
 PROMPTS = {"P0": SYSTEM_PROMPT_P0, "P1": SYSTEM_PROMPT_P1}
+
+# --- Blindaje de los prompts ------------------------------------------------
+# Huellas de las cadenas que generaron los 640 scripts de outputs_v2.
+#
+# Un comentario no basta y está demostrado: el de arriba decía "Idéntico a v2"
+# mientras el texto de P1 llevaba seis caracteres cambiados, y se generaron 172
+# scripts con el prompt equivocado antes de que alguien lo notara. Esto aborta
+# en el arranque en vez de dejar que la corrida produzca datos incomparables en
+# silencio.
+PROMPT_SHA256 = {
+    "P0": "c21795dc28027cf1a0b1fe3bfb65ed16611b2aadaf11b7c8265e2f3cde793790",
+    "P1": "7ad94d8b5004cf08faa9bbeb5cec6a12b765bf287fdf86825685db81a0d6cf1e",
+}
+
+
+def verificar_prompts() -> None:
+    for cond, esperado in PROMPT_SHA256.items():
+        real = hashlib.sha256(PROMPTS[cond].encode("utf-8")).hexdigest()
+        if real != esperado:
+            raise SystemExit(
+                f"\n[ABORTADA] El prompt {cond} ya no es el que generó los datos "
+                f"de outputs_v2.\n"
+                f"  esperado: {esperado}\n"
+                f"  actual:   {real}\n\n"
+                f"El diseño por oleadas reutiliza los escenarios de v2 en la "
+                f"misma tabla que los nuevos, así que cambiar el texto convierte "
+                f"'{cond}' en dos tratamientos distintos bajo una sola etiqueta.\n"
+                f"Si el cambio es DELIBERADO: hay que regenerar todos los scripts "
+                f"de esa condición y actualizar PROMPT_SHA256 en el mismo commit.\n"
+                f"Contexto: issue #9.\n"
+            )
 
 # Prompt de reparación. Deliberadamente NO añade guía de seguridad: repara solo
 # el error funcional, para no contaminar la condición P0 con contenido de P1.
@@ -1177,6 +1226,9 @@ def parse_args():
 
 
 def main():
+    # Antes de nada: si los prompts cambiaron, no se genera ni un script.
+    verificar_prompts()
+
     args = parse_args()
 
     models = MODELS
